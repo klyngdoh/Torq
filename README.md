@@ -2,10 +2,11 @@
 ### Title: WIP
 
 Team Members:
-Kenneth Lyngdoh (CCIS: klyngdoh, NEU Email: lyngdoh.k@husky.neu.edu)
-Sanchit Saini (CCIS: sanchit007, NEU Email: saini.sa@husky.neu.edu)
-Shuts Mohan (CCIS: suhas2112, NEU Email:)
-Sushruth Bhandary (CCIS: bhandary11, NEU Email: bhandary.s@husky.neu.edu)
+
+Kenneth Lyngdoh (CCIS: klyngdoh, NEU Email: lyngdoh.k@husky.neu.edu)  
+Sanchit Saini (CCIS: sanchit007, NEU Email: saini.sa@husky.neu.edu)  
+Suhas Mohan (CCIS: suhas2112, NEU Email:)  
+Sushruth Bhandary (CCIS: bhandary11, NEU Email: bhandary.s@husky.neu.edu)  
 
 ABSTRACT:
 
