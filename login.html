@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id"
+          content="669731371211-7r2qrl52e91rmjvfofkssm5necss18dm.apps.googleusercontent.com">
+
+    <title>Torq</title>
+
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="assets/plugins/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="assets/plugins/swiper/css/swiper.min.css" rel="stylesheet">
+
+    <link href="assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="assets/plugins/countdown/jquery.countdown.css" rel="stylesheet">
+    <link href="assets/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+
+    <link href="assets/css/theme.css" rel="stylesheet">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+</head>
+<body id="home" class="wide">
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=184845472299453';
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="wrapper">
+
+
+    <header class="header fixed">
+        <div class="header-wrapper">
+            <div class="container">
+
+
+                <div class="logo">
+                    <a href="index.html"><img src="assets/img/logo-rentit.png" alt="Torq"/></a>
+                </div>
+
+
+                <a href="#" class="menu-toggle btn btn-theme-transparent"><i class="fa fa-bars"></i></a>
+
+
+                <nav class="navigation closed clearfix">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+
+                            <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
+                            <ul class="nav sf-menu">
+
+
+                                <li><a href="#">Vehicles</a></li>
+                                <li><a href="#" class="active">Login</a></li>
+                                <li><a href="faqs.html">FAQS</a></li>
+
+                                <li><a href="contact.html">Contact</a></li>
+
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="swiper-scrollbar"></div>
+                </nav>
+
+
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="content-area">
+
+
+        <section class="page-section breadcrumbs text-center">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Login</h1>
+                </div>
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li class="active">Login</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="page-section color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="block-title"><span>Login</span></h3>
+                        <form action="#" class="form-login">
+                            <div class="row">
+                                <div class="col-md-12 hello-text-wrap margin-10">
+                                    <span class="hello-text text-thin">Login with Facebook, Google or your Torq account</span>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="fb-login-button" data-max-rows="1" data-size="large"
+                                         data-button-type="continue_with" data-show-faces="true"
+                                         data-auto-logout-link="false" data-use-continue-as="true"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="g-signin2" data-width="250" data-height="50"
+                                         data-longtitle="true"></div>
+                                </div>
+                                <div class="col-md-12 margin-10">
+                                    <div class="form-group"><input class="form-control" type="text"
+                                                                   placeholder="User name or email"></div>
+                                </div>
+                                <div class="col-md-12 margin-10">
+                                    <div class="form-group"><input class="form-control" type="password"
+                                                                   placeholder="Your password"></div>
+                                </div>
+
+                                <div class="col-md-12 col-lg-6 margin-10">
+                                    <a class="forgot-password" href="#">Forgot password?</a>
+                                </div>
+                                <div class="col-md-12">
+                                    <a class="btn btn-theme btn-block btn-theme-dark" href="#">Login</a>
+                                    <a class="btn btn-block btn-theme btn-theme-dark btn-create" href="#">Sign Up</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h3 class="block-title"><span>Put Your Car For Rent On Torq</span></h3>
+                        <form action="#" class="create-account">
+                            <div class="row">
+                                <div class="col-md-12 hello-text-wrap margin-10">
+                                    <span class="hello-text text-thin">Create Your Account</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <h3 class="block-title" >Signup Today and You'll be able to</h3>
+                                    <ul class="list-check" id="align-list-rentee">
+                                        <li>Offer your car(s) for rent</li>
+                                        <li>Only rent your cars to renters you approve</li>
+                                        <li>Rent your car only at times convenient to you</li>
+                                        <li>All damages are insured by Torq</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6" id="rentee-signup">
+                                    <a class="btn btn-block btn-theme btn-theme-dark btn-create" href="#">Sign Up</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+
+</div>
+
+
+<script src="assets/plugins/jquery/jquery-1.11.1.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/jquery.sticky.min.js"></script>
+<script src="assets/plugins/jquery.easing.min.js"></script>
+<script src="assets/plugins/jquery.smoothscroll.min.js"></script>
+<script src="assets/plugins/swiper/js/swiper.jquery.min.js"></script>
+<!--<script src="assets/plugins/facebook/fb.sdk.js" id="facebook-jssdk"></script>-->
+
+
+<script src="assets/js/theme.js"></script>
+
+</body>
+</html>
