@@ -1098,6 +1098,18 @@ a, a:active, a:focus {
     margin-left: 15px
 }
 
+.block-title.alt {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 10px 70px 10px 20px;
+  border: solid 1px #a5abb7;
+  overflow: visible;
+  position: relative;
+  color: #7f7f7f;
+}
+
 textarea:focus::-webkit-input-placeholder {
     color: transparent !important
 }
@@ -1125,6 +1137,16 @@ textarea:focus:-ms-input-placeholder {
     background-color: #e60000;
     border-color: #e60000;
     color: #fff
+}
+
+.btn-reservation-now{
+    color: #fff;
+    margin-left: 15px;
+}
+
+.btn-reservation-now:hover {
+    background-color: : #14181c;
+    color:#fff;
 }
 
 textarea {
@@ -1692,4 +1714,396 @@ ul.list-check li + li {
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
     color: #e60000;
+}
+
+
+/* Social icons line
+/* ========================================================================= */
+
+.social-icons {
+  margin: -15px 0 20px 0;
+  line-height: 30px;
+  overflow: hidden;
+}
+.social-icons li {
+  padding: 15px 10px 0 0;
+  float: left;
+}
+.social-icons a {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: transparent;
+  border: solid 1px #14181c;
+  color: #14181c;
+}
+.social-icons a:hover {
+  background-color: #4d0000;
+  color: #ffffff;
+}
+
+.navigation ul.social-icons {
+  min-width: 0;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: block !important;
+  position: relative !important;
+  opacity: 1 !important;
+  top: auto !important;
+  left: auto !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.navigation ul.social-icons {
+  min-width: 0;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: block !important;
+  position: relative !important;
+  opacity: 1 !important;
+  top: auto !important;
+  left: auto !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.is-sticky .navigation ul.social-icons {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.navigation ul.social-icons li {
+  float: left !important;
+  width: auto !important;
+  padding-top: 0 !important;
+  padding-right: 0 !important;
+  background-color: transparent !important;
+}
+.navigation ul.social-icons li a {
+  padding: 0;
+  border: none;
+  font-size: 16px;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  color: #a5abb7;
+}
+.navigation ul.social-icons li a:hover {
+  background-color: transparent;
+  color: #e60000;
+}
+
+.form-delivery {
+  margin-bottom: 30px;
+}
+.form-delivery .row {
+  margin-top: -15px;
+}
+.form-delivery .row + .row {
+  margin-top: 0;
+}
+.form-delivery .row div[class*="col-"],
+.form-delivery .row aside[class*="col-"] {
+  margin-top: 15px;
+}
+.form-delivery .form-group {
+  margin-bottom: 0;
+}
+.form-delivery .checkbox {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #14181c;
+}
+.form-delivery .checkbox label {
+  font-weight: 700 !important;
+}
+.form-delivery .checkbox input[type=checkbox] {
+  margin-top: 2px;
+}
+.form-delivery .bootstrap-select .selectpicker > .filter-option {
+  color: #14181c !important;
+  font-weight: 700 !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 22px;
+}
+.form-delivery ::-webkit-input-placeholder {
+  color: #14181c !important;
+  font-weight: 700 !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 22px;
+}
+.form-delivery :-moz-placeholder {
+  color: #14181c !important;
+  font-weight: 700 !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 22px;
+}
+.form-delivery ::-moz-placeholder {
+  color: #14181c !important;
+  font-weight: 700 !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 22px;
+}
+.form-delivery :-ms-input-placeholder {
+  color: #14181c !important;
+  font-weight: 700 !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  line-height: 22px;
+}
+
+.payments-options {
+  margin-bottom: 30px;
+}
+.payments-options .radio {
+  padding-left: 0;
+}
+.payments-options .panel {
+  border: none;
+  border-radius: 0 !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: solid 1px #d3d3d3;
+  background-color: transparent;
+}
+.payments-options .panel-heading {
+  background: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.payments-options .panel-title {
+  font-size: 14px;
+  line-height: 22px;
+  color: #14181c;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+.payments-options .panel-title .collapsed {
+  font-weight: 400;
+}
+.payments-options .panel-title a {
+  display: inline-block;
+  color: #7f7f7f;
+}
+.payments-options .panel-title .overflowed {
+  margin-top: -2px;
+}
+.payments-options .panel-title .overflowed img {
+  margin-left: 5px;
+}
+.payments-options .panel-body {
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+.payments-options .panel-default > .panel-heading + .panel-collapse > .panel-body {
+  border: none;
+}
+.payments-options .dot {
+  display: inline-block;
+  float: left;
+  width: 20px;
+  height: 20px;
+  border: solid 3px #d3d3d3;
+  border-radius: 10px;
+  margin-right: 10px;
+  position: relative;
+}
+.payments-options .dot:before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 3px 0 0 3px;
+  border-radius: 4px;
+  background-color: #e60000;
+}
+.payments-options .collapsed .dot:before {
+  content: none;
+}
+.payments-options .alert {
+  font-size: 13px;
+  margin-bottom: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-color: #08d884;
+  background-color: #effbf7;
+  color: #14181c;
+}
+
+.car-big-card {
+  border: solid 1px #e9e9e9;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.car-big-card .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.car-big-card .row [class*="col-"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (max-width: 991px) {
+  .car-big-card .row > .col-md-4 {
+    margin-top: 0;
+  }
+}
+.car-big-card .car-details .title {
+  padding-left: 0;
+}
+.car-big-card .car-details .title h2 {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 1px;
+  margin-bottom: 7px;
+  color: #14181c;
+}
+.car-big-card .car-details .title h2 span {
+  color: #e60000;
+}
+.car-big-card .car-details .title:before {
+  display: none;
+}
+.car-big-card .car-details .price {
+  padding: 15px 30px;
+  background-color: #e9e9e9;
+  color: #14181c;
+}
+.car-big-card .car-details .price strong {
+  font-family: 'Raleway', sans-serif;
+  font-size: 36px;
+}
+.car-big-card .car-details .price i {
+  color: #e60000;
+}
+.car-big-card .car-details .list {
+  padding: 10px 5px 0 30px;
+}
+.car-big-card .car-details .button {
+  padding: 0 30px;
+  margin-bottom: 15px;
+}
+.car-big-card .car-details ul {
+  margin-bottom: 15px;
+}
+.car-big-card .car-details ul li {
+  font-size: 14px;
+  border-bottom: dashed 1px #d3d3d3;
+  padding: 8px 0 8px 20px;
+  position: relative;
+}
+.car-big-card .car-details ul li:before {
+  content: '\f058';
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: 7px;
+  left: 0;
+  color: #e60000;
+}
+.car-big-card .btn-zoom {
+  position: absolute;
+  padding: 0;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+.car-big-card .btn-zoom:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.car-big-card .btn-zoom .fa {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.car-big-card .car-thumbnails {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.car-big-card .car-thumbnails a {
+  display: block;
+  position: relative;
+  border: solid 4px rgba(255, 255, 255, 0.6);
+  margin: 0 0 10px 10px;
+}
+.car-big-card .car-thumbnails a:hover {
+  border-color: rgba(230, 0, 0, 0.6);
+  background-color: rgba(230, 0, 0, 0.6);
+}
+.car-big-card .car-thumbnails a:hover:after {
+  content: '\f002';
+  font-family: 'FontAwesome';
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: -20px 0 0 -20px;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  color: #ffffff;
+}
+.car-big-card .car-thumbnails a:hover img {
+  opacity: 0.8;
+}
+.car-big-card .car-thumbnails .swiper-pagination-bullet {
+  width: inherit;
+  height: inherit;
+  border: none !important;
+  background-color: transparent !important;
+}
+@media (max-width: 480px) {
+  .car-big-card .car-thumbnails .swiper-pagination-bullet {
+    width: 30px;
+  }
+  .car-big-card .car-thumbnails .swiper-pagination-bullet a {
+    border-width: 1px;
+  }
+  .car-big-card .car-thumbnails .swiper-pagination-bullet img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+.car-big-card .car-thumbnails .swiper-pagination-bullet.swiper-pagination-bullet-active a {
+  border-color: #e60000 !important;
+}
+.car-big-card .owl-dots {
+  display: none !important;
+}
+.car-big-card.alt .car-details .price {
+  padding-top: 5px;
+  background-color: #f5f6f8;
+}
+.car-big-card.alt .car-details ul li:last-child {
+  border: none;
+}
+
+.owl-carousel .owl-item {
+  -webkit-transform: translateZ(0) scale(1, 1);
 }
