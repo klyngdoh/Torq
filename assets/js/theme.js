@@ -92,7 +92,11 @@ function updater() {
     if ($().sticky) {
         $('.header.fixed').sticky('update');
     }
-
+    $("#rating").rateYo({
+        rating: 4.6,
+        starWidth:"30px",
+        readOnly: true
+    });
 
     $('.datepicker').datetimepicker();
 }
