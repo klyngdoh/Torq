@@ -906,6 +906,10 @@ input:focus:-ms-input-placeholder {
     color: #e60000
 }
 
+.form-search1 {
+    text-align: left;
+    background: white;
+}
 .form-search {
     text-align: left;
     background: rgba(20, 24, 28, 0.6)
