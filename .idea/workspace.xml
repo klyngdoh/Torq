@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bb49abd-0049-4230-9820-0aeadf14b05c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/css/theme.css" afterPath="$PROJECT_DIR$/assets/css/theme.css" />
-      <change beforePath="$PROJECT_DIR$/carView.html" afterPath="$PROJECT_DIR$/carView.html" />
-    </list>
+    <list default="true" id="4bb49abd-0049-4230-9820-0aeadf14b05c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -213,7 +210,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14479000" />
+    <option name="totallyTimeSpent" value="14541000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
