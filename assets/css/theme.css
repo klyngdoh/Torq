@@ -48,6 +48,7 @@ label {
     line-height: 1.42857143;
     border: 1px solid #ddd;
     -webkit-transition: border .2s ease-in-out;
+    -webkit-transition: border .2s ease-in-out;
     -o-transition: border .2s ease-in-out;
     transition: border .2s ease-in-out;
     border-radius: 0;
@@ -1494,4 +1495,21 @@ ul.list-check li + li {
 
 .no-top-margin {
     margin-top: 0px !important;
+}
+
+#register-form textarea.form-control {
+    height: 180px
+}
+
+#register-form .form-control {
+    height: 40px
+}
+
+#register-form .form-button-submit {
+    max-width: none
+}
+
+#license {
+    display: none;
+    size: 30px;
 }

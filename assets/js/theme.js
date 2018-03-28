@@ -95,6 +95,9 @@ function updater() {
 
 
     $('.datepicker').datetimepicker();
+    $('.datepick').datetimepicker({
+        format: 'LL'
+    });
 }
 
 jQuery(window).resize(function () {
