@@ -919,6 +919,10 @@ input:focus:-ms-input-placeholder {
     color: #e60000
 }
 
+.form-search1 {
+    text-align: left;
+    background: white;
+}
 .form-search {
     text-align: left;
     background: rgba(20, 24, 28, 0.6)
@@ -1145,7 +1149,7 @@ textarea:focus:-ms-input-placeholder {
 }
 
 .btn-reservation-now:hover {
-    background-color: : #14181c;
+    background-color: #14181c;
     color:#fff;
 }
 
@@ -1764,8 +1768,7 @@ ul.list-check li + li {
 
 .navigation ul.social-icons {
   min-width: 0;
-  padding-top: 28px;
-  padding-bottom: 28px;
+  padding-bottom: 18px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: block !important;
@@ -1780,23 +1783,7 @@ ul.list-check li + li {
   box-shadow: none !important;
 }
 
-.navigation ul.social-icons {
-  min-width: 0;
-  padding-top: 28px;
-  padding-bottom: 28px;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  display: block !important;
-  position: relative !important;
-  opacity: 1 !important;
-  top: auto !important;
-  left: auto !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-  box-shadow: none !important;
-}
+
 .is-sticky .navigation ul.social-icons {
   padding-top: 8px;
   padding-bottom: 8px;
