@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bb49abd-0049-4230-9820-0aeadf14b05c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/dashboard-admin-approval.html" afterPath="$PROJECT_DIR$/dashboard-admin-approval.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,11 +26,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard-admin-approval.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard-admin-approval.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard-admin-approval.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4808">
-              <caret line="254" column="61" lean-forward="false" selection-start-line="254" selection-start-column="61" selection-end-line="254" selection-end-column="61" />
+            <state relative-caret-position="650">
+              <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -207,26 +217,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.dashboard-admin-approval.html">
-    <configuration name="contact.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Torq/contact.html" />
+  <component name="RunManager" selected="JavaScript Debug.login.html">
     <configuration name="dashboard-admin-approval.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Torq/dashboard-admin-approval.html" />
     <configuration name="dashboard-admin-overview.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Torq/dashboard-admin-overview.html" />
     <configuration name="faqs.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Torq/faqs.html" />
+    <configuration name="login.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Torq/login.html" />
     <configuration name="register.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Torq/register.html" />
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.contact.html" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.register.html" />
-      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.dashboard-admin-overview.html" />
-      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.dashboard-admin-approval.html" />
-      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.faqs.html" />
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.register.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.dashboard-admin-overview.html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.dashboard-admin-approval.html" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.faqs.html" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.dashboard-admin-approval.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.faqs.html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.dashboard-admin-overview.html" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.register.html" />
-        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.contact.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.dashboard-admin-approval.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.faqs.html" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.dashboard-admin-overview.html" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.register.html" />
       </list>
     </recent_temporary>
   </component>
@@ -243,12 +253,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522177673654</updated>
-      <workItem from="1522177675169" duration="15152000" />
+      <workItem from="1522177675169" duration="15263000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15152000" />
+    <option name="totallyTimeSpent" value="15263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -296,14 +306,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2586">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -369,8 +371,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashboard-admin-approval.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4808">
-          <caret line="254" column="61" lean-forward="false" selection-start-line="254" selection-start-column="61" selection-end-line="254" selection-end-column="61" />
+        <state relative-caret-position="650">
+          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
