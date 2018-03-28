@@ -1134,7 +1134,8 @@ textarea:focus:-ms-input-placeholder {
     background-color: #14181c;
     border-width: 1px;
     border-color: #14181c;
-    color: #fff
+    color: #fff;
+    margin-top: 10px;
 }
 
 .btn-theme-dark:hover {
