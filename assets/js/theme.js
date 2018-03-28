@@ -2,6 +2,11 @@
 var body = $('body');
 var hover = $('.thumbnail');
 var navigation = $('.navigation');
+var mainSlider = $('#main-slider');
+var imageCarousel = $('.img-carousel');
+var partnersCarousel = $('#partners');
+var owlCarouselSelector = $('.owl-carousel');
+var carCarousel = $('.car-carousel');
 
 
 // Slide in/out with fade animation function
@@ -92,7 +97,11 @@ function updater() {
     if ($().sticky) {
         $('.header.fixed').sticky('update');
     }
-
+    $("#rating").rateYo({
+        rating: 4.6,
+        starWidth:"30px",
+        readOnly: true
+    });
 
     $('.datepicker').datetimepicker();
     $('.datepick').datetimepicker({
@@ -109,3 +118,94 @@ jQuery(window).scroll(function () {
         $('.header.fixed').sticky('update');
     }
 });
+
+// Sliders
+    // ---------------------------------------------------------------------------------------
+    if ($().owlCarousel) {
+        var owl = $('.owl-carousel');
+        owl.on('changed.owl.carousel', function (e) {
+            // update prettyPhoto
+            if ($().prettyPhoto) {
+                $("a[data-gal^='prettyPhoto']").prettyPhoto({
+                    theme: 'dark_square'
+                });
+            }
+        });
+        // Main slider
+        if (mainSlider.length) {
+            mainSlider.owlCarousel({
+                //items: 1,
+                autoplay: false,
+                autoplayHoverPause: true,
+                loop: true,
+                margin: 0,
+                dots: true,
+                nav: true,
+                navText: [
+                    "<i class='fa fa-angle-left'></i>",
+                    "<i class='fa fa-angle-right'></i>"
+                ],
+                responsiveRefreshRate: 100,
+                responsive: {
+                    0: {items: 1},
+                    479: {items: 1},
+                    768: {items: 1},
+                    991: {items: 1},
+                    1024: {items: 1}
+                }
+            });
+        }
+
+                // Images carousel
+        if (imageCarousel.length) {
+            imageCarousel.owlCarousel({
+                autoplay: false,
+                loop: true,
+                margin: 0,
+                dots: true,
+                nav: true,
+                navText: [
+                    "<i class='fa fa-angle-left'></i>",
+                    "<i class='fa fa-angle-right'></i>"
+                ],
+                responsiveRefreshRate: 100,
+                responsive: {
+                    0: {items: 1},
+                    479: {items: 1},
+                    768: {items: 1},
+                    991: {items: 1},
+                    1024: {items: 1}
+                }
+            });
+        }
+        // Car carousel
+        if (carCarousel.length) {
+            carCarousel.owlCarousel({
+                autoplay: false,
+                loop: true,
+                margin: 30,
+                dots: false,
+                nav: true,
+                navText: [
+                    "<i class='fa fa-angle-left'></i>",
+                    "<i class='fa fa-angle-right'></i>"
+                ],
+                responsiveRefreshRate: 100,
+                responsive: {
+                    0: {items: 1},
+                    479: {items: 1},
+                    768: {items: 2},
+                    991: {items: 3},
+                    1024: {items: 3}
+                }
+            });
+        }
+        // on tab click
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+            updater();
+        });
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            updater();
+        });
+    }
+ // sliders end -----------------------------
