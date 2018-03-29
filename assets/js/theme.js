@@ -6,6 +6,7 @@ var mainSlider = $('#main-slider');
 var imageCarousel = $('.img-carousel');
 var partnersCarousel = $('#partners');
 var owlCarouselSelector = $('.owl-carousel');
+var priceSliderRange = $('#slider-range');
 var carCarousel = $('.car-carousel');
 
 
@@ -31,8 +32,53 @@ jQuery(document).ready(function () {
     // ---------------------------------------------------------------------------------------
     if ($().sticky) {
         $('.header.fixed').sticky({topSpacing: 0});
-
     }
+
+    if ($.ui) {
+        if ($(priceSliderRange).length) {
+            $(priceSliderRange).slider({
+                range: true,
+                min: 0,
+                max: 500,
+                values: [75, 300],
+                slide: function (event, ui) {
+                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                }
+            });
+            $("#amount").val(
+                "$" + $("#slider-range").slider("values", 0) +
+                " - $" + $("#slider-range").slider("values", 1)
+            );
+        }
+    }
+
+    $('.car-categories .arrow').on('click', function (event) {
+
+            $(this).parent().parent().find('ul.children').removeClass('active');
+            $(this).parent().parent().find('.fa-angle-up').addClass('fa-angle-down').removeClass('fa-angle-up');
+            if ($(this).parent().find('ul.children').is(":visible")) {
+                //$(this).find('.fa-angle-up').addClass('fa-angle-down').removeClass('fa-angle-up');
+                //$(this).parent().find('ul.children').removeClass('active');
+            }
+            else {
+                $(this).find('.fa-angle-down').addClass('fa-angle-up').removeClass('fa-angle-down');
+                $(this).parent().find('ul.children').addClass('active');
+            }
+            $(this).parent().parent().find('ul.children').each(function () {
+                if (!$(this).hasClass('active')) {
+                    $(this).slideFadeOut();
+                }
+                else {
+                    $(this).slideFadeIn();
+                }
+            });
+        }
+    );
+    $('.car-categories ul.children').each(function () {
+        if (!$(this).hasClass('active')) {
+            $(this).hide();
+        }
+    });
 
 
     $('ul.sf-menu a').on('click', function () {
