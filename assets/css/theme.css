@@ -1136,6 +1136,7 @@ textarea:focus:-ms-input-placeholder {
     border-color: #14181c;
     color: #fff;
     margin-top: 10px;
+    margin-left: 10px;
 }
 
 .btn-theme-dark:hover {
@@ -1147,6 +1148,7 @@ textarea:focus:-ms-input-placeholder {
 .btn-reservation-now{
     color: #fff;
     margin-left: 15px;
+    margin-top: 10px;
 }
 
 .btn-reservation-now:hover {
@@ -1997,6 +1999,7 @@ ul.list-check li + li {
 .car-big-card .car-details .price strong {
   font-family: 'Raleway', sans-serif;
   font-size: 36px;
+  padding-left: 30px;
 }
 .car-big-card .car-details .price i {
   color: #e60000;
