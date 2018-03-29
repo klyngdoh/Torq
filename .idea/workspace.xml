@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bb49abd-0049-4230-9820-0aeadf14b05c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/assets/css/theme.css" afterPath="$PROJECT_DIR$/assets/css/theme.css" />
-      <change beforePath="$PROJECT_DIR$/assets/js/theme.js" afterPath="$PROJECT_DIR$/assets/js/theme.js" />
-      <change beforePath="$PROJECT_DIR$/car-listing.html" afterPath="$PROJECT_DIR$/car-listing.html" />
-      <change beforePath="$PROJECT_DIR$/carView.html" afterPath="$PROJECT_DIR$/car-view.html" />
-      <change beforePath="$PROJECT_DIR$/checkout.html" afterPath="$PROJECT_DIR$/checkout.html" />
-      <change beforePath="$PROJECT_DIR$/dashboard-admin-approval.html" afterPath="$PROJECT_DIR$/dashboard-admin-approval.html" />
-      <change beforePath="$PROJECT_DIR$/dashboard-renter-approval.html" afterPath="$PROJECT_DIR$/dashboard-renter-approval.html" />
-      <change beforePath="$PROJECT_DIR$/dashboard-renter-upcoming.html" afterPath="$PROJECT_DIR$/dashboard-renter-upcoming.html" />
       <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change beforePath="$PROJECT_DIR$/login.html" afterPath="$PROJECT_DIR$/login.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,8 +61,8 @@
       <file leaf-file-name="theme.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/theme.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="2913" column="13" lean-forward="false" selection-start-line="2913" selection-start-column="13" selection-end-line="2913" selection-end-column="13" />
+            <state relative-caret-position="197">
+              <caret line="1528" column="21" lean-forward="false" selection-start-line="1528" selection-start-column="21" selection-end-line="1528" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -78,8 +71,8 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="139" column="104" lean-forward="false" selection-start-line="139" selection-start-column="104" selection-end-line="139" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -109,7 +102,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="605">
-              <caret line="320" column="4" lean-forward="false" selection-start-line="320" selection-start-column="4" selection-end-line="320" selection-end-column="4" />
+              <caret line="320" column="0" lean-forward="false" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -154,14 +147,15 @@
       <find>.car-big-card .car-details .price strong</find>
       <find>btn-theme-da</find>
       <find>golf1.png</find>
+      <find>rentee-</find>
     </findStrings>
     <replaceStrings>
       <replace>carView.html</replace>
       <replace>carView</replace>
       <replace>$39</replace>
       <replace>&lt;a href=&quot;car-view.html&quot;&gt;VW POLO TRENDLINE 2.0 TDI&lt;/a&gt;</replace>
-      <replace>&lt;a class=&quot;btn btn-theme&quot; href=&quot;checkout.html&quot;&gt;Rent It&lt;/a&gt;</replace>
       <replace>golf-preview.jpg</replace>
+      <replace>&lt;a class=&quot;btn btn-theme&quot; href=&quot;checkout.html&quot;&gt;Rent It&lt;/a&gt;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -182,9 +176,10 @@
         <option value="$PROJECT_DIR$/carView.html" />
         <option value="$PROJECT_DIR$/checkout.html" />
         <option value="$PROJECT_DIR$/car-view.html" />
-        <option value="$PROJECT_DIR$/assets/css/theme.css" />
         <option value="$PROJECT_DIR$/car-listing.html" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/assets/css/theme.css" />
+        <option value="$PROJECT_DIR$/login.html" />
       </list>
     </option>
   </component>
@@ -317,12 +312,12 @@
       <updated>1522177673654</updated>
       <workItem from="1522177675169" duration="15512000" />
       <workItem from="1522196808935" duration="85000" />
-      <workItem from="1522350441535" duration="4874000" />
+      <workItem from="1522350441535" duration="5020000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20471000" />
+    <option name="totallyTimeSpent" value="20617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -539,26 +534,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/car-view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
           <caret line="114" column="107" lean-forward="true" selection-start-line="114" selection-start-column="74" selection-end-line="114" selection-end-column="107" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/theme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="2913" column="13" lean-forward="false" selection-start-line="2913" selection-start-column="13" selection-end-line="2913" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -571,10 +550,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/theme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="1528" column="21" lean-forward="false" selection-start-line="1528" selection-start-column="21" selection-end-line="1528" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="139" column="104" lean-forward="false" selection-start-line="139" selection-start-column="104" selection-end-line="139" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="605">
-          <caret line="320" column="4" lean-forward="false" selection-start-line="320" selection-start-column="4" selection-end-line="320" selection-end-column="4" />
+          <caret line="320" column="0" lean-forward="false" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
           <folding />
         </state>
       </provider>
