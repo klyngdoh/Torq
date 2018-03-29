@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Torq</title>
 
-    <!-- Favicon -->
+    
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-    <!-- CSS Global -->
+    
     <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="assets/plugins/fontawesome/css/font-awesome.min.css" rel="stylesheet">
@@ -25,10 +25,10 @@
     <link href="assets/plugins/countdown/jquery.countdown.css" rel="stylesheet">
     <link href="assets/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
-    <!-- Theme CSS -->
+    
     <link href="assets/css/theme.css" rel="stylesheet">
 
-    <!-- Head Libs -->
+    
     <script src="assets/plugins/modernizr.custom.js"></script>
 
     <!--[if lt IE 9]>
@@ -38,29 +38,29 @@
 </head>
 <body id="home" class="wide">
 
-<!-- WRAPPER -->
+
 <div class="wrapper">
 
-    <!-- HEADER -->
+    
     <header class="header fixed">
         <div class="header-wrapper">
             <div class="container">
 
-                <!-- Logo -->
+                
                 <div class="logo">
                     <a href="index.html"><img src="assets/img/logo-rentit.png" alt="Rent It"/></a>
                 </div>
-                <!-- /Logo -->
+                
 
-                <!-- Mobile menu toggle button -->
+                
                 <a href="#" class="menu-toggle btn btn-theme-transparent"><i class="fa fa-bars"></i></a>
-                <!-- /Mobile menu toggle button -->
+                
 
-                <!-- Navigation -->
+                
                 <nav class="navigation closed clearfix">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <!-- navigation menu -->
+                            
                             <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
                             <ul class="nav sf-menu">
 
@@ -76,24 +76,24 @@
                                     </ul>
                                 </li>
                             </ul>
-                            <!-- /navigation menu -->
+                            
                         </div>
                     </div>
-                    <!-- Add Scroll Bar -->
+                    
                     <div class="swiper-scrollbar"></div>
                 </nav>
-                <!-- /Navigation -->
+                
 
             </div>
         </div>
 
     </header>
-    <!-- /HEADER -->
+    
 
-    <!-- CONTENT AREA -->
+    
     <div class="content-area">
 
-        <!-- BREADCRUMBS -->
+        
         <section class="page-section breadcrumbs text-right">
             <div class="container">
                 <div class="page-header">
@@ -106,16 +106,16 @@
                 </ul>
             </div>
         </section>
-        <!-- /BREADCRUMBS -->
+        
 
-        <!-- PAGE WITH SIDEBAR -->
+        
         <section class="page-section with-sidebar sub-page">
             <div class="container">
                 <div class="row">
-                    <!-- CONTENT -->
+                    
                     <div class="col-md-9 content" id="content">
 
-                        <!-- CAR INFO -->
+                        
                         <h3 class="block-title alt">Car Information</h3>
                         <div class="car-big-card alt">
                             <div class="row">
@@ -147,29 +147,35 @@
                                                 <li class="title">
                                                     <h2>Volkswagen Golf <span>Diesel</span></h2>
                                                     2.0 CC Comfortline 95 HP
+                                                    <div class="rating">
+                                                        <span class="star"></span><!--
+                                            --><span class="star active"></span><!--
+                                            --><span class="star active"></span><!--
+                                            --><span class="star active"></span><!--
+                                            --><span class="star active"></span>
+                                                    </div>
                                                 </li>
                                                 <li>Fuel Diesel / 1600 cm3 Engine</li>
                                                 <li>Under 25,000 Km</li>
-                                                <li>Transmission Manual</li>
-                                                <li>5 Year service included</li>
+                                                <li>Manual Transmission</li>
                                                 <li>Manufacturing Year 2014</li>
                                                 <li>5 Doors and Panorama View</li>
                                             </ul>
                                         </div>
-                                        <div class="price">
-                                            <strong>220.0</strong> <span>$/for 8 day(s)</span> <i class="fa fa-info-circle"></i>
+                                        <div class="price" id="checkout-price">
+                                            <strong>$ 220.0</strong> <span>for 8 day(s)</span> <i class="fa fa-info-circle"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <hr class="page-divider half transparent"/>
-                        <!-- //CAR INFO -->
+                        
 
 
-                        <!-- extras and fees -->
+                        
 
-                        <h3 class="block-title alt">Extras & Frees</h3>
+                        <h3 class="block-title alt">Extras</h3>
                         <form role="form" class="form-extras">
 
                             <div class="row">
@@ -227,9 +233,9 @@
                             </div>
 
                         </form>
-                        <!-- /extras and fees -->
+                        
 
-                        <!-- CUSTOMER INFO -->
+                        
 
                         <h3 class="block-title alt"></i>Customer Information</h3>
                         <form action="#" class="form-delivery">
@@ -244,7 +250,7 @@
                                         <label for="inlineRadio2">Ms</label>
                                     </div>
                                     <div class="radio radio-inline">
-                                        <input type="radio" id="inlineRadio2" value="Ms" name="radioInline">
+                                        <input type="radio" id="inlineRadio3" value="Ms" name="radioInline">
                                         <label for="inlineRadio3">Mrs</label>
                                     </div>
                                 
@@ -270,39 +276,9 @@
                             </div>
                         </form>
 
-                        <!-- /CUSTOMER INFO -->
-
-                        <!-- PAYMENT OPTIONS -->
+                        
                         <h3 class="block-title alt"></i>Payments options</h3>
                         <div class="panel-group payments-options" id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="panel radio panel-default">
-                                <div class="panel-heading" role="tab" id="headingOne">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapseOne">
-                                            <span class="dot"></span> Direct Bank Transfer
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
-                                    <div class="panel-body">
-                                        <div class="alert alert-success" role="alert">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sollicitudin ultrices suscipit. Sed commodo vel mauris vel dapibus.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingTwo">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapseTwo">
-                                            <span class="dot"></span> Cheque Payment
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
-                                    <div class="panel-body">
-                                        Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
-                                    </div>
-                                </div>
-                            </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="headingThree">
                                     <h4 class="panel-title">
@@ -318,7 +294,26 @@
                                 </span>
                                     </h4>
                                 </div>
-                                <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3"></div>
+                                <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input name="cc-name" id="cc-name" title="Name is required" data-toggle="tooltip"
+                                                   class="form-control alt" type="text" placeholder="Name on Card">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input name="cc-number" id="cc-number" title="CC number is required" data-toggle="tooltip"
+                                                   class="form-control alt" type="text" placeholder="Card Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"><input class="form-control alt" type="text" placeholder="Expiration MM/YY"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"><input class="form-control alt" type="text" placeholder="CVV"></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="heading4">
@@ -332,9 +327,9 @@
                                 <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4"></div>
                             </div>
                         </div>
-                        <!-- /PAYMENT OPTIONS -->
+                        
 
-                        <!-- ADDITIONAL INFO -->
+                        
                         <h3 class="block-title alt"></i>Additional Information</h3>
                         <form action="#" class="form-additional">
                             <div class="row">
@@ -346,7 +341,7 @@
                                 </div>
                             </div>
                         </form>
-                        <!-- /ADDITIONAL INFO -->
+                        
 
                         <div class="overflowed reservation-now">
                             <div class="checkbox pull-left">
@@ -358,51 +353,51 @@
                         </div>
 
                     </div>
-                    <!-- /CONTENT -->
+                    
 
-                    <!-- SIDEBAR -->
+                    
                     <aside class="col-md-3 sidebar" id="sidebar">
-                        <!-- widget helping center -->
+
                         <div class="widget shadow widget-helping-center">
-                            <h4 class="widget-title">STILL NEED HELP ?</h4>
+                            <h4 class="widget-title">Location and Dates</h4>
                             <div class="widget-content">
-                                <p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros.</p>
-                                <h5 class="widget-title-sub">+1 (000) 888-8888</h5>
-                                <p><a href="mailto:support@support@torq.com">support@torq.com</a></p>
+                                <h5 class="widget-title-sub">Location</h5>
+                                <p>San Jose, CA</p>
+                                <h5 class="widget-title-sub">Pickup</h5>
+                                <p>March 25, 2018</p>
+                                <h5 class="widget-title-sub">Return</h5>
+                                <p>March 28, 2018</p>
                                 <div class="button">
-                                    <a href="#" class="btn btn-block btn-theme btn-theme-dark">Contact Us</a>
+                                    <a href="#" class="btn btn-block btn-theme btn-theme-dark">Modify Search</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- /widget helping center -->
+
+                        <div class="widget shadow widget-helping-center">
+                            <h4 class="widget-title">Still Need Help ?</h4>
+                            <div class="widget-content">
+                                <p>Call us now to get support</p>
+                                <h5 class="widget-title-sub">+1 (888)-888-8888</h5>
+                                <p><a href="mailto:support@supportcenter.com">support@torq.com</a></p>
+                                <div class="button">
+                                    <a href="contact.html" class="btn btn-block btn-theme btn-theme-dark">Contact US</a>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </aside>
-                    <!-- /SIDEBAR -->
+                    
 
                 </div>
             </div>
         </section>
-        <!-- /PAGE WITH SIDEBAR -->
-
-        <!-- PAGE -->
-        <section class="page-section contact dark">
-            <div class="container">
-
-
-            </div>
-        </section>
-        <!-- /PAGE -->
 
     </div>
-    <!-- /CONTENT AREA -->
-
-   
-
-    <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
 
 </div>
-<!-- /WRAPPER -->
 
-<!-- JS Global -->
+
+
 <script src="assets/plugins/jquery/jquery-1.11.1.min.js"></script>
 <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
@@ -412,12 +407,12 @@
 <script src="assets/plugins/jquery.sticky.min.js"></script>
 <script src="assets/plugins/jquery.easing.min.js"></script>
 <script src="assets/plugins/jquery.smoothscroll.min.js"></script>
-<!--<script src="assets/plugins/smooth-scrollbar.min.js"></script>-->
+
 <script src="assets/plugins/swiper/js/swiper.jquery.min.js"></script>
 <script src="assets/plugins/datetimepicker/js/moment-with-locales.min.js"></script>
 <script src="assets/plugins/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 
-<!-- JS Page Level -->
+
 <script src="assets/js/theme-ajax-mail.js"></script>
 <script src="assets/js/theme.js"></script>
 

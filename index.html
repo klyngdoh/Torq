@@ -103,7 +103,7 @@
                                                         <form action="#">
                                                             <div class="row row-inputs">
                                                                 <div class="container-fluid">
-                                                                    <div class="col-sm-6">
+                                                                    <div class="col-sm-5">
                                                                         <div class="form-group has-icon has-label">
                                                                             <label for="formSearchUpLocation">Location</label>
                                                                             <input type="text" class="form-control" id="formSearchUpLocation" placeholder="Airport or Anywhere">
@@ -126,6 +126,9 @@
                                                                             </input>
                                                                             <span class="form-control-icon"><i class="fa fa-calendar"></i></span>
                                                                         </div>
+                                                                    </div>
+                                                                    <div class="col-sm-1">
+                                                                        <a href="car-listing.html" class="btn btn-block btn-success" id="btn-go">Go</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -306,8 +309,17 @@
 <script src="assets/plugins/datetimepicker/js/moment-with-locales.min.js"></script>
 <script src="assets/plugins/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 
-<script src="assets/js/theme.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBanZIbd_W68mQK--XRGvtdo64R46hBm6U&libraries=places&callback=init"
+        async defer></script>
 
+<script src="assets/js/theme.js"></script>
+<script>
+    function init() {
+        var input = document.getElementById('formSearchUpLocation');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+    
+</script>
 
 </body>
 </html>
