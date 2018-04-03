@@ -16,11 +16,10 @@ router.post('/login', function (req, res) {
     handler.findUserByCredentials(username, password, res);
   }
 
-
 });
 
 // Create user
-router.post('/', function (req, res) {
+router.post('/register', function (req, res) {
   var requiredFields = ['username', 'firstname', 'lastname', 'email', 'password', 'dob', 'license'];
   for (var field in requiredFields) {
     if (!req.body[field]) {
