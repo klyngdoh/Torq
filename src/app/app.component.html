@@ -1,0 +1,37 @@
+<header class="header fixed">
+  <div class="header-wrapper">
+    <div class="container">
+
+
+      <div class="logo">
+        <a routerLink="/"><img src="assets/img/logo-rentit.png" alt="Rent It"/></a>
+      </div>
+
+
+      <a href="#" class="menu-toggle btn btn-theme-transparent"><i class="fa fa-bars"></i></a>
+
+
+      <nav class="navigation closed clearfix">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+
+            <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
+            <ul class="nav sf-menu">
+              <li><a routerLink='/login'>Login</a></li>
+              <li><a routerLink="/faqs">FAQS</a></li>
+              <li><a routerLink="/contact">Contact</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="swiper-scrollbar"></div>
+      </nav>
+
+
+    </div>
+  </div>
+
+</header>
+
+<router-outlet></router-outlet>

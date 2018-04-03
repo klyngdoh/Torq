@@ -1,17 +1,16 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# compiled output
 /dist
 /dist-server
 /tmp
 /out-tsc
 
+# dependencies
 /node_modules
-node_modules/
-node_modules/*
-node_modules/**
 
 # IDEs and editors
-.idea/
+/.idea
 .project
 .classpath
 .c9/
@@ -27,22 +26,19 @@ node_modules/**
 !.vscode/extensions.json
 
 # misc
-.sass-cache
-connect.lock
-coverage
-libpeerconnection.log
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
-typings
+/typings
 
 # e2e
-e2e/*.js
-e2e/*.map
+/e2e/*.js
+/e2e/*.map
 
 # System Files
 .DS_Store
 Thumbs.db
-node_modules/@angular/http/esm2015/http.js.map
-node_modules/.bin/csso
-
-assets/css/theme 2.css

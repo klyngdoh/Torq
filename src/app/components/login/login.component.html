@@ -1,0 +1,94 @@
+<div class="content-area">
+
+  <script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=184845472299453';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <section class="page-section breadcrumbs text-center">
+    <div class="container">
+      <div class="page-header">
+        <h1>Login</h1>
+      </div>
+      <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Pages</a></li>
+        <li class="active">Login</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section class="page-section color">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <h3 class="block-title"><span>Login</span></h3>
+          <form action="#" class="form-login">
+            <div class="row">
+              <div class="col-md-12 hello-text-wrap margin-10">
+                <span class="hello-text text-thin">Login with Facebook, Google or your Torq account</span>
+              </div>
+              <div class="col-md-12 col-lg-6">
+                <div class="fb-login-button" data-max-rows="1" data-size="large"
+                     data-button-type="continue_with" data-show-faces="true"
+                     data-auto-logout-link="false" data-use-continue-as="true"></div>
+              </div>
+              <div class="col-md-12 col-lg-6">
+                <div class="g-signin2" data-width="250" data-height="50"
+                     data-longtitle="true"></div>
+              </div>
+              <div class="col-md-12 margin-10">
+                <div class="form-group"><input class="form-control" type="text"
+                                               placeholder="User name or email"></div>
+              </div>
+              <div class="col-md-12 margin-10">
+                <div class="form-group"><input class="form-control" type="password"
+                                               placeholder="Your password"></div>
+              </div>
+
+              <div class="col-md-12 col-lg-6 margin-10">
+                <a class="forgot-password" href="#">Forgot password?</a>
+              </div>
+              <div class="col-md-12">
+                <a class="btn btn-theme btn-block btn-theme-dark" href="profile.html">Login</a>
+                <a class="btn btn-block btn-theme btn-theme-dark btn-create" href="register.html">Sign Up</a>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-sm-6">
+          <h3 class="block-title"><span>Put Your Car For Rent On Torq</span></h3>
+          <form action="#" class="create-account">
+            <div class="row">
+              <div class="col-md-12 hello-text-wrap margin-10">
+                <span class="hello-text text-thin">Create Your Account</span>
+              </div>
+              <div class="col-md-12">
+                <h3 class="block-title" >Signup Today and You'll be able to</h3>
+                <ul class="list-check" id="align-list-rentee">
+                  <li>Offer your car(s) for rent</li>
+                  <li>Only rent your cars to renters you approve</li>
+                  <li>Rent your car only at times convenient to you</li>
+                  <li>All damages are insured by Torq</li>
+                </ul>
+              </div>
+              <div class="col-lg-6" id="rentee-signup">
+                <a class="btn btn-block btn-theme btn-theme-dark btn-create" href="#">Sign Up</a>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+</div>
