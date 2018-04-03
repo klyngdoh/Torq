@@ -1,3 +1,6 @@
+var mongoose = require('mongoose');
+const moviesSchema = require('./user.schema.server');
+
 const userModel = {
 
   addUser: function(user) {
@@ -8,12 +11,17 @@ const userModel = {
 
   },
 
-  find
+  findUserById: function(userId) {
+
+  },
 
   updateUser: function(user) {
 
   },
 
+  deleteUser: function(userId) {
+
+  }
 
 }
 
