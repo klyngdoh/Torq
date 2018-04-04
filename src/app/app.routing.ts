@@ -1,5 +1,5 @@
-import {Routes, RouterModule} from "@angular/router";
-import {ModuleWithProviders} from "@angular/core";
+import {Routes, RouterModule} from '@angular/router';
+import {ModuleWithProviders} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -12,20 +12,22 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FaqsComponent } from './components/faqs/faqs.component';
+import {CarNewComponent} from './components/car-new/car-new.component';
 
 
-const APP_ROUTES : Routes = [
+const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'user/:uid', component: ProfileComponent},
   {path: 'user/:uid/dashboard', component: DashboardComponent},
   {path: 'car', component: CarListingsComponent},
+  {path: 'car/new', component: CarNewComponent},
   {path: 'car/:cid', component: CarViewComponent},
   {path: 'car/:cid/checkout', component: CheckoutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'faqs', component: FaqsComponent},
-  {path: '**', component: HomeComponent},
+  {path: '**', component: HomeComponent}
   ];
 
 // Export the routes as module providers

@@ -1554,6 +1554,11 @@ ul.list-check li + li {
     size: 30px;
 }
 
+#carimages {
+  display: none;
+  size: 30px;
+}
+
 .login_box {
     background: #f32d27; /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -2899,6 +2904,10 @@ a, a:active, a:focus, input, input:active, input:focus, button, button:active, b
 
 #licensetext {
     margin-top: 10px;
+}
+
+#carimagetext {
+  margin-top: 10px;
 }
 
 .btn-success {
