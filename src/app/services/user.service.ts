@@ -19,7 +19,7 @@ export class UserService {
   };
 
   addUser(user:User) {
-
+    return this.http.post("/api/user/register", user);
   }
 
   deleteUser(userId: string){
@@ -31,7 +31,10 @@ export class UserService {
   }
 
   getUserByCredentials(username: string, password:string) {
-
+    var user:any = {};
+    user['username'] = username;
+    user['password'] = password;
+    return this.http.post("/api/user/login", user);
   }
 
   getUserById(userId: string) {

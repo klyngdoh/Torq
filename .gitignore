@@ -9,14 +9,19 @@
 # dependencies
 /node_modules
 
+.idea/**
 # IDEs and editors
 /.idea
+/.idea/*
+/.idea/*.xml
+.idea/*.xml
 .project
 .classpath
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
+**/*.xml
 
 # IDE - VSCode
 .vscode/*
