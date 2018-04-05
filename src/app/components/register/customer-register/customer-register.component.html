@@ -10,15 +10,28 @@
 
           <h2 class="block-title"><span>Register</span></h2>
 
-          <form name="register-form" method="post" action="#" class="register-form" id="register-form">
+          <form (ngSubmit)="register($event)" #f="ngForm" class="register-form" id="register-form">
+
+
+            <div class="outer required">
+              <div class="form-group af-inner">
+                <label class="sr-only" for="username">Username</label>
+                <input
+                  type="text" name="username" id="username" placeholder="Username" value=""
+                  size="30" data-toggle="tooltip" title="Username is required"
+                  class="form-control placeholder" required
+                  (ngModel)="username"/>
+              </div>
+            </div>
 
             <div class="outer required">
               <div class="form-group af-inner">
                 <label class="sr-only" for="fname">First Name</label>
                 <input
-                  type="text" name="name" id="fname" placeholder="First Name" value=""
+                  type="text" name="firstname" id="fname" placeholder="First Name" value=""
                   size="30" data-toggle="tooltip" title="First Name is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" required
+                  (ngModel)="firstname"/>
               </div>
             </div>
 
@@ -26,9 +39,10 @@
               <div class="form-group af-inner">
                 <label class="sr-only" for="lname">Last Name</label>
                 <input
-                  type="text" name="name" id="lname" placeholder="Last Name" value=""
+                  type="text" name="lastname" id="lname" placeholder="Last Name" value=""
                   size="30" data-toggle="tooltip" title="Last Name is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" required
+                  (ngModel)="lastname"/>
               </div>
             </div>
 
@@ -38,17 +52,8 @@
                 <input
                   type="email" name="email" id="email" placeholder="Email" value="" size="30"
                   data-toggle="tooltip" title="Email is required"
-                  class="form-control placeholder"/>
-              </div>
-            </div>
-
-            <div class="outer required">
-              <div class="form-group af-inner">
-                <label class="sr-only" for="username">Username</label>
-                <input
-                  type="text" name="username" id="username" placeholder="Username" value=""
-                  size="30" data-toggle="tooltip" title="Username is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" required
+                  (ngModel)="email"/>
               </div>
             </div>
 
@@ -58,7 +63,8 @@
                 <input
                   type="password" name="password" id="password" placeholder="Password"
                   value="" size="30" data-toggle="tooltip" title="Password is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" required
+                  (ngModel)="password"/>
               </div>
             </div>
 
@@ -68,7 +74,8 @@
                 <input
                   type="password" name="verify" id="verify" placeholder="Verify Password"
                   value="" size="30" data-toggle="tooltip" title="Verification is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" required
+                  (ngModel)="verify"/>
               </div>
             </div>
 
@@ -78,7 +85,8 @@
                 <input
                   type="text" name="dob" id="dob" placeholder="Date of Birth"
                   size="30" data-toggle="tooltip" title="Date of Birth is required"
-                  class="form-control datepick placeholder"/>
+                  class="form-control datepick placeholder" required
+                  (ngModel)="dob"/>
                 <span class="form-control-icon"><i class="fa fa-calendar"></i></span>
               </div>
             </div>
@@ -101,7 +109,7 @@
               <div class="form-group af-inner">
                 <input type="submit" name="submit"
                        class="form-button form-button-submit btn btn-theme btn-theme-dark btn-block"
-                       id="submit_btn" value="Register" />
+                       id="submit_btn" value="Register" (click)="register($event)"/>
               </div>
             </div>
 
@@ -114,8 +122,5 @@
 
     </div>
   </section>
-
-
-
 
 </div>

@@ -29,7 +29,7 @@
       <div class="row">
         <div class="col-sm-6">
           <h3 class="block-title"><span>Login</span></h3>
-          <form (ngSubmit)="login()" #f="ngForm"class="form-login">
+          <form (ngSubmit)="login()" #f="ngForm" class="form-login">
             <div class="row">
               <div class="col-md-12 hello-text-wrap margin-10">
                 <span class="hello-text text-thin">Login with Facebook, Google or your Torq account</span>
@@ -59,7 +59,7 @@
               </div>
               <div class="col-md-12">
                 <a class="btn btn-theme btn-block btn-theme-dark" (click)="login($event)">Login</a>
-                <a class="btn btn-block btn-theme btn-theme-dark btn-create" href="register.html">Sign Up</a>
+                <a class="btn btn-block btn-theme btn-theme-dark btn-create" routerLink="/customer/register">Sign Up</a>
               </div>
             </div>
           </form>
@@ -82,7 +82,7 @@
                 </ul>
               </div>
               <div class="col-lg-6" id="rentee-signup">
-                <a class="btn btn-block btn-theme btn-theme-dark btn-create" href="#">Sign Up</a>
+                <a class="btn btn-block btn-theme btn-theme-dark btn-create" routerLink="/renter/register">Sign Up</a>
               </div>
             </div>
           </form>

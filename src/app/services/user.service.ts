@@ -22,8 +22,8 @@ export class UserService {
 
   user:User;
 
-  addUser(user:User) {
-    return this.http.post("/api/user/register", user);
+  addUser(user:User, type:string) {
+    return this.http.post<User>("/api/user/"+type+"/register", user);
   }
 
   deleteUser(userId: string){

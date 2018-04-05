@@ -29,9 +29,7 @@ router.post('/:type/register', function (req, res) {
   //     res.json({message: "Missing fields"});
   //   }
   // }
-  var user = handler.addUser(req.body, req.params.type);
-  res.status(200);
-  res.json(user);
+  handler.addUser(req.body, req.params.type, res);
 });
 
 // Find user by ID

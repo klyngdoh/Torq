@@ -3,7 +3,8 @@ const db = require('../models.server.js');
 
 
 module.exports = function() {
-  userSchema.methods.addUser = function (user) {
+
+  userSchema.statics.addUser = function (user) {
     var User = db.model('User', userSchema);
     console.log("Creating user");
     console.log("here");
@@ -19,12 +20,12 @@ module.exports = function() {
     return u.save();
   };
 
-  userSchema.methods.findUserByCredentials = function(username, password){
+  userSchema.statics.findUserByCredentials = function(username, password){
     var User = db.model('User', userSchema);
     return User.findOne({username: username, password: password});
   };
 
-  userSchema.methods.findUserById = function(userId){
+  userSchema.statics.findUserById = function(userId){
     var User = db.model('User', userSchema);
     return User.findOne({_id: userId});
   };

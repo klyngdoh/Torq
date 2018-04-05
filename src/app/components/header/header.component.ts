@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit {
       if(this.user != null && this.user != undefined) {
         this.userId = user._id;
         this.firstName = user.firstName;
+      } else {
+        this.userId = '0';
       }
     });
   }

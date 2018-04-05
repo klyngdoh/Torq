@@ -12,5 +12,7 @@ module.exports = new Schema({
   dateCreated: Date,
   displayPicUrl: String,
   licenseUrl: String,
-  type: String
+  type: String,
+  rating: Number,
+  //comments:[Comment]
 });
