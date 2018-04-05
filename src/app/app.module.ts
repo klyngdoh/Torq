@@ -26,6 +26,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {CarsService} from "./services/cars.service";
 import {UserService} from "./services/user.service";
 import { HeaderComponent } from './components/header/header.component';
+import { CarNewComponent } from './components/car-new/car-new.component';
 
 
 
@@ -50,6 +51,7 @@ import { HeaderComponent } from './components/header/header.component';
     CustomerRegisterComponent,
     RenterRegisterComponent,
     HeaderComponent,
+    CarNewComponent,
   ],
   imports: [
     BrowserModule,
