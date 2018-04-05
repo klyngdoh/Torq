@@ -1,12 +1,12 @@
 var express = require('express');
-var handler = require('./handlers/user.service.handler.js');
+var handler = require('../handlers/user.service.handler.js');
 var router = express.Router();
 
 
 // Find user by credential
 router.post('/login', function (req, res) {
   var username = req.body.username;
-  var password = req.query.password;
+  var password = req.body.password;
 
   if (username == undefined || password == undefined) {
     res.status(400);
@@ -19,23 +19,24 @@ router.post('/login', function (req, res) {
 });
 
 // Create user
-router.post('/register', function (req, res) {
+router.post('/:type/register', function (req, res) {
   var requiredFields = ['username', 'firstname', 'lastname', 'email', 'password', 'dob', 'license'];
-  for (var field in requiredFields) {
-    if (!req.body[field]) {
-      console.log("Got request with missing field: " + field);
-      res.status(400);
-      res.json({message: "Missing fields"});
-    }
-  }
-  var user = handler.createUser(req.body);
+  // for (var i in requiredFields) {
+  //   console.log("field = ", field);
+  //   if (!req.body[field]) {
+  //     console.log("Got request with missing field: " + field);
+  //     res.status(400);
+  //     res.json({message: "Missing fields"});
+  //   }
+  // }
+  var user = handler.addUser(req.body, req.params.type);
   res.status(200);
   res.json(user);
 });
 
 // Find user by ID
 router.get('/:userId', function (req, res) {
-  if (!req.params.userId.toString().match(/^[0-9]{3,}$/g)) {
+  if (!req.params.userId.toString().match(/[0-9]+/g)) {
     res.status(400);
     res.json({message: "Bad Request"});
   } else {

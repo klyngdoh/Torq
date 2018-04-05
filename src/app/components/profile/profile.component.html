@@ -1,3 +1,19 @@
-<p>
-  profile works!
-</p>
+<div class="content-area" [ngSwitch]="userType">
+  <div *ngSwitchCase="'customer'">
+    <app-customer-profile></app-customer-profile>
+  </div>
+  <div *ngSwitchCase="'renter'">
+    <app-renter-profile></app-renter-profile>
+  </div>
+
+  <script type="application/javascript">
+
+    if($().rateYo) {
+      $("#rating").rateYo({
+        rating: 4.6,
+        starWidth: "30px",
+        readOnly: true
+      });
+    }
+  </script>
+</div>

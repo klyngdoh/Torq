@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+module.exports = new Schema({
   _id: Number,
   username: String,
   password: String,
@@ -11,5 +11,6 @@ const userSchema = new Schema({
   dob: Date,
   dateCreated: Date,
   displayPicUrl: String,
-  licenseUrl: String
+  licenseUrl: String,
+  type: String
 });

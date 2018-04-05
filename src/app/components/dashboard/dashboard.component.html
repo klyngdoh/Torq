@@ -1,3 +1,8 @@
-<p>
-  dashboard works!
-</p>
+<div class="content-area" [ngSwitch]="userType">
+  <div *ngSwitchCase="'customer'">
+    <app-customer-dashboard></app-customer-dashboard>
+  </div>
+  <div *ngSwitchCase="'renter'">
+    <app-renter-dashboard></app-renter-dashboard>
+  </div>
+</div>

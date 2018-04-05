@@ -1,0 +1,42 @@
+<header class="header fixed">
+  <div class="header-wrapper">
+    <div class="container">
+
+
+      <div class="logo">
+        <a routerLink="/"><img src="assets/img/logo-rentit.png" alt="Rent It"/></a>
+      </div>
+
+
+      <a href="#" class="menu-toggle btn btn-theme-transparent"><i class="fa fa-bars"></i></a>
+
+
+      <nav class="navigation closed clearfix">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+
+            <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
+            <ul class="nav sf-menu">
+              <li><a routerLink='/login' *ngIf="userId == '0'">Login</a></li>
+              <li><a routerLink="/faqs">FAQS</a></li>
+              <li><a routerLink="/contact">Contact</a></li>
+              <li *ngIf="userId != '0'"><a (click)="navigate($event, '/user/:uid/profile')" attr.class="sf-with-ul" class="sf-with-ul" href="#">{{firstName}}</a>
+                <ul style="display: none;">
+                  <li><a (click)="navigate($event, '/user/:uid/profile')" href="#">Profile</a></li>
+                  <li><a (click)="navigate($event, '/user/:uid/dashboard')" href="#">Dashboard</a></li>
+                  <li><a (click)="logout($event, '/user/:uid/profile')" href="#">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="swiper-scrollbar"></div>
+      </nav>
+
+
+    </div>
+  </div>
+
+</header>

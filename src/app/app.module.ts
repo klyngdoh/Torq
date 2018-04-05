@@ -25,6 +25,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {CarsService} from "./services/cars.service";
 import {UserService} from "./services/user.service";
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -48,6 +49,7 @@ import {UserService} from "./services/user.service";
     RenterProfileComponent,
     CustomerRegisterComponent,
     RenterRegisterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,6 @@ const APP_ROUTES : Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'user/:uid', component: ProfileComponent},
   {path: 'user/:uid/profile', component: CustomerProfileComponent},
   {path: 'user/:uid/dashboard', component: DashboardComponent},
   {path: 'car', component: CarListingsComponent},

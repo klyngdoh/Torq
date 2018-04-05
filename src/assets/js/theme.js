@@ -122,17 +122,15 @@ jQuery(window).load(function () {
 
     updater();
 });
-
+var done = false;
 function updater() {
+
+  if ($().superfish && !done) {
+    done = true;
+    $('ul.sf-menu').superfish();
+  }
     if ($().sticky) {
         $('.header.fixed').sticky('update');
-    }
-    if($().rateYo) {
-        $("#rating").rateYo({
-            rating: 4.6,
-            starWidth: "30px",
-            readOnly: true
-        });
     }
 
     if($().datetimepicker) {

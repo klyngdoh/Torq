@@ -1,5 +1,5 @@
 // injecting service into module
-import {Injectable} from "@angular/core";
+import {EventEmitter, Injectable, Output} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {User} from "../models/user.interface";
 
@@ -9,6 +9,8 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
+  @Output() getLoggedInUser: EventEmitter<User> = new EventEmitter();
+
 
   api = {
     'addUser': this.addUser,
@@ -17,6 +19,8 @@ export class UserService {
     'getUserByCredentials': this.getUserByCredentials,
     'getUserById': this.getUserById
   };
+
+  user:User;
 
   addUser(user:User) {
     return this.http.post("/api/user/register", user);
@@ -34,10 +38,20 @@ export class UserService {
     var user:any = {};
     user['username'] = username;
     user['password'] = password;
-    return this.http.post("/api/user/login", user);
+    debugger;
+    return this.http.post<User>("/api/user/login", user);
   }
 
   getUserById(userId: string) {
+    return this.http.get<User>("/api/user/"+userId);
+  }
 
+  setUser(user:User) {
+    this.user = user;
+    this.getLoggedInUser.emit(user);
+  }
+
+  getUser(){
+    return this.user;
   }
 }
