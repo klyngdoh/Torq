@@ -23,7 +23,7 @@ import { RenterRegisterComponent } from './components/register/renter-register/r
 import {Routing} from "./app.routing";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {CarsService} from "./services/cars.service";
+import {CarService} from "./services/cars.service";
 import {UserService} from "./services/user.service";
 import { HeaderComponent } from './components/header/header.component';
 import { CarNewComponent } from './components/car-new/car-new.component';
@@ -59,7 +59,7 @@ import { CarNewComponent } from './components/car-new/car-new.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [CarsService, UserService],
+  providers: [CarService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

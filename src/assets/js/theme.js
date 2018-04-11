@@ -157,6 +157,10 @@ function updater() {
       );
     }
   }
+
+  if ($().selectpicker) {
+    $('.selectpicker').selectpicker();
+  }
 }
 
 jQuery(window).resize(function () {

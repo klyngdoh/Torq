@@ -1438,8 +1438,21 @@ ul.list-check li + li {
 }
 
 .is-sticky .sf-menu.nav > li > a {
-    padding-top: 8px !important;
+    padding-top:20px !important;
     padding-bottom: 8px !important
+}
+
+.is-sticky #add-new-car-header {
+  padding-top:11px !important;
+}
+
+#add-new-car-header {
+  padding: 20px 15px;
+}
+
+#add-new-car-header:hover,#add-new-car-header:hover:before,#add-new-car-header:active, #add-new-car-header:active:before, #add-new-car-header:focus, #add-new-car-header:focus:before {
+  background-color: #449d44 !important;
+  border-color: #398439;
 }
 
 @media (max-width: 991px) {

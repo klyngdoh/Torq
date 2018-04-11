@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var commentSchema = require('../comment/comment.schema.server');
+
 module.exports = new Schema({
   _id: Number,
   username: String,
@@ -14,5 +16,6 @@ module.exports = new Schema({
   licenseUrl: String,
   type: String,
   rating: Number,
-  //comments:[Comment]
+  comments:[commentSchema]
 });
+

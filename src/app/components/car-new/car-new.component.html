@@ -10,7 +10,7 @@
 
           <h2 class="block-title"><span>Add Car</span></h2>
 
-          <form name="register-form" method="post" action="#" class="register-form" id="register-form">
+          <form (ngSubmit)="addCar($event)" #f="ngForm" class="register-form" id="register-form">
 
             <div class="outer required">
               <div class="form-group af-inner">
@@ -18,17 +18,19 @@
                 <input
                   type="text" name="make" id="make" placeholder="Car Make" value=""
                   size="30" data-toggle="tooltip" title="Car Make is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" required
+                  (ngModel)="make"/>
               </div>
             </div>
 
             <div class="outer required">
               <div class="form-group af-inner">
-                <label class="sr-only" for="model">Last Name</label>
+                <label class="sr-only" for="model">Model</label>
                 <input
                   type="text" name="model" id="model" placeholder="Car Model" value=""
                   size="30" data-toggle="tooltip" title="Car Model is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" required
+                  (ngModel)="model"/>
               </div>
             </div>
 
@@ -38,17 +40,64 @@
                 <input
                   type="text" name="year" id="year" placeholder="Year" value="" size="30"
                   data-toggle="tooltip" title="Year is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" required
+                  (ngModel)="year"/>
               </div>
             </div>
 
             <div class="outer required">
               <div class="form-group af-inner">
-                <label class="sr-only" for="mileage">Username</label>
+                <label class="sr-only" for="mileage">Mileage</label>
                 <input
                   type="number" name="mileage" id="mileage" placeholder="Mileage" value=""
                   size="30" data-toggle="tooltip" title="Mileage is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" required
+                  (ngModel)="mileage"/>
+              </div>
+            </div>
+            <div class="outer required">
+              <div class="form-group af-inner">
+                <label class="sr-only" for="type">Car Type</label>
+               <select id="type" name="type" required (ngModel)="type" class="form-control  selectpicker" placeholder="Car Type">
+                 <option value="" selected disabled hidden>Car Type</option>
+                 <option value="Compact" >Compact</option>
+                 <option value="Sedan">Sedan</option>
+                 <option value="SUV">SUV</option>
+                 <option value="Sports">Sports Car</option>
+                 <option value="Luxury">Luxury Car</option>
+               </select>
+              </div>
+            </div>
+            <div class="outer required">
+              <div class="form-group af-inner">
+                <label class="sr-only" for="fuel">Fuel Type</label>
+                <select id="fuel" name="fuel" required (ngModel)="fuel" class="form-control selectpicker" placeholder="Fuel Type">
+                  <option value="" selected disabled hidden>Fuel Type</option>
+                  <option value="Petrol" selected="selected">Petrol</option>
+                  <option value="Diesel">Diesel</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="outer required">
+              <div class="form-group af-inner">
+                <label class="sr-only" for="transmission">Transmission Type</label>
+                <select id="transmission" name="transmission" class="form-control selectpicker" required [(ngModel)]="transmission" placeholder="Transmission Type">
+                  <option value="" selected disabled hidden>Transmission Type</option>
+                  <option value="Automatic">Automatic</option>
+                  <option value="Manual">Manual</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="outer required">
+              <div class="form-group af-inner">
+                <label class="sr-only" for="price">Price Per Day</label>
+                <input
+                  type="number" name="price" id="price" placeholder="Price Per Day"
+                  value="" size="30" data-toggle="tooltip" title="Price per Day"
+                  class="form-control placeholder" required
+                  (ngModel)="price"/>
               </div>
             </div>
 
@@ -58,7 +107,19 @@
                 <input
                   type="number" name="vin" id="vin" placeholder="Vehicle Identification Number"
                   value="" size="30" data-toggle="tooltip" title="VIN is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" required
+                  (ngModel)="vin"/>
+              </div>
+            </div>
+
+            <div class="outer required">
+              <div class="form-group af-inner">
+                <label class="sr-only" for="location">Location</label>
+                <input
+                  type="text" name="location" id="location" placeholder="Location"
+                  value="" size="30" data-toggle="tooltip" title="Location is required"
+                  class="form-control placeholder" required
+                  (ngModel)="location"/>
               </div>
             </div>
 
@@ -80,7 +141,7 @@
               <div class="form-group af-inner">
                 <input type="submit" name="submit"
                        class="form-button form-button-submit btn btn-theme btn-theme-dark btn-block"
-                       id="submit_btn" value="Register Car" />
+                       id="submit_btn" value="Register Car" (click)="addCar($event)" />
               </div>
             </div>
 
@@ -93,8 +154,4 @@
 
     </div>
   </section>
-
-
-
-
 </div>

@@ -17,8 +17,10 @@ export class HeaderComponent implements OnInit {
       if(this.user != null && this.user != undefined) {
         this.userId = user._id;
         this.firstName = user.firstName;
+        this.userType = user.type;
       } else {
         this.userId = '0';
+        this.userType = "";
       }
     });
   }
@@ -26,6 +28,7 @@ export class HeaderComponent implements OnInit {
   userId: string;
   user: User;
   firstName: string;
+  userType: string;
 
   ngOnInit() {
     this.user = this.userService.getUser();

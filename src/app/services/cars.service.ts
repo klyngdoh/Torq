@@ -7,7 +7,7 @@ import {SearchParams} from "../models/searchparams.interface";
 
 // injecting service into module
 @Injectable()
-export class CarsService {
+export class CarService {
 
   constructor(private http: HttpClient) {
   }
@@ -29,12 +29,14 @@ export class CarsService {
     'deleteCar': this.deleteCar,
     'updateCar': this.updateCar,
     'getCars': this.getCars,
+    'getCarById': this.getCarById,
     'filterCars': this.filterCars
   };
 
   addCar(car: Car) {
-
+    return this.http.post<Car>("/api/car/addCar", car);
   }
+
 
   deleteCar(carId: string) {
 
@@ -51,6 +53,10 @@ export class CarsService {
     } else {
       // Make HTTP request to fetch cars
     }
+  }
+
+  getCarById(carId) {
+
   }
 
   filterCars(searchParams: SearchParams, filterParams: FilterParams) {

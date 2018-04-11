@@ -2,7 +2,6 @@ var userModel = require('../models/user/user.model.server.js')();
 module.exports = {
 
   findUserByCredentials: function(username, password, res) {
-    var user = new userModel({});
     userModel.findUserByCredentials(username, password).then(function(result) {
       if(result == null){
         res.status("401");

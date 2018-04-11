@@ -5,9 +5,9 @@ module.exports = function(app) {
 
    var userRouter = require("./services/user.service.server.js");
    router.use('/user', userRouter);
-  //
-  // var websiteRouter = require("./services/website.service.server.js");
-  // router.use('/website', websiteRouter);
+
+  var carRouter = require("./services/car.service.server.js");
+  router.use('/car', carRouter);
   //
   // var pageRouter =  require("./services/page.service.server.js");
   // router.use('/page', pageRouter);

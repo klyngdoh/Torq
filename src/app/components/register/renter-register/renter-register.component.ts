@@ -28,7 +28,6 @@ export class RenterRegisterComponent implements OnInit {
   dob: string;
   errorFlag: boolean;
 
-
   login() {
     var user: User;
     this.userService.getUserByCredentials(this.username, this.password).subscribe(data => {

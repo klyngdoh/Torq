@@ -27,6 +27,7 @@
                   <li><a (click)="logout($event, '/')" href="#">Logout</a></li>
                 </ul>
               </li>
+              <li *ngIf="userType == 'renter'"><a routerLink="/car/new" id="add-new-car-header" class="btn btn-block btn-success"><i class="fa fa-plus"></i> Add new car</a> </li>
             </ul>
 
           </div>
