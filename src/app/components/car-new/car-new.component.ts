@@ -9,6 +9,8 @@ import {Car} from "../../models/car.interface";
   templateUrl: './car-new.component.html',
   styleUrls: ['./car-new.component.css']
 })
+
+
 export class CarNewComponent implements OnInit {
 
   @ViewChild('f') loginForm: NgForm;
@@ -28,8 +30,10 @@ export class CarNewComponent implements OnInit {
   price: number;
   location: string;
 
-  ngOnInit() {
 
+
+  ngOnInit() {
+    updater();
   }
 
   addCar($event) {
@@ -64,7 +68,7 @@ export class CarNewComponent implements OnInit {
     };
 
     this.carService.addCar(car).subscribe(data => {
-      this.router.navigate(['/car/'+data._id]);
+      this.router.navigate(['/car/' + data._id]);
     }, error => {
       debugger;
     })
@@ -73,3 +77,5 @@ export class CarNewComponent implements OnInit {
   }
 
 }
+
+declare var updater: any;
