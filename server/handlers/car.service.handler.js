@@ -9,7 +9,7 @@ module.exports = {
     car.location = {type: "Point", coordinates:[location[1], location[0]]};
     console.log("Going to add car ", car);
     carModel.addNewCar(car).then(function(data) {
-      res.status(500).json(data);
+      res.json(data);
     }).catch(function(err){
       res.status(500).json({error: err});
     });
