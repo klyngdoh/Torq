@@ -31,7 +31,8 @@ export class HomeComponent implements OnInit {
     }(document, 'script', 'g-maps'));
   }
 
-  searchCars() {
+  searchCars($event) {
+    $event.preventDefault();
     this.location = autocomplete.getPlace().geometry.location.lng() + "," + autocomplete.getPlace().geometry.location.lat();
     this.pickupDate = (<HTMLInputElement>document.getElementById("pickupDate")).value;
     this.returnDate = (<HTMLInputElement>document.getElementById("returnDate")).value;
@@ -39,7 +40,8 @@ export class HomeComponent implements OnInit {
       .subscribe((cars: any) => {
         if (cars) {
           console.log(cars);
-          this.router.navigate(['/car']);
+          debugger;
+          this.router.navigate(['/car'], {queryParams: {location: this.location, pickupDate: this.pickupDate, returnDate: this.returnDate}});
         }
       });
 

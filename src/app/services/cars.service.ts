@@ -13,8 +13,6 @@ export class CarService {
   constructor(private http: HttpClient) {
   }
 
-  searchParameters ={location:"" , pickup: "", dropoff: "" };
-
   cars: [{
     name: "VW POLO TRENDLINE 2.0 TDI",
     pricePerDay: 39,
@@ -58,13 +56,11 @@ export class CarService {
 
 
     // Make HTTP request to fetch cars
-
-    this.searchParameters.location = location;
-    this.searchParameters.pickup = pickup;
-    this.searchParameters.dropoff = drop;
-
-    const url = '/api/car/searchCar';
-    return this.http.post<Car[]>(url, this.searchParameters);
+    var searchParameters: any = {};
+    searchParameters['location'] = location;
+    searchParameters['pickup'] = pickup;
+    searchParameters['dropoff'] = drop;
+    return this.http.post<Car[]>('/api/car/searchCar', searchParameters);
   }
 
   getCarById(carId) {

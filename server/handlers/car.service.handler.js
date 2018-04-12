@@ -8,9 +8,9 @@ module.exports = {
     console.log("Location = ", location);
     car.location = {type: "Point", coordinates: [location[1], location[0]]};
     console.log("Going to add car ", car);
-    carModel.addNewCar(car).then(function (data) {
-      res.status(500).json(data);
-    }).catch(function (err) {
+    carModel.addNewCar(car).then(function(data) {
+      res.json(data);
+    }).catch(function(err){
       res.status(500).json({error: err});
     });
   },

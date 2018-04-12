@@ -65,11 +65,9 @@
   <section class="page-section with-sidebar sub-page">
     <div class="container">
       <div class="row">
-
         <div class="col-md-9 content car-listing no-top-margin" id="content">
 
-
-          <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
+          <div class="thumbnail no-border no-padding thumbnail-car-card clearfix"  *ngFor="let car of cars">
             <div class="media">
               <a class="media-link" data-gal="prettyPhoto"
                  href="assets/img/preview/cars/car-370x220x5.jpg">
@@ -84,187 +82,26 @@
                                             --><span class="star active"></span><!--
                                             --><span class="star active"></span>
               </div>
-              <h4 class="caption-title"><a routerLink="/car/1">VW POLO TRENDLINE 2.0 TDI</a></h4>
-              <h5 class="caption-title-sub">Start from $39/per a day</h5>
+              <h4 class="caption-title"><a routerLink="/car/1">{{car.make}} {{car.model}}</a></h4>
+              <h5 class="caption-title-sub">Start from ${{car.pricePerDay}}/per a day</h5>
               <div class="caption-text">Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.
                 Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia.
+                posuere cubilia. {{car.description}}
               </div>
               <table class="table">
                 <tr>
-                  <td><i class="fa fa-car"></i> 2013</td>
-                  <td><i class="fa fa-dashboard"></i> Diesel</td>
-                  <td><i class="fa fa-cog"></i> Auto</td>
-                  <td><i class="fa fa-road"></i> 25000</td>
+                  <td><i class="fa fa-car"></i> {{car.year}}</td>
+                  <td><i class="fa fa-dashboard"></i> {{car.fuel}}</td>
+                  <td><i class="fa fa-cog"></i> {{car.transmission}}</td>
+                  <td><i class="fa fa-road"></i> {{car.mileage}}</td>
                   <td class="buttons"><a class="btn btn-theme" routerLink="/car/1/checkout">Rent It</a></td>
                 </tr>
               </table>
             </div>
           </div>
 
-          <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
-            <div class="media">
-              <a class="media-link" data-gal="prettyPhoto"
-                 href="assets/img/preview/cars/car-370x220x6.jpg">
-                <img src="assets/img/preview/cars/golf2.png" alt="" class="car-preview"/>
-              </a>
-            </div>
-            <div class="caption">
-              <div class="rating">
-                <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-              </div>
-              <h4 class="caption-title"><a routerLink="/car/1">VW POLO TRENDLINE 2.0 TDI</a></h4>
-              <h5 class="caption-title-sub">Start from $39/per a day</h5>
-              <div class="caption-text">Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.
-                Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia.
-              </div>
-              <table class="table">
-                <tr>
-                  <td><i class="fa fa-car"></i> 2013</td>
-                  <td><i class="fa fa-dashboard"></i> Diesel</td>
-                  <td><i class="fa fa-cog"></i> Auto</td>
-                  <td><i class="fa fa-road"></i> 25000</td>
-                  <td class="buttons"><a class="btn btn-theme" routerLink="/car/1/checkout">Rent It</a></td>
-                </tr>
-              </table>
-            </div>
-          </div>
 
-          <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
-            <div class="media">
-              <a class="media-link" data-gal="prettyPhoto"
-                 href="assets/img/preview/cars/car-370x220x5.jpg">
-                <img src="assets/img/preview/cars/golf-preview.jpg" alt="" class="car-preview"/>
-              </a>
-            </div>
-            <div class="caption">
-              <div class="rating">
-                <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-              </div>
-              <h4 class="caption-title"><a routerLink="/car/1">VW POLO TRENDLINE 2.0 TDI</a></h4>
-              <h5 class="caption-title-sub">Start from $39/per a day</h5>
-              <div class="caption-text">Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.
-                Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia.
-              </div>
-              <table class="table">
-                <tr>
-                  <td><i class="fa fa-car"></i> 2013</td>
-                  <td><i class="fa fa-dashboard"></i> Diesel</td>
-                  <td><i class="fa fa-cog"></i> Auto</td>
-                  <td><i class="fa fa-road"></i> 25000</td>
-                  <td class="buttons"><a class="btn btn-theme" routerLink="/car/1/checkout">Rent It</a></td>
-                </tr>
-              </table>
-            </div>
-          </div>
 
-          <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
-            <div class="media">
-              <a class="media-link" data-gal="prettyPhoto"
-                 href="assets/img/preview/cars/car-370x220x6.jpg">
-                <img src="assets/img/preview/cars/golf2.png" alt="" class="car-preview"/>
-              </a>
-            </div>
-            <div class="caption">
-              <div class="rating">
-                <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-              </div>
-              <h4 class="caption-title"><a routerLink="/car/1">VW POLO TRENDLINE 2.0 TDI</a></h4>
-              <h5 class="caption-title-sub">Start from $39/per a day</h5>
-              <div class="caption-text">Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.
-                Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia.
-              </div>
-              <table class="table">
-                <tr>
-                  <td><i class="fa fa-car"></i> 2013</td>
-                  <td><i class="fa fa-dashboard"></i> Diesel</td>
-                  <td><i class="fa fa-cog"></i> Auto</td>
-                  <td><i class="fa fa-road"></i> 25000</td>
-                  <td class="buttons"><a class="btn btn-theme" routerLink="/car/1/checkout">Rent It</a></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
-            <div class="media">
-              <a class="media-link" data-gal="prettyPhoto"
-                 href="assets/img/preview/cars/car-370x220x5.jpg">
-                <img src="assets/img/preview/cars/golf-preview.jpg" alt="" class="car-preview"/>
-              </a>
-            </div>
-            <div class="caption">
-              <div class="rating">
-                <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-              </div>
-              <h4 class="caption-title"><a routerLink="/car/1">VW POLO TRENDLINE 2.0 TDI</a></h4>
-              <h5 class="caption-title-sub">Start from $39/per a day</h5>
-              <div class="caption-text">Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.
-                Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia.
-              </div>
-              <table class="table">
-                <tr>
-                  <td><i class="fa fa-car"></i> 2013</td>
-                  <td><i class="fa fa-dashboard"></i> Diesel</td>
-                  <td><i class="fa fa-cog"></i> Auto</td>
-                  <td><i class="fa fa-road"></i> 25000</td>
-                  <td class="buttons"><a class="btn btn-theme" routerLink="/car/1/checkout">Rent It</a></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-
-          <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
-            <div class="media">
-              <a class="media-link" data-gal="prettyPhoto"
-                 href="assets/img/preview/cars/car-370x220x6.jpg">
-                <img src="assets/img/preview/cars/golf2.png" alt="" class="car-preview"/>
-              </a>
-            </div>
-            <div class="caption">
-              <div class="rating">
-                <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-              </div>
-              <h4 class="caption-title"><a routerLink="/car/1">VW POLO TRENDLINE 2.0 TDI</a></h4>
-              <h5 class="caption-title-sub">Start from $39/per a day</h5>
-              <div class="caption-text">Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.
-                Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                posuere cubilia.
-              </div>
-              <table class="table">
-                <tr>
-                  <td><i class="fa fa-car"></i> 2013</td>
-                  <td><i class="fa fa-dashboard"></i> Diesel</td>
-                  <td><i class="fa fa-cog"></i> Auto</td>
-                  <td><i class="fa fa-road"></i> 25000</td>
-                  <td class="buttons"><a class="btn btn-theme" routerLink="/car/1/checkout">Rent It</a></td>
-                </tr>
-              </table>
-            </div>
-          </div>
 
           <div class="pagination-wrapper">
             <ul class="pagination">
@@ -277,85 +114,86 @@
               <li><a href="#">Next <i class="fa fa-angle-double-right"></i></a></li>
             </ul>
           </div>
-
-
         </div>
 
 
-        <aside class="col-md-3 sidebar no-top-margin" id="sidebar">
 
 
-          <div class="widget shadow car-categories">
-            <h4 class="widget-title">Filter</h4>
-            <div class="widget-content">
-              <ul>
-                <li>
-                  <span class="arrow"><i class="fa fa-angle-down"></i></span>
-                  <a href="#">Car Type</a>
-                  <ul class="children">
-                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Compact"> Compact<span class="count">12</span></a></li>
-                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Sedan"> Sedan<span class="count">12</span></a></li>
-                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="SUV"> SUV<span class="count">12</span></a></li>
-                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Sports"> Sports Car<span class="count">12</span></a></li>
-                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Luxury"> Luxury Car<span class="count">12</span></a></li>
-                  </ul>
-                </li>
-                <li>
-                  <span class="arrow"><i class="fa fa-angle-down"></i></span>
-                  <a href="#">Price</a>
-                  <ul class="children">
-                    <li>
-                      <div class="widget-content">
-                        <div id="slider-range"></div>
-                        <input type="text" id="amount" name="amount"/>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <span class="arrow"><i class="fa fa-angle-down"></i></span>
-                  <a href="#">Transmission Type</a>
-                  <ul class="children">
-                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="transmissionType" value="Automatic"> Automatic<span class="count">12</span></a></li>
-                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="transmissionType" value="Manual"> Manual<span class="count">12</span></a></li>
-                  </ul>
-                </li>
-                <li>
-                  <span class="arrow"><i class="fa fa-angle-down"></i></span>
-                  <a href="#">Fuel Type</a>
-                  <ul class="children">
-                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="fuelType" value="Petrol"> Petrol<span class="count">12</span></a></li>
-                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="fuelType" value="Diesel"> Diesel<span class="count">12</span></a></li>
-                  </ul>
-                </li>
+    <aside class="col-md-3 sidebar no-top-margin" id="sidebar">
 
-                <li>
-                  <button class="btn btn-theme btn-theme-dark" (click)="filter($event)">Filter</button>
-                </li>
 
+      <div class="widget shadow car-categories">
+        <h4 class="widget-title">Filter</h4>
+        <div class="widget-content">
+          <ul>
+            <li>
+              <span class="arrow"><i class="fa fa-angle-down"></i></span>
+              <a href="#">Car Type</a>
+              <ul class="children">
+                <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Compact"> Compact<span class="count">12</span></a></li>
+                <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Sedan"> Sedan<span class="count">12</span></a></li>
+                <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="SUV"> SUV<span class="count">12</span></a></li>
+                <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Sports"> Sports Car<span class="count">12</span></a></li>
+                <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Luxury"> Luxury Car<span class="count">12</span></a></li>
               </ul>
-            </div>
-          </div>
+            </li>
+            <li>
+              <span class="arrow"><i class="fa fa-angle-down"></i></span>
+              <a href="#">Price</a>
+              <ul class="children">
+                <li>
+                  <div class="widget-content">
+                    <div id="slider-range"></div>
+                    <input type="text" id="amount" name="amount"/>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <span class="arrow"><i class="fa fa-angle-down"></i></span>
+              <a href="#">Transmission Type</a>
+              <ul class="children">
+                <li><a class="link-checkbox" href="#"><input type="checkbox" name="transmissionType" value="Automatic"> Automatic<span class="count">12</span></a></li>
+                <li><a class="link-checkbox" href="#"><input type="checkbox" name="transmissionType" value="Manual"> Manual<span class="count">12</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <span class="arrow"><i class="fa fa-angle-down"></i></span>
+              <a href="#">Fuel Type</a>
+              <ul class="children">
+                <li><a class="link-checkbox" href="#"><input type="checkbox" name="fuelType" value="Petrol"> Petrol<span class="count">12</span></a></li>
+                <li><a class="link-checkbox" href="#"><input type="checkbox" name="fuelType" value="Diesel"> Diesel<span class="count">12</span></a></li>
+              </ul>
+            </li>
 
+            <li>
+              <button class="btn btn-theme btn-theme-dark" (click)="filter($event)">Filter</button>
+            </li>
 
-          <div class="widget shadow widget-helping-center">
-            <h4 class="widget-title">Still Need Help ?</h4>
-            <div class="widget-content">
-              <p>Call us now to get support</p>
-              <h5 class="widget-title-sub">+1 (888)-888-8888</h5>
-              <p><a href="mailto:support@supportcenter.com">support@torq.com</a></p>
-              <div class="button">
-                <a href="contact.html" class="btn btn-block btn-theme btn-theme-dark">Contact US</a>
-              </div>
-            </div>
-          </div>
-
-        </aside>
-
-
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+
+
+      <div class="widget shadow widget-helping-center">
+        <h4 class="widget-title">Still Need Help ?</h4>
+        <div class="widget-content">
+          <p>Call us now to get support</p>
+          <h5 class="widget-title-sub">+1 (888)-888-8888</h5>
+          <p><a href="mailto:support@supportcenter.com">support@torq.com</a></p>
+          <div class="button">
+            <a href="contact.html" class="btn btn-block btn-theme btn-theme-dark">Contact US</a>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+      </div>
+
+
+</div>
+
+</section>
 
 
 </div>
