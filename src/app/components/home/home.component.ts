@@ -24,9 +24,10 @@ export class HomeComponent implements OnInit {
     this.carService.getCars(location, pickup, drop)
       .subscribe((cars: any) =>{
         if(cars){
+          console.log(cars);
           this.router.navigate(['/car']);
         }
-      })
+      });
 
   }
 

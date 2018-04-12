@@ -63,13 +63,8 @@ export class CarService {
     this.searchParameters.pickup = pickup;
     this.searchParameters.dropoff = drop;
 
-    const url = '/searchCar';
-    return this.http.post(url, this.searchParameters)
-      .map((response: Response)=>{
-        return response.json();
-      });
-
-
+    const url = '/api/car/searchCar';
+    return this.http.post<Car[]>(url, this.searchParameters);
   }
 
   getCarById(carId) {
