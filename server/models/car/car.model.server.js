@@ -13,16 +13,9 @@ module.exports = function () {
     return c.save();
   };
 
-  carSchema.statics.findCars = function (loc, pickup, dropoff) {
+  carSchema.statics.findCars = function (search) {
     var Cars = db.model('Car', carSchema);
-    return Cars.find({
-      location: {
-        $near: {
-          $geometry: {type: "Point", coordinates: loc},
-          $maxDistance: 32000
-        }
-      }
-    });
+    return Cars.find(search);
   };
 
   var autoIncrement = require('mongoose-auto-increment');

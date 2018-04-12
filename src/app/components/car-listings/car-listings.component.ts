@@ -24,11 +24,12 @@ export class CarListingsComponent implements OnInit {
       this.searchParams = {
         location: params['location'],
         pickupDate: params['pickupDate'],
-        returnDate: params['returnDate']
+        returnDate: params['returnDate'],
+        filterParams: undefined
       };
     });
 
-    this.carService.getCars(this.searchParams.location, this.searchParams.pickupDate, this.searchParams.returnDate)
+    this.carService.getCars(this.searchParams)
       .subscribe((result: Car[]) => {
         this.cars = result;
       });
@@ -45,6 +46,13 @@ export class CarListingsComponent implements OnInit {
       priceLow: price[0],
       priceHigh: price[1]
     };
+    this.searchParams.filterParams = this.filterParams;
+    debugger;
+
+    this.carService.getCars(this.searchParams)
+      .subscribe((result: Car[]) => {
+        this.cars = result;
+      });
     debugger;
   }
 

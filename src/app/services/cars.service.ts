@@ -47,7 +47,7 @@ export class CarService {
 
   }
 
-  getCars(location: string, pickup: string, drop: string) {
+  getCars(search: SearchParams) {
     // Use searchParams to fetch cars from the server
     // if (this.searchParams == undefined) {
     //   return [];
@@ -56,11 +56,8 @@ export class CarService {
 
 
     // Make HTTP request to fetch cars
-    var searchParameters: any = {};
-    searchParameters['location'] = location;
-    searchParameters['pickup'] = pickup;
-    searchParameters['dropoff'] = drop;
-    return this.http.post<Car[]>('/api/car/searchCar', searchParameters);
+
+    return this.http.post<Car[]>('/api/car/searchCar', search);
   }
 
   getCarById(carId) {

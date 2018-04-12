@@ -36,14 +36,7 @@ export class HomeComponent implements OnInit {
     this.location = autocomplete.getPlace().geometry.location.lng() + "," + autocomplete.getPlace().geometry.location.lat();
     this.pickupDate = (<HTMLInputElement>document.getElementById("pickupDate")).value;
     this.returnDate = (<HTMLInputElement>document.getElementById("returnDate")).value;
-    this.carService.getCars(this.location, this.pickupDate, this.returnDate)
-      .subscribe((cars: any) => {
-        if (cars) {
-          console.log(cars);
-          debugger;
-          this.router.navigate(['/car'], {queryParams: {location: this.location, pickupDate: this.pickupDate, returnDate: this.returnDate}});
-        }
-      });
+    this.router.navigate(['/car'], {queryParams: {location: this.location, pickupDate: this.pickupDate, returnDate: this.returnDate}});
 
   }
 }

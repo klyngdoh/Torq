@@ -24,7 +24,7 @@ module.exports = {
 
     var and = [];
 
-    add.push({
+    and.push({
       location: {
         $near: {
           $geometry: {type: "Point", coordinates: loc},
@@ -33,42 +33,48 @@ module.exports = {
       }
     });
     console.log(search);
-    if (search.carType != undefined) {
-      add.push({
-        type: {
-          $in: search.carType
-        }
-      });
+
+    if(search.filterParams != undefined) {
+      if (search.filterParams.carType != undefined) {
+        and.push({
+          type: {
+            $in: search.filterParams.carType
+          }
+        });
+      }
+
+
+      if (search.filterParams.transmissionType != undefined) {
+        and.push({
+          transmission: {
+            $in: search.filterParams.transmissionType
+          }
+        });
+      }
+
+      if (search.filterParams.fuelType != undefined) {
+        and.push({
+          fuel: {
+            $in: search.filterParams.fuelType
+          }
+        });
+      }
+
+      if (search.filterParams.priceLow != undefined && search.filterParams.priceHigh != undefined) {
+        and.push({
+          pricePerDay: {
+            $gte: search.filterParams.priceLow,
+            $lte: search.filterParams.priceHigh
+          }
+        });
+      }
     }
 
-
-    if (search.transmissionType != undefined) {
-      add.push({
-        transmission: {
-          $in: search.transmissionType
-        }
-      });
-    }
-
-    if (search.fuelType != undefined) {
-      add.push({
-        fuel: {
-          $in: search.fuelType
-        }
-      });
-    }
-
-    if (search.priceLow != undefined && search.priceHigh != undefined) {
-      add.push({
-        pricePerDay: {
-          $gte: search.priceLow,
-          $lte: search.priceHigh
-        }
-      });
-    }
+    var mongoSearch = {$and: and};
+    console.log(mongoSearch);
 
 
-    carModel.findCars(location, pickup, dropoff).then(function (result) {
+    carModel.findCars(mongoSearch).then(function (result) {
       res.json(result);
     }).catch(function (err) {
       res.status(500).json({error: err});
