@@ -11,10 +11,8 @@ router.post('/addCar', function (req, res) {
 
 // Search and filter cars
 router.post('/searchCar', function (req, res) {
-  var location = req.body['location'];
-  var pickup = req.body['pickup'];
-  var dropoff = req.body['dropoff'];
-  handler.findCars(location, pickup, dropoff, res);
+  var search = req.body;
+  handler.findCars(search, res);
 });
 
 
