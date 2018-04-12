@@ -23,6 +23,13 @@ jQuery.fn.slideFadeOut = function (speed, easing, callback) {
 };
 
 jQuery(document).ready(function () {
+
+  $('.link-checkbox').click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var chk = $(this).parent().find('input:checkbox');
+    chk.prop("checked", !chk.prop('checked'));
+  });
     // Prevent empty links
     // ---------------------------------------------------------------------------------------
     $('a[href=#]').on('click', function (event) {
@@ -290,4 +297,16 @@ var autocomplete;
 function init() {
   var input = document.getElementById('formSearchUpLocation');
    autocomplete = new google.maps.places.Autocomplete(input);
+}
+
+
+function getCheckedElements(name) {
+  var elemName = 'input[name='+name+']:checked';
+  return $(elemName).map(function(){
+    return $(this).val();
+  }).get();
+}
+
+function getSliderValues() {
+  return $('#slider-range').slider("values");
 }

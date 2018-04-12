@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FilterParams} from "../../models/filterparams.interface";
 
 @Component({
   selector: 'app-car-listings',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarListingsComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
+
+  filterParams: FilterParams;
 
   ngOnInit() {
+
+  }
+
+  filter($event) {
+    $event.preventDefault();
+    var price = getSliderValues();
+
+    this.filterParams = {
+      carType: getCheckedElements("carType"),
+      fuelType: getCheckedElements("fuelType"),
+      transmission: getCheckedElements("transmissionType"),
+      priceLow: price[0],
+      priceHigh: price[1]
+    };
+    debugger;
   }
 
 }
+
+declare var getCheckedElements;
+declare var getSliderValues;
