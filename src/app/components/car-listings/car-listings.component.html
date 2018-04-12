@@ -293,11 +293,11 @@
                   <span class="arrow"><i class="fa fa-angle-down"></i></span>
                   <a href="#">Car Type</a>
                   <ul class="children">
-                    <li><a href="#">Compact<span class="count">12</span></a></li>
-                    <li><a href="#">Sedan<span class="count">12</span></a></li>
-                    <li><a href="#">SUV<span class="count">12</span></a></li>
-                    <li><a href="#">Sports Car<span class="count">12</span></a></li>
-                    <li><a href="#">Luxury Car<span class="count">12</span></a></li>
+                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Compact"> Compact<span class="count">12</span></a></li>
+                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Sedan"> Sedan<span class="count">12</span></a></li>
+                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="SUV"> SUV<span class="count">12</span></a></li>
+                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Sports"> Sports Car<span class="count">12</span></a></li>
+                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="carType" value="Luxury"> Luxury Car<span class="count">12</span></a></li>
                   </ul>
                 </li>
                 <li>
@@ -307,7 +307,7 @@
                     <li>
                       <div class="widget-content">
                         <div id="slider-range"></div>
-                        <input type="text" id="amount" readonly/>
+                        <input type="text" id="amount" name="amount"/>
                       </div>
                     </li>
                   </ul>
@@ -316,21 +316,21 @@
                   <span class="arrow"><i class="fa fa-angle-down"></i></span>
                   <a href="#">Transmission Type</a>
                   <ul class="children">
-                    <li><a href="#">Automatic<span class="count">12</span></a></li>
-                    <li><a href="#">Manual<span class="count">12</span></a></li>
+                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="transmissionType" value="Automatic"> Automatic<span class="count">12</span></a></li>
+                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="transmissionType" value="Manual"> Manual<span class="count">12</span></a></li>
                   </ul>
                 </li>
                 <li>
                   <span class="arrow"><i class="fa fa-angle-down"></i></span>
                   <a href="#">Fuel Type</a>
                   <ul class="children">
-                    <li><a href="#">Petrol<span class="count">12</span></a></li>
-                    <li><a href="#">Diesel<span class="count">12</span></a></li>
+                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="fuelType" value="Petrol"> Petrol<span class="count">12</span></a></li>
+                    <li><a class="link-checkbox" href="#"><input type="checkbox" name="fuelType" value="Diesel"> Diesel<span class="count">12</span></a></li>
                   </ul>
                 </li>
 
                 <li>
-                  <button class="btn btn-theme btn-theme-dark">Filter</button>
+                  <button class="btn btn-theme btn-theme-dark" (click)="filter($event)">Filter</button>
                 </li>
 
               </ul>

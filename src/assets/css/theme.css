@@ -2855,7 +2855,7 @@ input:focus:-ms-input-placeholder {
     line-height: 15px;
     text-transform: none;
     margin-top: 5px;
-    padding-left: 30px;
+    padding-left: 5px;
 }
 
 .widget.car-categories ul ul.children li {
