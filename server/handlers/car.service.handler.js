@@ -7,5 +7,13 @@ module.exports = {
     }).catch(function(err){
       res.status(500).json({error: err});
     });
+  },
+
+  findCars: function(location, pickup, dropoff) { // , fuelType, carType, transmission, priceHigh, priceLow) {
+    carModel.findCars(location, pickup, dropoff).then(function (result) {
+      res.json(result);
+    }).catch(function(err) {
+      res.status(500).json({error: err});
+    });
   }
 }
