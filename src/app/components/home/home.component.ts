@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
         if (cars) {
           console.log(cars);
           debugger;
-          this.router.navigate(['/car'], {queryParams: {location: this.location, pickup: this.pickupDate, dropoff: this.returnDate}});
+          this.router.navigate(['/car'], {queryParams: {location: this.location, pickupDate: this.pickupDate, returnDate: this.returnDate}});
         }
       });
 
