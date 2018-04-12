@@ -161,6 +161,28 @@ function updater() {
   if ($().selectpicker) {
     $('.selectpicker').selectpicker();
   }
+
+  if ($('.img-carousel').length) {
+    $('.img-carousel').owlCarousel({
+      autoplay: false,
+      loop: true,
+      margin: 0,
+      dots: true,
+      nav: true,
+      navText: [
+        "<i class='fa fa-angle-left'></i>",
+        "<i class='fa fa-angle-right'></i>"
+      ],
+      responsiveRefreshRate: 100,
+      responsive: {
+        0: {items: 1},
+        479: {items: 1},
+        768: {items: 1},
+        991: {items: 1},
+        1024: {items: 1}
+      }
+    });
+  }
 }
 
 jQuery(window).resize(function () {

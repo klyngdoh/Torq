@@ -4,5 +4,4 @@ export interface FilterParams{
   transmission: string[];
   priceLow: number;
   priceHigh: number;
-
 }

@@ -13,7 +13,7 @@ router.post('/login', function (req, res) {
     res.json({message: "Missing fields"});
   } else {
     // Find users by credentials
-    handler.findUserByCredentials(username, password, res);
+    handler.findUserByCredentials(username, password, req.session, res);
   }
 
 });
@@ -29,7 +29,7 @@ router.post('/:type/register', function (req, res) {
   //     res.json({message: "Missing fields"});
   //   }
   // }
-  handler.addUser(req.body, req.params.type, res);
+  handler.addUser(req.body, req.params.type, req.session, res);
 });
 
 // Find user by ID
@@ -38,7 +38,7 @@ router.get('/:userId', function (req, res) {
     res.status(400);
     res.json({message: "Bad Request"});
   } else {
-    handler.findUserById(req.params.userId, res);
+    handler.findUserById(req.params.userId, req.session, res);
   }
 });
 

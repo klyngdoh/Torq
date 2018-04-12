@@ -1,25 +1,10 @@
-/*const express = require('express')
-const path = require('path')
-const PORT = process.env.PORT || 5000
-
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))*/
-
-
 const express = require('express');
 
 const path = require('path');
 var bodyParser = require('body-parser');
-
+var session = require('express-session');
 var app = express();
 
-// Run the app by serving the static files
-// in the dist directory
-//app.use(express.static(__dirname + '/src/app'));
 
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
@@ -28,6 +13,44 @@ app.use(express.static(distDir));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+var sess = ({
+
+  resave: true,
+
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 },
+  name: "TSessionID"
+
+});
+
+if (app.get('env' === 'production')) {
+
+  sess.secret = process.env.SESSION_SECRET;
+
+} else {
+
+  sess.secret = "T0rqS3cre+";
+
+}
+
+app.use(session(sess));
+
+var checkSession = function (req, res, next) {
+  var unauthURLS = ["/api/user/login", "/api/user/customer/register", "/api/user/renter/register"];
+  if(unauthURLS.indexOf(req.path) == -1  ) {
+    //check session here
+    if(req.session.user == undefined) {
+      res.status(401).json({unauthorized: true});
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+}
+
+app.use(checkSession);
 
 var services = require("./server/app.js")(app);
 
