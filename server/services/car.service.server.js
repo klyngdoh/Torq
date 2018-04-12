@@ -9,4 +9,13 @@ router.post('/addCar', function (req, res) {
   handler.addNewCar(car, res);
 });
 
+// Search and filter cars
+router.post('/searchCar', function (req, res) {
+  var location = req.body['location'];
+  var pickup = req.body['pickup'];
+  var dropoff = req.body['dropoff'];
+  handler.findCars(location, pickup, dropoff);
+});
+
+
 module.exports = router;

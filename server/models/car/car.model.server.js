@@ -23,6 +23,11 @@ module.exports = function() {
     return User.findOne({_id: userId});
   };
 
+  carSchema.statics.findCars = function(loc, pickup, dropoff){
+    var Cars = db.model('Car', carSchema);
+    return Cars.find({location: loc});
+  };
+
   var autoIncrement = require('mongoose-auto-increment');
   autoIncrement.initialize(db);
   carSchema.plugin(autoIncrement.plugin, 'Car');
