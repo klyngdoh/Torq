@@ -24,26 +24,27 @@
                                 <div class="col-sm-5">
                                   <div class="form-group has-icon has-label">
                                     <label for="formSearchUpLocation">Location</label>
-                                    <input type="text" class="form-control" id="formSearchUpLocation" placeholder="Airport or Anywhere">
+                                    <input [(ngModel)]="location" type="text" class="form-control" id="formSearchUpLocation" placeholder="Airport or Anywhere">
                                     <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
                                   <div class="form-group has-icon has-label">
                                     <label for="formSearchUpDate">Pickup</label>
-                                    <input type="text" class="form-control datepicker" id="formSearchUpDate" placeholder="Pickup date and time">
+                                    <input [(ngModel)]="pickupDate" type="text" class="form-control datepicker" id="formSearchUpDate" placeholder="Pickup date and time">
                                     <span class="form-control-icon"><i class="fa fa-calendar"></i></span>
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
                                   <div class="form-group has-icon has-label selectpicker-wrapper">
                                     <label>Return</label>
-                                    <input class="form-control datepicker" title="Select" placeholder="Return date and time"/>
+                                    <input [(ngModel)]="returnDate" class="form-control datepicker" title="Select" placeholder="Return date and time"/>
                                     <span class="form-control-icon"><i class="fa fa-calendar"></i></span>
                                   </div>
                                 </div>
                                 <div class="col-sm-1">
-                                  <a routerLink="/car" class="btn btn-block btn-success" id="btn-go">Go</a>
+                                  <!--<a routerLink="/car" class="btn btn-block btn-success" id="btn-go">Go</a> -->
+                                  <a (click)="searchCars(location, pickupDate, returnDate)" class="btn btn-block btn-success" id="btn-go">Go</a>
                                 </div>
                               </div>
                             </div>

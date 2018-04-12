@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Car} from "../models/car.interface";
 import {FilterParams} from "../models/filterparams.interface";
 import {SearchParams} from "../models/searchparams.interface";
+import 'rxjs/add/operator/map';
 
 
 // injecting service into module
@@ -11,6 +12,8 @@ export class CarService {
 
   constructor(private http: HttpClient) {
   }
+
+  searchParameters ={location:"" , pickup: "", dropoff: "" };
 
   cars: [{
     name: "VW POLO TRENDLINE 2.0 TDI",
@@ -46,13 +49,27 @@ export class CarService {
 
   }
 
-  getCars() {
+  getCars(location: string, pickup: string, drop: string) {
     // Use searchParams to fetch cars from the server
-    if (this.searchParams == undefined) {
-      return [];
-    } else {
-      // Make HTTP request to fetch cars
-    }
+    // if (this.searchParams == undefined) {
+    //   return [];
+    // } else {
+    //}
+
+
+    // Make HTTP request to fetch cars
+
+    this.searchParameters.location = location;
+    this.searchParameters.pickup = pickup;
+    this.searchParameters.dropoff = drop;
+
+    const url = '/searchCar';
+    return this.http.post(url, this.searchParameters)
+      .map((response: Response)=>{
+        return response.json();
+      });
+
+
   }
 
   getCarById(carId) {
@@ -66,6 +83,6 @@ export class CarService {
 
   updateSearch(params: SearchParams) {
     this.searchParams = params;
-    return this.getCars();
+    //return this.getCars();
   }
 }
