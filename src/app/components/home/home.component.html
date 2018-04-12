@@ -18,7 +18,8 @@
                       <div class="col-sm-12 col-md-10 col-md-offset-1">
 
                         <div class="form-search dark" id="landing-search">
-                          <form action="#">
+
+                          <form (ngSubmit)="searchCars()" #f="ngForm">
                             <div class="row row-inputs">
                               <div class="container-fluid">
                                 <div class="col-sm-5">
@@ -44,13 +45,14 @@
                                 </div>
                                 <div class="col-sm-1">
                                   <!--<a routerLink="/car" class="btn btn-block btn-success" id="btn-go">Go</a> -->
-                                  <a (click)="searchCars(location, pickupDate, returnDate)" class="btn btn-block btn-success" id="btn-go">Go</a>
+                                  <a (click)="searchCars($event)" class="btn btn-block btn-success" id="btn-go">Go</a>
                                 </div>
                               </div>
                             </div>
 
 
                           </form>
+
                         </div>
 
                       </div>

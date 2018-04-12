@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CarService} from "../../services/cars.service";
 import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  @ViewChild('f') searchForm: NgForm;
 
   location: string;
   pickupDate: string;
@@ -20,8 +23,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchCars(location: string, pickup: string, drop: string){
-    this.carService.getCars(location, pickup, drop)
+  searchCars(){
+    this.location  = this.searchForm.value.location;
+    this.pickupDate  = this.searchForm.value.pickupDate;
+    this.returnDate  = this.searchForm.value.returnDate;
+    this.carService.getCars(this.location, this.pickupDate, this.returnDate)
       .subscribe((cars: any) =>{
         if(cars){
           console.log(cars);
