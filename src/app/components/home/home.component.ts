@@ -16,25 +16,34 @@ export class HomeComponent implements OnInit {
   pickupDate: string;
   returnDate: string;
 
-
   constructor(private carService: CarService,
-              private router: Router) { }
-
-  ngOnInit() {
+              private router: Router) {
   }
 
-  searchCars(){
-    this.location  = this.searchForm.value.location;
-    this.pickupDate  = this.searchForm.value.pickupDate;
-    this.returnDate  = this.searchForm.value.returnDate;
+  ngOnInit() {
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBanZIbd_W68mQK--XRGvtdo64R46hBm6U&libraries=places&callback=init';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'g-maps'));
+  }
+
+  searchCars() {
+    this.location = autocomplete.getPlace().geometry.location.lng() + "," + autocomplete.getPlace().geometry.location.lat();
+    this.pickupDate = (<HTMLInputElement>document.getElementById("pickupDate")).value;
+    this.returnDate = (<HTMLInputElement>document.getElementById("returnDate")).value;
     this.carService.getCars(this.location, this.pickupDate, this.returnDate)
-      .subscribe((cars: any) =>{
-        if(cars){
+      .subscribe((cars: any) => {
+        if (cars) {
           console.log(cars);
           this.router.navigate(['/car']);
         }
       });
 
   }
-
 }
+
+declare var autocomplete: any;

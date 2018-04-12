@@ -41,7 +41,8 @@ var checkSession = function (req, res, next) {
   if(unauthURLS.indexOf(req.path) == -1  ) {
     //check session here
     if(req.session.user == undefined) {
-      res.status(401).json({unauthorized: true});
+      //res.status(401).json({unauthorized: true});
+      next();
     } else {
       next();
     }

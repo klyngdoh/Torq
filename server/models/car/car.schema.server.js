@@ -32,7 +32,7 @@ module.exports = new Schema({
   rating: Number,
   comments: [commentSchema],
   location: {
-    type: { type: String }
-    , coordinates: []
+    type: { type: String, default: 'Point' },
+    coordinates:{type: [Number]}
   }
 });

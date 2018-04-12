@@ -14,7 +14,7 @@ router.post('/searchCar', function (req, res) {
   var location = req.body['location'];
   var pickup = req.body['pickup'];
   var dropoff = req.body['dropoff'];
-  handler.findCars(location, pickup, dropoff);
+  handler.findCars(location, pickup, dropoff, res);
 });
 
 

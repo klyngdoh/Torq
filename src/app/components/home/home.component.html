@@ -19,27 +19,27 @@
 
                         <div class="form-search dark" id="landing-search">
 
-                          <form (ngSubmit)="searchCars()" #f="ngForm">
+                          <form (ngSubmit)="searchCars()">
                             <div class="row row-inputs">
                               <div class="container-fluid">
                                 <div class="col-sm-5">
                                   <div class="form-group has-icon has-label">
                                     <label for="formSearchUpLocation">Location</label>
-                                    <input [(ngModel)]="location" type="text" class="form-control" id="formSearchUpLocation" placeholder="Airport or Anywhere">
+                                    <input [(ngModel)]="location" type="text" class="form-control" name="location" id="formSearchUpLocation" placeholder="Airport or Anywhere">
                                     <span class="form-control-icon"><i class="fa fa-map-marker"></i></span>
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
                                   <div class="form-group has-icon has-label">
-                                    <label for="formSearchUpDate">Pickup</label>
-                                    <input [(ngModel)]="pickupDate" type="text" class="form-control datepicker" id="formSearchUpDate" placeholder="Pickup date and time">
+                                    <label for="pickupDate">Pickup</label>
+                                    <input [(ngModel)]="pickupDate" type="text" class="form-control datepicker" name="pickupDate" id="pickupDate" placeholder="Pickup date and time">
                                     <span class="form-control-icon"><i class="fa fa-calendar"></i></span>
                                   </div>
                                 </div>
                                 <div class="col-sm-3">
                                   <div class="form-group has-icon has-label selectpicker-wrapper">
                                     <label>Return</label>
-                                    <input [(ngModel)]="returnDate" class="form-control datepicker" title="Select" placeholder="Return date and time"/>
+                                    <input [(ngModel)]="returnDate" class="form-control datepicker" title="Select" name="returnDate" id="returnDate" placeholder="Return date and time"/>
                                     <span class="form-control-icon"><i class="fa fa-calendar"></i></span>
                                   </div>
                                 </div>
@@ -211,14 +211,9 @@
     </div>
   </section>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBanZIbd_W68mQK--XRGvtdo64R46hBm6U&libraries=places&callback=init"
-        async defer></script>
+<script src=""></script>
 
 <script src="assets/js/theme.js"></script>
 <script>
-  function init() {
-    var input = document.getElementById('formSearchUpLocation');
-    var autocomplete = new google.maps.places.Autocomplete(input);
-  }
 
 </script>

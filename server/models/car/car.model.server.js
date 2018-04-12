@@ -2,7 +2,7 @@ var carSchema = require('./car.schema.server.js');
 const db = require('../models.server.js');
 
 
-module.exports = function() {
+module.exports = function () {
 
   carSchema.statics.addNewCar = function (car) {
     var Car = db.model('Car', carSchema);
@@ -13,19 +13,16 @@ module.exports = function() {
     return c.save();
   };
 
-  carSchema.statics.findUserByCredentials = function(username, password){
-    var User = db.model('Car', carSchema);
-    return User.findOne({username: username, password: password});
-  };
-
-  carSchema.statics.findUserById = function(userId){
-    var User = db.model('Car', carSchema);
-    return User.findOne({_id: userId});
-  };
-
-  carSchema.statics.findCars = function(loc, pickup, dropoff){
+  carSchema.statics.findCars = function (loc, pickup, dropoff) {
     var Cars = db.model('Car', carSchema);
-    return Cars.find({location: loc});
+    return Cars.find({
+      location: {
+        $near: {
+          $geometry: {type: "Point", coordinates: loc},
+          $maxDistance: 32000
+        }
+      }
+    });
   };
 
   var autoIncrement = require('mongoose-auto-increment');
