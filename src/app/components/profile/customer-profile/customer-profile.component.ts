@@ -12,24 +12,22 @@ export class CustomerProfileComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService) { }
 
-  userId: string;
-  user: User;
+  customerId: string;
+  customerFirstName: string;
+  customerLastName: string;
+  customerName: string;
 
   ngOnInit() {
-    this.activatedRoute.params
-      .subscribe(
-        (params: any) => {
-          this.userId = params['uid'];
-        }
-      );
+    this.activatedRoute.params.subscribe((params: any) => {
+      this.customerId = params['uid'];
+      this.userService.getUserById(this.customerId)
+        .subscribe((user) => {
+          this.customerFirstName = user.firstName;
+          this.customerLastName = user.lastName;
+          this.customerName = this.customerFirstName + ' ' + this.customerLastName;
+        })
+    });
 
-    this.user = this.userService.getUser();
-
-    /*this.userService.getUserById(this.userId).subscribe(data => {
-      this.user = data;
-    }, error => {
-      debugger;
-    });*/
 
 
   }
