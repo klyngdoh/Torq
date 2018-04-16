@@ -33,7 +33,6 @@ module.exports = new Schema({
   comments: [commentSchema],
   location: {
     type: { type: String, default: 'Point' },
-    coordinates:{type: [Number]},
-    index: "2dsphere"
+    coordinates:{type: [Number] }
   }
 });
