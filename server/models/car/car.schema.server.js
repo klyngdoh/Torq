@@ -11,7 +11,7 @@ module.exports = new Schema({
   model: String,
   type: {
     type: String,
-    enum: ["Compact", "Sedan", "SUV","Sports", "Luxury"]
+    enum: ["Compact", "Sedan", "SUV", "Sports", "Luxury"]
   },
   transmission: {
     type: String,
@@ -26,13 +26,13 @@ module.exports = new Schema({
   year: Number,
   mileage: Number,
   VIN: String,
-  photos:[String],
+  photos: [String],
   trips: [tripSchema],
-  renter: {_id: String, firstName: String, lastName: String, displayPicUrl:String},
+  renter: {_id: String, firstName: String, lastName: String, displayPicUrl: String},
   rating: Number,
   comments: [commentSchema],
   location: {
-    type: { type: String, default: 'Point' },
-    coordinates:{type: [Number] }
+    type: {type: String, default: 'Point'},
+    coordinates: {type: [Number]}
   }
 });
