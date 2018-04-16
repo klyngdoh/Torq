@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {User} from "../../models/user.interface";
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute} from "@angular/router";
@@ -8,7 +8,7 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, AfterViewInit {
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
@@ -39,4 +39,8 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  ngAfterViewInit() {
+    addRateYo(4.6);
+  }
 }
+declare var addRateYo;

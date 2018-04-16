@@ -71,6 +71,7 @@ export class CustomerRegisterComponent implements OnInit {
       firstName: this.firstname,
       lastName: this.lastname,
       dob: this.dob,
+      rating: 0
     };
 
     this.userService.addUser(user, "customer").subscribe(data => {

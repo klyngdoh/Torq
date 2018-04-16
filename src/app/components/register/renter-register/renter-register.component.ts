@@ -64,6 +64,7 @@ export class RenterRegisterComponent implements OnInit {
       firstName: this.firstname,
       lastName: this.lastname,
       dob: this.dob,
+      rating: 0
     };
 
     this.userService.addUser(user, "renter").subscribe(data => {

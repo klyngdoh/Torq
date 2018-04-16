@@ -5,9 +5,16 @@ module.exports = {
   addUser: function (body, type, sess, res) {
     var user = body;
     user.type = type;
+    user.rating = 4.0;
 
     userModel.addUser(user).then(function (result) {
-      var user = {_id: result._id, firstName: result.firstName, lastName: result.lastName, displayPicUrl: result.displayPicUrl};
+      var user = {
+        _id: result._id,
+        firstName: result.firstName,
+        lastName: result.lastName,
+        displayPicUrl: result.displayPicUrl,
+        rating: result.rating
+      };
       sess.user = user;
       res.json(result);
     }).catch(function (err) {
