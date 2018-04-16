@@ -9,7 +9,7 @@ export interface Car{
   year: number;
   fuel: string;
   mileage: number;
-  images: string[];
+  photos: string[];
   vin: number;
   rating: number;
   location: string;

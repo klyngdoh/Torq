@@ -10,6 +10,9 @@ var app = express();
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
+var uploadsDir = __dirname + "/uploads/";
+app.use(express.static(uploadsDir));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

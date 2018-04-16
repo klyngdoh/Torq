@@ -18,6 +18,11 @@ module.exports = function () {
     return Cars.find(search);
   };
 
+  carSchema.statics.findCarById = function (id) {
+    var Cars = db.model('Car', carSchema);
+    return Cars.find({_id: id});
+  };
+
   var autoIncrement = require('mongoose-auto-increment');
   autoIncrement.initialize(db);
   carSchema.plugin(autoIncrement.plugin, 'Car');

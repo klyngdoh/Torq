@@ -34,7 +34,7 @@ export class CarService {
     'filterCars': this.filterCars
   };
 
-  addCar(car: Car) {
+  addCar(car: FormData) {
     return this.http.post<Car>("/api/car/addCar", car);
   }
 
@@ -61,7 +61,7 @@ export class CarService {
   }
 
   getCarById(carId) {
-
+    return this.http.get<Car>('/api/car/'+carId);
   }
 
   filterCars(searchParams: SearchParams, filterParams: FilterParams) {

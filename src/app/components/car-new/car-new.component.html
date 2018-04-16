@@ -125,15 +125,7 @@
 
             <div class="outer required">
               <div class="input-group form-group af-inner">
-                <label class="input-group-btn">
-                                        <span class="form-control btn btn-theme btn-theme-dark">Browse
-                                            <input name="carimages" id="carimages" type="file"/>
-                                        </span>
-                </label>
-                <input
-                  type="text" name="carimagetext" id="carimagetext" placeholder="Car Images"
-                  value="" size="30" data-toggle="tooltip" title="At least one image is required"
-                  class="form-control placeholder" readonly/>
+                <input type="file" name="myFile" (change)="fileChange($event)" multiple/>
               </div>
             </div>
 

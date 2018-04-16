@@ -3,10 +3,8 @@ module.exports = {
 
   addNewCar: function (car, sess, res) {
     car.renter = sess.user;
-    console.log("Location 1 ", car.location);
     var location = car.location.split(",");
-    console.log("Location = ", location);
-    car.location = {type: "Point", coordinates: [location[1], location[0]]};
+    car.location = {type: "Point", coordinates: [location[0], location[1]]};
     console.log("Going to add car ", car);
     carModel.addNewCar(car).then(function(data) {
       res.json(data);
@@ -32,10 +30,11 @@ module.exports = {
         }
       }
     });
-    console.log(search);
+
+    console.log(search.filterParams);
 
     if(search.filterParams != undefined) {
-      if (search.filterParams.carType != undefined) {
+      if (search.filterParams.carType.length > 0) {
         and.push({
           type: {
             $in: search.filterParams.carType
@@ -44,15 +43,15 @@ module.exports = {
       }
 
 
-      if (search.filterParams.transmissionType != undefined) {
+      if (search.filterParams.transmission.length > 0) {
         and.push({
           transmission: {
-            $in: search.filterParams.transmissionType
+            $in: search.filterParams.transmission
           }
         });
       }
 
-      if (search.filterParams.fuelType != undefined) {
+      if (search.filterParams.length > 0) {
         and.push({
           fuel: {
             $in: search.filterParams.fuelType
@@ -79,5 +78,16 @@ module.exports = {
     }).catch(function (err) {
       res.status(500).json({error: err});
     });
+  },
+
+
+  findCarById: function(carId, res){
+    carModel.findCarById(carId).then(function(car) {
+      res.json(car[0]);
+    }).catch(function (err) {
+      res.status(500).json({error: err});
+    });
   }
+
+
 }

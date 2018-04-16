@@ -70,8 +70,8 @@
           <div class="thumbnail no-border no-padding thumbnail-car-card clearfix"  *ngFor="let car of cars">
             <div class="media">
               <a class="media-link" data-gal="prettyPhoto"
-                 href="assets/img/preview/cars/car-370x220x5.jpg">
-                <img src="assets/img/preview/cars/golf-preview.jpg" alt="" class="car-preview"/>
+                 [href]="car.photos[0]">
+                <img [src]="car.photos[0]" alt="" class="car-preview"/>
               </a>
             </div>
             <div class="caption">
@@ -82,7 +82,7 @@
                                             --><span class="star active"></span><!--
                                             --><span class="star active"></span>
               </div>
-              <h4 class="caption-title"><a routerLink="/car/1">{{car.make}} {{car.model}}</a></h4>
+              <h4 class="caption-title"><a (click)="carView($event, car._id)" href="#">{{car.make}} {{car.model}}</a></h4>
               <h5 class="caption-title-sub">Start from ${{car.pricePerDay}}/per a day</h5>
               <div class="caption-text">Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.
                 Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices

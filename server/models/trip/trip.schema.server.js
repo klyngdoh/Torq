@@ -14,5 +14,4 @@ module.exports = new Schema({
     type: String,
     enum: ["New", "Approved", "Ongoing", "Completed"]
   }
-  //car: carSchema
 });

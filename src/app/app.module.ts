@@ -27,6 +27,7 @@ import {CarService} from "./services/cars.service";
 import {UserService} from "./services/user.service";
 import { HeaderComponent } from './components/header/header.component';
 import { CarNewComponent } from './components/car-new/car-new.component';
+import {AgmCoreModule} from "@agm/core";
 
 
 
@@ -57,7 +58,11 @@ import { CarNewComponent } from './components/car-new/car-new.component';
     BrowserModule,
     Routing,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBanZIbd_W68mQK--XRGvtdo64R46hBm6U',
+      libraries: ["places"]
+    })
   ],
   providers: [CarService, UserService],
   bootstrap: [AppComponent]

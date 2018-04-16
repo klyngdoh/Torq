@@ -26,21 +26,9 @@
             <div class="row">
               <div class="col-md-8">
                 <div class="owl-carousel img-carousel">
-                  <div class="item">
-                    <a class="btn btn-zoom" href="assets/img/preview/cars/golf1.png" data-gal="prettyPhoto"><i class="fa fa-arrows-h"></i></a>
-                    <a href="assets/img/preview/cars/golf2.png" data-gal="prettyPhoto"><img class="img-responsive" src="assets/img/preview/cars/golf1.png" alt=""/></a>
-                  </div>
-                  <div class="item">
-                    <a class="btn btn-zoom" href="assets/img/preview/cars/golf2.png" data-gal="prettyPhoto"><i class="fa fa-arrows-h"></i></a>
-                    <a href="assets/img/preview/cars/golf1.png" data-gal="prettyPhoto"><img class="img-responsive" src="assets/img/preview/golf2.png" alt=""/></a>
-                  </div>
-                  <div class="item">
-                    <a class="btn btn-zoom" href="assets/img/preview/cars/car-600x426x1.jpg" data-gal="prettyPhoto"><i class="fa fa-arrows-h"></i></a>
-                    <a href="assets/img/preview/cars/car-600x426x1.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="assets/img/preview/cars/car-600x426x1.jpg" alt=""/></a>
-                  </div>
-                  <div class="item">
-                    <a class="btn btn-zoom" href="assets/img/preview/cars/car-600x426x2.jpg" data-gal="prettyPhoto"><i class="fa fa-arrows-h"></i></a>
-                    <a href="assets/img/preview/cars/car-600x426x2.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="assets/img/preview/cars/car-600x426x2.jpg" alt=""/></a>
+                  <div class="item" *ngFor="let photo of photos">
+                    <a class="btn btn-zoom" [href]=photo data-gal="prettyPhoto"><i class="fa fa-arrows-h"></i></a>
+                    <a [href]=photo data-gal="prettyPhoto"><img class="img-responsive" [src]=photo alt=""/></a>
                   </div>
                 </div>
 
@@ -51,8 +39,7 @@
                     <ul>
                       <li class="title">
                         <a routerLink="/user/1/profile"><h4>John Doe's</h4></a>
-                        <h2>Volkswagen Golf <span>Diesel</span></h2>
-                        2.0 CC Comfortline 95 HP
+                        <h2>{{car.make}} {{car.model}} <span>{{car.fuel}}</span></h2>
                         <div class="rating">
                           <span class="star"></span><!--
                                             --><span class="star active"></span><!--
@@ -61,15 +48,15 @@
                                             --><span class="star active"></span>
                         </div>
                       </li>
-                      <li>Fuel Diesel / 1600 cm3 Engine</li>
-                      <li>Under 25,000 Km</li>
-                      <li>Maunal Transmission</li>
-                      <li>Manufacturing Year 2014</li>
+                      <li>Fuel {{car.fuel}} </li>
+                      <li>{{car.mileage}} Miles</li>
+                      <li>{{car.transmission}} Transmission</li>
+                      <li>Manufacturing Year {{car.year}}</li>
                       <li>5 Doors and Panorama View</li>
                     </ul>
                   </div>
                   <div class="price">
-                    <strong>$ 220.0</strong> <i class="fa fa-info-circle"></i>
+                    <strong>${{car.pricePerDay}}</strong> <i class="fa fa-info-circle"></i>
 
                     <div class="button">
                       <a routerLink="/car/1/checkout" class="btn btn-block btn-theme btn-theme-dark">CHECKOUT</a>

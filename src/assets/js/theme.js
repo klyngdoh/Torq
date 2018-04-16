@@ -43,28 +43,7 @@ jQuery(document).ready(function () {
 
 
 
-    $('.car-categories .arrow').on('click', function (event) {
 
-            $(this).parent().parent().find('ul.children').removeClass('active');
-            $(this).parent().parent().find('.fa-angle-up').addClass('fa-angle-down').removeClass('fa-angle-up');
-            if ($(this).parent().find('ul.children').is(":visible")) {
-                //$(this).find('.fa-angle-up').addClass('fa-angle-down').removeClass('fa-angle-up');
-                //$(this).parent().find('ul.children').removeClass('active');
-            }
-            else {
-                $(this).find('.fa-angle-down').addClass('fa-angle-up').removeClass('fa-angle-down');
-                $(this).parent().find('ul.children').addClass('active');
-            }
-            $(this).parent().parent().find('ul.children').each(function () {
-                if (!$(this).hasClass('active')) {
-                    $(this).slideFadeOut();
-                }
-                else {
-                    $(this).slideFadeIn();
-                }
-            });
-        }
-    );
     $('.car-categories ul.children').each(function () {
         if (!$(this).hasClass('active')) {
             $(this).hide();
@@ -147,49 +126,11 @@ function updater() {
         });
     }
 
-  if ($.ui) {
-    if ($('#slider-range').length) {
-      $('#slider-range').slider({
-        range: true,
-        min: 0,
-        max: 500,
-        values: [75, 300],
-        slide: function (event, ui) {
-          $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-        }
-      });
-      $("#amount").val(
-        "$" + $("#slider-range").slider("values", 0) +
-        " - $" + $("#slider-range").slider("values", 1)
-      );
-    }
-  }
-
   if ($().selectpicker) {
     $('.selectpicker').selectpicker();
   }
 
-  if ($('.img-carousel').length) {
-    $('.img-carousel').owlCarousel({
-      autoplay: false,
-      loop: true,
-      margin: 0,
-      dots: true,
-      nav: true,
-      navText: [
-        "<i class='fa fa-angle-left'></i>",
-        "<i class='fa fa-angle-right'></i>"
-      ],
-      responsiveRefreshRate: 100,
-      responsive: {
-        0: {items: 1},
-        479: {items: 1},
-        768: {items: 1},
-        991: {items: 1},
-        1024: {items: 1}
-      }
-    });
-  }
+
 }
 
 jQuery(window).resize(function () {
@@ -239,28 +180,6 @@ jQuery(window).scroll(function () {
             });
         }
 
-                // Images carousel
-        if (imageCarousel.length) {
-            imageCarousel.owlCarousel({
-                autoplay: false,
-                loop: true,
-                margin: 0,
-                dots: true,
-                nav: true,
-                navText: [
-                    "<i class='fa fa-angle-left'></i>",
-                    "<i class='fa fa-angle-right'></i>"
-                ],
-                responsiveRefreshRate: 100,
-                responsive: {
-                    0: {items: 1},
-                    479: {items: 1},
-                    768: {items: 1},
-                    991: {items: 1},
-                    1024: {items: 1}
-                }
-            });
-        }
         // Car carousel
         if (carCarousel.length) {
             carCarousel.owlCarousel({
@@ -309,4 +228,80 @@ function getCheckedElements(name) {
 
 function getSliderValues() {
   return $('#slider-range').slider("values");
+}
+
+
+function buildImgSlider() {
+  if ($('.img-carousel').length) {
+    var owl = $('.owl-carousel');
+    owl.on('changed.owl.carousel', function (e) {
+      // update prettyPhoto
+      if ($().prettyPhoto) {
+        $("a[data-gal^='prettyPhoto']").prettyPhoto({
+          theme: 'dark_square'
+        });
+      }
+    });
+    $('.img-carousel').owlCarousel({
+      autoplay: false,
+      loop: true,
+      margin: 0,
+      dots: true,
+      nav: true,
+      navText: [
+        "<i class='fa fa-angle-left'></i>",
+        "<i class='fa fa-angle-right'></i>"
+      ],
+      responsiveRefreshRate: 100,
+      responsive: {
+        0: {items: 1},
+        479: {items: 1},
+        768: {items: 1},
+        991: {items: 1},
+        1024: {items: 1}
+      }
+    });
+  }
+}
+
+function buildFilterWidget() {
+  $('.car-categories .arrow').on('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      $(this).parent().parent().find('ul.children').removeClass('active');
+      $(this).parent().parent().find('.fa-angle-up').addClass('fa-angle-down').removeClass('fa-angle-up');
+      if ($(this).parent().find('ul.children').is(":visible")) {
+      }
+      else {
+        $(this).find('.fa-angle-down').addClass('fa-angle-up').removeClass('fa-angle-down');
+        $(this).parent().find('ul.children').addClass('active');
+      }
+      $(this).parent().parent().find('ul.children').each(function () {
+        if (!$(this).hasClass('active')) {
+          $(this).slideFadeOut();
+        }
+        else {
+          $(this).slideFadeIn();
+        }
+      });
+    }
+  );
+
+  if ($.ui) {
+    if ($('#slider-range').length) {
+      $('#slider-range').slider({
+        range: true,
+        min: 0,
+        max: 500,
+        values: [75, 300],
+        slide: function (event, ui) {
+          $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+        }
+      });
+      $("#amount").val(
+        "$" + $("#slider-range").slider("values", 0) +
+        " - $" + $("#slider-range").slider("values", 1)
+      );
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
 import {FilterParams} from "../../models/filterparams.interface";
 import {SearchParams} from '../../models/searchparams.interface';
 import {Car} from '../../models/car.interface';
@@ -10,9 +10,9 @@ import {CarService} from '../../services/cars.service';
   templateUrl: './car-listings.component.html',
   styleUrls: ['./car-listings.component.css']
 })
-export class CarListingsComponent implements OnInit {
+export class CarListingsComponent implements OnInit, AfterViewInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private carService: CarService) {
+  constructor(private activatedRoute: ActivatedRoute, private carService: CarService, private router: Router) {
   }
 
   cars: Car[];
@@ -47,16 +47,26 @@ export class CarListingsComponent implements OnInit {
       priceHigh: price[1]
     };
     this.searchParams.filterParams = this.filterParams;
-    debugger;
 
     this.carService.getCars(this.searchParams)
       .subscribe((result: Car[]) => {
         this.cars = result;
       });
-    debugger;
   }
+
+  carView($event, id) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    this.router.navigate(['/car/'+id], {queryParams: {location: this.searchParams.location, pickupDate: this.searchParams.pickupDate, returnDate: this.searchParams.returnDate}});
+  }
+
+  ngAfterViewInit(): void {
+    buildFilterWidget();
+  }
+
 
 }
 
 declare var getCheckedElements;
 declare var getSliderValues;
+declare var buildFilterWidget;
