@@ -22,11 +22,12 @@ export class RenterRegisterComponent implements OnInit {
   username: string;
   password: string;
   email: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   verify: string;
   dob: string;
   errorFlag: boolean;
+  filesToUpload: Array<File> = [];
 
   login() {
     var user: User;
@@ -45,7 +46,42 @@ export class RenterRegisterComponent implements OnInit {
     });
   }
 
+  fileChange(files: any){
+    this.filesToUpload = <Array<File>>files.target.files;
+  }
+
   register($event) {
+
+    this.username = this.loginForm.value.username;
+    this.password = this.loginForm.value.password;
+    this.email = this.loginForm.value.email;
+    this.firstName = this.loginForm.value.firstName;
+    this.lastName = this.loginForm.value.lastName;
+    this.dob = this.loginForm.value.dob;
+
+    const _formData = new FormData();
+    _formData.append("username", this.username);
+    _formData.append("password", this.password);
+    _formData.append("email", this.email);
+    _formData.append("firstName", this.firstName);
+    _formData.append("lastName", this.lastName);
+    _formData.append("dov", this.dob);
+
+    const files: Array<File> = this.filesToUpload;
+
+    for(let i =0; i < files.length; i++){
+      _formData.append("images[]", files[i], files[i]['name']);
+    }
+
+    this.userService.addUser(_formData, "renter").subscribe(data => {
+      var usr: User = data;
+      if (usr._id != undefined) {
+        this.userService.setUser(usr);
+        this.router.navigate(['/']);
+      } else {
+        console.log("Error creating user");
+      }
+    });
 
     // uncomment once customer register works!!!!!
     //then change it as per image upload needs :
