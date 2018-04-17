@@ -22,8 +22,19 @@ router.post('/:type/register', function (req, res) {
   //     res.json({message: "Missing fields"});
   //   }
   // }
-  handler.addUser(req.body, req.params.type, req.session, res);
+  handler.addUser(req.body, req.params.type, req, res);
 });
+
+router.get('/logout', function(req, res) {
+  req.logout();
+  req.session.destroy(function(err) {
+    // cannot access session here
+    req.sessionID = null
+    res.json({status: "success"});
+  })
+
+});
+
 
 // Find user by ID
 router.get('/:userId', function (req, res) {
@@ -34,6 +45,8 @@ router.get('/:userId', function (req, res) {
     handler.findUserById(req.params.userId, req.session, res);
   }
 });
+
+
 
 // Update user
 router.put('/:userId', function (req, res) {
