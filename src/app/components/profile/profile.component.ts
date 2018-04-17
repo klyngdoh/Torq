@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
 import {User} from "../../models/user.interface";
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute} from "@angular/router";
@@ -8,7 +8,7 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit, AfterViewInit {
+export class ProfileComponent implements OnInit, AfterViewChecked {
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute) { }
 
@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngAfterViewInit() {
+  ngAfterViewChecked() {
     addRateYo(4.6);
   }
 }

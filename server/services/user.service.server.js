@@ -72,7 +72,7 @@ router.get('/:userId', function (req, res) {
 
 router.post('/fbLogin', function(req, res) {
   var user = req.body;
-  handler.fbLogin(user, res);
+  handler.fbLogin(user, req, res);
 })
 
 
