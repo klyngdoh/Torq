@@ -22,6 +22,7 @@ module.exports = {
   addUser: function (body, type, sess, res) {
     var user = body;
     user.type = type;
+    console.log("Going to add user ", user);
 
     userModel.addUser(user).then(function (result) {
       var user = {_id: result._id, firstName: result.firstName, lastName: result.lastName, displayPicUrl: result.displayPicUrl};
@@ -33,6 +34,19 @@ module.exports = {
       res.json({message: err});
     });
   },
+
+  //
+  // addNewCar: function (car, sess, res) {
+  //   car.renter = sess.user;
+  //   var location = car.location.split(",");
+  //   car.location = {type: "Point", coordinates: [location[0], location[1]]};
+  //   console.log("Going to add car ", car);
+  //   carModel.addNewCar(car).then(function(data) {
+  //     res.json(data);
+  //   }).catch(function(err){
+  //     res.status(500).json({error: err});
+  //   });
+  // },
 
   findUserById: function (userId, sess, res) {
     userModel.findUserById(userId).then(function (user) {

@@ -46,36 +46,43 @@ export class RenterRegisterComponent implements OnInit {
   }
 
   register($event) {
-    $event.preventDefault();
-    // fetching data from loginForm
-    this.username = this.loginForm.value.username;
-    this.password = this.loginForm.value.password;
-    this.email = this.loginForm.value.email;
-    this.firstname = this.loginForm.value.firstname;
-    this.lastname = this.loginForm.value.lastname;
-    this.dob = this.loginForm.value.dob;
 
-    var user: User = {
-      _id: "",
-      type: "",
-      username: this.username,
-      password: this.password,
-      email: this.email,
-      firstName: this.firstname,
-      lastName: this.lastname,
-      dob: this.dob,
-    };
+    // uncomment once customer register works!!!!!
+    //then change it as per image upload needs :
 
-    this.userService.addUser(user, "renter").subscribe(data => {
-      var usr: User = data;
-      if (usr._id != undefined) {
-        this.userService.setUser(usr);
-        this.router.navigate(['/user/'+usr._id+'/dashboard']);
-      } else {
-        console.log("Error creating user");
-        debugger;
-      }
-    });
+    // $event.preventDefault();
+    // // fetching data from loginForm
+    // this.username = this.loginForm.value.username;
+    // this.password = this.loginForm.value.password;
+    // this.email = this.loginForm.value.email;
+    // this.firstname = this.loginForm.value.firstname;
+    // this.lastname = this.loginForm.value.lastname;
+    // this.dob = this.loginForm.value.dob;
+    //
+    // var user: User = {
+    //   _id: "",
+    //   type: "",
+    //   username: this.username,
+    //   password: this.password,
+    //   email: this.email,
+    //   firstName: this.firstname,
+    //   lastName: this.lastname,
+    //   dob: this.dob,
+    // };
+
+
+
+
+    // this.userService.addUser(user, "renter").subscribe(data => {
+    //   var usr: User = data;
+    //   if (usr._id != undefined) {
+    //     this.userService.setUser(usr);
+    //     this.router.navigate(['/user/'+usr._id+'/dashboard']);
+    //   } else {
+    //     console.log("Error creating user");
+    //     debugger;
+    //   }
+    // });
   }
 
 }
