@@ -1,7 +1,26 @@
 var express = require('express');
 var handler = require('../handlers/user.service.handler.js');
 var router = express.Router();
+var crypto = require('crypto');
+var multer = require('multer');
+
+var storage = multer.diskStorage({
+
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/users/');
+  },
+  filename: function (req, file, cb) {
+    crypto.pseudoRandomBytes(16, function (err, raw) {
+      var name = raw.toString('hex') + '-' + Date.now() + '.' + file.mimetype.split('/')[1];
+      console.log("Storing file, ", name);
+      cb(null, name);
+    })
+  }
+});
+
+var upload = multer({storage: storage});
 var passport = require('passport');
+
 
 
 // Find user by credential
@@ -11,19 +30,6 @@ router.post('/login', passport.authenticate('local', { failureFlash: 'Invalid us
   });
 
 
-// Create user
-router.post('/:type/register', function (req, res) {
-  var requiredFields = ['username', 'firstname', 'lastname', 'email', 'password', 'dob', 'license'];
-  // for (var i in requiredFields) {
-  //   console.log("field = ", field);
-  //   if (!req.body[field]) {
-  //     console.log("Got request with missing field: " + field);
-  //     res.status(400);
-  //     res.json({message: "Missing fields"});
-  //   }
-  // }
-  handler.addUser(req.body, req.params.type, req, res);
-});
 
 router.get('/logout', function(req, res) {
   req.logout();
@@ -33,6 +39,23 @@ router.get('/logout', function(req, res) {
     res.json({status: "success"});
   })
 
+});
+
+
+//create user with images
+
+router.post('/:type/register', upload.array('images[]', 5), function (req, res) {
+  var user = req.body;
+  var img = req.files.map(function (i) {
+    var arr = i.path.split("/")
+
+    arr.splice(0, 1);
+    return arr.join("/");
+
+  });
+  user.photos = img;
+
+  handler.addUser(user, req.params.type, req.session, res);
 });
 
 

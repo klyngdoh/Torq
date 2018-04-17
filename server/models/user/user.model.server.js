@@ -10,14 +10,8 @@ module.exports = function() {
     var User = db.model('User', userSchema);
     console.log("Creating user");
     console.log("here");
-    var u = new User;
-    u.username = user.username;
-    u.password = user.password;
-    u.firstName = user.firstName;
-    u.lastName = user.lastName;
-    u.email = user.email;
-    u.dob = user.dob;
-    u.type = user.type;
+    var u = new User(user);
+
     console.log("going to save");
     return u.save();
   };

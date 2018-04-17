@@ -28,10 +28,10 @@
               <div class="form-group af-inner">
                 <label class="sr-only" for="fname">First Name</label>
                 <input
-                  type="text" name="firstname" id="fname" placeholder="First Name" value=""
+                  type="text" name="firstName" id="fname" placeholder="First Name" value=""
                   size="30" data-toggle="tooltip" title="First Name is required"
                   class="form-control placeholder" required
-                  (ngModel)="firstname"/>
+                  (ngModel)="firstName"/>
               </div>
             </div>
 
@@ -39,10 +39,10 @@
               <div class="form-group af-inner">
                 <label class="sr-only" for="lname">Last Name</label>
                 <input
-                  type="text" name="lastname" id="lname" placeholder="Last Name" value=""
+                  type="text" name="lastName" id="lname" placeholder="Last Name" value=""
                   size="30" data-toggle="tooltip" title="Last Name is required"
                   class="form-control placeholder" required
-                  (ngModel)="lastname"/>
+                  (ngModel)="lastName"/>
               </div>
             </div>
 
@@ -91,7 +91,7 @@
               </div>
             </div>
 
-            <div class="outer required">
+<!--            <div class="outer required">
               <div class="input-group form-group af-inner">
                 <label class="input-group-btn">
                                         <span class="form-control btn btn-theme btn-theme-dark">Browse
@@ -104,6 +104,14 @@
                   class="form-control placeholder" readonly/>
               </div>
             </div>
+-->
+          <!-- image input -->
+            <div class="outer required">
+            <div class="input-group form-group af-inner">
+              <input type="file" name="myFile" (change)="fileChange($event)" multiple/>
+            </div>
+            </div>
+            <!-- /image input -->
 
             <div class="outer required">
               <div class="form-group af-inner">

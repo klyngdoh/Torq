@@ -22,11 +22,12 @@ export class RenterRegisterComponent implements OnInit {
   username: string;
   password: string;
   email: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   verify: string;
   dob: string;
   errorFlag: boolean;
+  filesToUpload: Array<File> = [];
 
   login() {
     var user: User;
@@ -45,38 +46,43 @@ export class RenterRegisterComponent implements OnInit {
     });
   }
 
+  fileChange(files: any){
+    this.filesToUpload = <Array<File>>files.target.files;
+  }
+
   register($event) {
-    $event.preventDefault();
-    // fetching data from loginForm
+
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
     this.email = this.loginForm.value.email;
-    this.firstname = this.loginForm.value.firstname;
-    this.lastname = this.loginForm.value.lastname;
+    this.firstName = this.loginForm.value.firstName;
+    this.lastName = this.loginForm.value.lastName;
     this.dob = this.loginForm.value.dob;
 
-    var user: User = {
-      _id: "",
-      type: "",
-      username: this.username,
-      password: this.password,
-      email: this.email,
-      firstName: this.firstname,
-      lastName: this.lastname,
-      dob: this.dob,
-      rating: 0
-    };
+    const _formData = new FormData();
+    _formData.append("username", this.username);
+    _formData.append("password", this.password);
+    _formData.append("email", this.email);
+    _formData.append("firstName", this.firstName);
+    _formData.append("lastName", this.lastName);
+    _formData.append("dob", this.dob);
 
-    this.userService.addUser(user, "renter").subscribe(data => {
+    const files: Array<File> = this.filesToUpload;
+
+    for(let i =0; i < files.length; i++){
+      _formData.append("images[]", files[i], files[i]['name']);
+    }
+
+    this.userService.addUser(_formData, "renter").subscribe(data => {
       var usr: User = data;
       if (usr._id != undefined) {
         this.userService.setUser(usr);
-        this.router.navigate(['/user/'+usr._id+'/dashboard']);
+        this.router.navigate(['/']);
       } else {
         console.log("Error creating user");
-        debugger;
       }
     });
+
   }
 
 }
