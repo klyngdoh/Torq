@@ -19,22 +19,16 @@ var storage = multer.diskStorage({
 });
 
 var upload = multer({storage: storage});
+var passport = require('passport');
+
 
 
 // Find user by credential
-router.post('/login', function (req, res) {
-  var username = req.body.username;
-  var password = req.body.password;
+router.post('/login', passport.authenticate('local', { failureFlash: 'Invalid username or password.' }),
+  function(req, res) {
+    res.json(req.user);
+  });
 
-  if (username == undefined || password == undefined) {
-    res.status(400);
-    res.json({message: "Missing fields"});
-  } else {
-    // Find users by credentials
-    handler.findUserByCredentials(username, password, req.session, res);
-  }
-
-});
 
 // Create user normal
 // router.post('/:type/register', function (req, res) {

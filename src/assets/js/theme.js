@@ -305,3 +305,13 @@ function buildFilterWidget() {
     }
   }
 }
+
+function addRateYo(rating) {
+  if($().rateYo) {
+    $("#rating").rateYo({
+      rating: rating,
+      starWidth: "30px",
+      readOnly: true
+    });
+  }
+}

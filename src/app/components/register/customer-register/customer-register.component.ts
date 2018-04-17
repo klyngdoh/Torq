@@ -72,7 +72,7 @@ export class CustomerRegisterComponent implements OnInit {
     _formData.append("email", this.email);
     _formData.append("firstName", this.firstName);
     _formData.append("lastName", this.lastName);
-    _formData.append("dov", this.dob);
+    _formData.append("dob", this.dob);
 
     const files: Array<File> = this.filesToUpload;
 
@@ -90,26 +90,6 @@ export class CustomerRegisterComponent implements OnInit {
         }
       });
 
-    // var user: User = {
-    //   _id: "",
-    //   type: "",
-    //   username: this.username,
-    //   password: this.password,
-    //   email: this.email,
-    //   firstName: this.firstname,
-    //   lastName: this.lastname,
-    //   dob: this.dob,
-    // };
 
-    // this.userService.addUser(user, "customer").subscribe(data => {
-    //   var usr: User = data;
-    //   if (usr._id != undefined) {
-    //     this.userService.setUser(usr);
-    //     this.router.navigate(['/']);
-    //   } else {
-    //     console.log("Error creating user");
-    //     debugger;
-    //   }
-    // });
   }
 }
