@@ -46,7 +46,9 @@ export class HeaderComponent implements OnInit {
   }
 
   logout($event, path:string) {
-    this.userService.setUser(null);
-    this.navigate($event, path);
+    this.userService.logout().subscribe(data => {
+      this.navigate($event, path);
+    });
+
   }
 }

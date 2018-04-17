@@ -2,21 +2,28 @@ var userModel = require('../models/user/user.model.server.js')();
 
 module.exports = {
 
-  addUser: function (body, type, sess, res) {
+  addUser: function (body, type, req, res) {
     var user = body;
     user.type = type;
     user.rating = 4.0;
 
     userModel.addUser(user).then(function (result) {
-      var user = {
-        _id: result._id,
-        firstName: result.firstName,
-        lastName: result.lastName,
-        displayPicUrl: result.displayPicUrl,
-        rating: result.rating
-      };
-      sess.user = user;
-      res.json(result);
+      console.log("Result ", result);
+      req.login(result, function (err) {
+        if (err) {
+          res.status(500);
+          res.json({message: err});
+        } else {
+          var user = {
+            _id: result._id,
+            firstName: result.firstName,
+            lastName: result.lastName,
+            displayPicUrl: result.displayPicUrl,
+            rating: result.rating
+          };
+          res.json(result);
+        }
+      });
     }).catch(function (err) {
       console.log(err);
       res.status(500);
