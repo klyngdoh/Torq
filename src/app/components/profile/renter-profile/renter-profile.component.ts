@@ -19,6 +19,7 @@ export class RenterProfileComponent implements OnInit {
   customerFirstName: string;
   customerLastName: string;
   customerName: string;
+  photos: string[];
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
@@ -28,6 +29,7 @@ export class RenterProfileComponent implements OnInit {
         this.customerFirstName = user.firstName;
         this.customerLastName = user.lastName;
         this.customerName = this.customerFirstName + ' ' + this.customerLastName;
+        this.photos = user.photos;
       })
     });
 
