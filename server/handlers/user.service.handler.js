@@ -31,23 +31,22 @@ module.exports = {
     });
   },
 
-  //
-  // addNewCar: function (car, sess, res) {
-  //   car.renter = sess.user;
-  //   var location = car.location.split(",");
-  //   car.location = {type: "Point", coordinates: [location[0], location[1]]};
-  //   console.log("Going to add car ", car);
-  //   carModel.addNewCar(car).then(function(data) {
-  //     res.json(data);
-  //   }).catch(function(err){
-  //     res.status(500).json({error: err});
-  //   });
-  // },
-
   findUserById: function (userId, sess, res) {
     userModel.findUserById(userId).then(function (user) {
       res.json(user);
     }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
+  },
+
+  fbLogin: function(user, res) {
+    console.log("Goint to upsert ,", user);
+    user.photos = [];
+    user.photos.push(user.photo);
+    userModel.upsertUser(user).then(function (user) {
+      res.json(user);
+    }).catch(function(err){
       res.status(500);
       res.json({message: err});
     });

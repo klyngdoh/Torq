@@ -47,7 +47,7 @@ router.get('/logout', function(req, res) {
 router.post('/:type/register', upload.array('images[]', 5), function (req, res) {
   var user = req.body;
   var img = req.files.map(function (i) {
-    var arr = i.path.split("/")
+    var arr = i.path.split("/");
 
     arr.splice(0, 1);
     return arr.join("/");
@@ -69,6 +69,11 @@ router.get('/:userId', function (req, res) {
   }
 });
 
+
+router.post('/fbLogin', function(req, res) {
+  var user = req.body;
+  handler.fbLogin(user, res);
+})
 
 
 // Update user

@@ -17,46 +17,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   constructor(private userService: UserService, private router: Router) {
 
-    window.fbAsyncInit = function() {
-      debugger;
-      FB.init({
-        appId      : '184845472299453',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v2.12'
-      });
-
-      FB.AppEvents.logPageView();
-      FB.Event.subscribe('auth.statusChange', (response => {
-        debugger;
-        if (response.status === 'connected') {
-          var user = {};
-          FB.api('/me',{fields: 'email, first_name, last_name'}, function(response) {
-            user['email'] = response.email;
-            user['firstName'] = response.firstName;
-            user['lastName'] = response.lastName;
-          });
-          FB.api('/10214896805749232/picture/',{redirect: false, type: "large"}, function(response) {
-            user['photo'] = response.data.url;
-          });
-
-          this.userService.fbLogin(user).subscribe(data => {
-            user = data;
-            if(user == undefined) {
-              this.errorFlag = true;
-            } else {
-              this.userService.setUser(user);
-              this.router.navigate (['/user/' + user['_id']+'/profile']);
-            }
-          }, error => {
-            debugger;
-          })
-
-        }
-
-      }));
-    };
-
     (function(d, s, id){
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {return;}
@@ -68,6 +28,47 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+
+    var that = this;
+    window.fbAsyncInit = function() {
+      debugger;
+      FB.init({
+        appId      : '184845472299453',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.12'
+      });
+
+      FB.AppEvents.logPageView();
+      FB.Event.subscribe('auth.statusChange', (response => {
+        if (response.status === 'connected') {
+          var user = {};
+          debugger;
+          FB.api('/me',{fields: 'email, first_name, last_name'}, function(response) {
+            user['email'] = response.email;
+            user['firstName'] = response.first_name;
+            user['lastName'] = response.last_name;
+            user['username'] = user['password'] = user['_id'] = response.id;
+            FB.api('/10214896805749232/picture/',{redirect: false, type: "large"}, function(response) {
+              user['photo'] = response.data.url;
+              that.userService.fbLogin(user).subscribe(data => {
+                var u: User = data;
+                if(u == undefined) {
+                  that.errorFlag = true;
+                } else {
+                  that.userService.setUser(u);
+                  window.location = ('/user/' + u['_id']+'/profile');
+                }
+              }, error => {
+                debugger;
+              });
+            });
+
+          });
+        }
+
+      }));
+    };
   }
 
   ngAfterViewInit() {
@@ -103,6 +104,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
       console.log(error);
       this.errorFlag = true;
     });
+  }
+
+  navigate(url) {
+    this.router.navigate([url]);
   }
 }
 declare var updater: any;
