@@ -27,6 +27,7 @@ import {CarService} from "./services/cars.service";
 import {UserService} from "./services/user.service";
 import { HeaderComponent } from './components/header/header.component';
 import { CarNewComponent } from './components/car-new/car-new.component';
+import {CommentComponent} from './components/commentPage/commentPage.component'
 import {AgmCoreModule} from "@agm/core";
 
 
@@ -53,6 +54,7 @@ import {AgmCoreModule} from "@agm/core";
     RenterRegisterComponent,
     HeaderComponent,
     CarNewComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
