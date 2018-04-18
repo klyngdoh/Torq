@@ -36,6 +36,7 @@ export class CarNewComponent implements OnInit {
   carUrl: string;
   filesToUpload: Array<File> = [];
   autocomplete: any;
+  approved: string;
 
 
   ngOnInit() {
@@ -63,6 +64,7 @@ export class CarNewComponent implements OnInit {
     this.type = (<HTMLSelectElement>document.getElementById("type")).value;
     this.price = this.loginForm.value.price;
     this.location = this.autocomplete.getPlace().geometry.location.lng() + "," + this.autocomplete.getPlace().geometry.location.lat();
+    this.approved = "false";
     debugger;
 
 
@@ -80,6 +82,7 @@ export class CarNewComponent implements OnInit {
     _formData.append("description", "");
     _formData.append("rating", "0");
     _formData.append("location", this.location);
+    _formData.append("approved", this.approved);
 
     const files: Array<File> = this.filesToUpload;
 
