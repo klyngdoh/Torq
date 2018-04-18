@@ -95,7 +95,7 @@ export class CarNewComponent implements OnInit {
       this.router.navigate(['/car/' + data._id]);
     }, error => {
       debugger;
-    })
+    });
 
 
   }
