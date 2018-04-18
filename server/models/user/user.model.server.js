@@ -15,9 +15,9 @@ module.exports = function () {
     return u.save();
   };
 
-  userSchema.statics.findUserByCredentials = function (username, password) {
+  userSchema.statics.findUserByUsername = function (username) {
     var User = db.model('User', userSchema);
-    return User.findOne({username: username, password: password});
+    return User.findOne({username: username});
   };
 
   userSchema.statics.findUserById = function (userId) {

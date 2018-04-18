@@ -24,7 +24,7 @@ var passport = require('passport');
 
 
 // Find user by credential
-router.post('/login', passport.authenticate('local', { failureFlash: 'Invalid username or password.' }),
+router.post('/login', passport.authenticate('local', { failureFlash: true }),
   function(req, res) {
     res.json(req.user);
   });
