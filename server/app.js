@@ -2,6 +2,8 @@ module.exports = function(app) {
   var express = require('express');
   var router = express.Router();
 
+  var supportRouter = require("./services/support.service.server.js");
+  router.use('/support', supportRouter);
 
    var userRouter = require("./services/user.service.server.js");
    router.use('/user', userRouter);

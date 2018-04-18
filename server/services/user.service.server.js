@@ -55,7 +55,7 @@ router.post('/:type/register', upload.array('images[]', 5), function (req, res) 
   });
   user.photos = img;
 
-  handler.addUser(user, req.params.type, req.session, res);
+  handler.addUser(user, req.params.type, req, res);
 });
 
 

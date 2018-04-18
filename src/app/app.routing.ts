@@ -13,6 +13,7 @@ import { FaqsComponent } from './components/faqs/faqs.component';
 import {CarNewComponent} from './components/car-new/car-new.component';
 import {CustomerRegisterComponent} from "./components/register/customer-register/customer-register.component";
 import {RenterRegisterComponent} from "./components/register/renter-register/renter-register.component";
+import {CommentComponent} from "./components/commentPage/commentPage.component";
 
 
 
@@ -29,6 +30,7 @@ const APP_ROUTES: Routes = [
   {path: 'car/:cid/checkout', component: CheckoutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'faqs', component: FaqsComponent},
+  {path: 'customer/:uid/comment', component: CommentComponent},
   ];
 
 // Export the routes as module providers
