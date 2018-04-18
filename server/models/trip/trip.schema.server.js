@@ -7,8 +7,8 @@ module.exports = new Schema({
   startDate: Date,
   endDate: Date,
   location: {
-    type: { type: String }
-    , coordinates: []
+    type: {type: String, default: 'Point'},
+    coordinates: {type: [Number]}
   },
   status: {
     type: String,

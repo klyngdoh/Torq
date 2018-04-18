@@ -59,7 +59,7 @@
                     <strong>${{car.pricePerDay}}</strong> <i class="fa fa-info-circle"></i>
 
                     <div class="button">
-                      <a routerLink="/car/1/checkout" class="btn btn-block btn-theme btn-theme-dark">CHECKOUT</a>
+                      <a (click)="checkout(car._id)" class="btn btn-block btn-theme btn-theme-dark">CHECKOUT</a>
                     </div>
 
                   </div>
@@ -149,7 +149,7 @@
             <h4 class="widget-title">Location and Dates</h4>
             <div class="widget-content">
               <h5 class="widget-title-sub">Location</h5>
-              <p>San Jose, CA</p>
+              <p>{{place}}</p>
               <h5 class="widget-title-sub">Pickup</h5>
               <p>March 25, 2018</p>
               <h5 class="widget-title-sub">Return</h5>

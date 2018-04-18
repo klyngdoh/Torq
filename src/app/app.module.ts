@@ -28,6 +28,7 @@ import {UserService} from "./services/user.service";
 import { HeaderComponent } from './components/header/header.component';
 import { CarNewComponent } from './components/car-new/car-new.component';
 import {AgmCoreModule} from "@agm/core";
+import {TripService} from "./services/trip.service";
 
 
 
@@ -64,7 +65,7 @@ import {AgmCoreModule} from "@agm/core";
       libraries: ["places"]
     })
   ],
-  providers: [CarService, UserService],
+  providers: [CarService, UserService, TripService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

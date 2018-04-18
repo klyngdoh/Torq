@@ -1,8 +1,8 @@
 var carModel = require('../models/car/car.model.server.js')();
 module.exports = {
 
-  addNewCar: function (car, sess, res) {
-    car.renter = sess.user;
+  addNewCar: function (car, user, res) {
+    car.renter = {_id: user._id, firstName: user.firstName, lastName: user.lastName, displayPicUrl: user.photos[0]};
     var location = car.location.split(",");
     car.location = {type: "Point", coordinates: [location[0], location[1]]};
     console.log("Going to add car ", car);
@@ -84,6 +84,14 @@ module.exports = {
   findCarById: function(carId, res){
     carModel.findCarById(carId).then(function(car) {
       res.json(car[0]);
+    }).catch(function (err) {
+      res.status(500).json({error: err});
+    });
+  },
+
+  bookCar: function(car, user, startDate, endDate, location, res) {
+    carModel.bookCar(car, user, startDate, endDate, location).then(function(data) {
+      res.json({status: "success"});
     }).catch(function (err) {
       res.status(500).json({error: err});
     });
