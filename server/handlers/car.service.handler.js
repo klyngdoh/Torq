@@ -98,7 +98,8 @@ module.exports = {
     carModel.getUnapprovedCars().then(function(result) {
       res.json(result);
     }).catch(function (err) {
-      res.status(500).json({message: err});
+      res.status(500).json({message: err});}
+      )},
 
   bookCar: function(car, user, startDate, endDate, location, res) {
     carModel.bookCar(car, user, startDate, endDate, location).then(function(data) {
