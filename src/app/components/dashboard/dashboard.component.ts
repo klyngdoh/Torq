@@ -18,7 +18,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 
     this.user = this.userService.getUser();
-
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
@@ -32,7 +31,6 @@ export class DashboardComponent implements OnInit {
         this.userType = this.user['type'];
         this.userService.setUser(this.user);
       }, error => {
-        debugger;
       });
     } else {
       this.userType = this.user['type'];

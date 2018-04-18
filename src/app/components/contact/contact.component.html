@@ -69,7 +69,8 @@
           <h2 class="block-title"><span>Contact Form</span></h2>
 
 
-          <form name="contact-form" method="post" action="#" class="contact-form" id="contact-form">
+          <form name="contact-form" method="post" action="#" class="contact-form" id="contact-form"
+                (ngSubmit)="addMessage($event)" #f="ngForm">
 
             <div class="outer required">
               <div class="form-group af-inner">
@@ -77,7 +78,7 @@
                 <input
                   type="text" name="name" id="name" placeholder="Name" value="" size="30"
                   data-toggle="tooltip" title="Name is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" [(ngModel)]="name"/>
               </div>
             </div>
 
@@ -87,7 +88,7 @@
                 <input
                   type="text" name="email" id="email" placeholder="Email" value="" size="30"
                   data-toggle="tooltip" title="Email is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" [(ngModel)]="email"/>
               </div>
             </div>
 
@@ -97,7 +98,7 @@
                 <input
                   type="text" name="subject" id="subject" placeholder="Subject" value="" size="30"
                   data-toggle="tooltip" title="Subject is required"
-                  class="form-control placeholder"/>
+                  class="form-control placeholder" [(ngModel)]="subject"/>
               </div>
             </div>
 
@@ -106,14 +107,21 @@
               <textarea
                 name="message" id="input-message" placeholder="Message" rows="4" cols="50"
                 data-toggle="tooltip" title="Message is required"
-                class="form-control placeholder"></textarea>
+                class="form-control placeholder" [(ngModel)]="message"></textarea>
             </div>
 
             <div class="outer required">
               <div class="form-group af-inner">
-                <input type="submit" name="submit" class="form-button form-button-submit btn btn-theme btn-theme-dark" id="submit_btn" value="Send message" />
+                <input type="submit" name="submit" class="form-button form-button-submit btn btn-theme btn-theme-dark"
+                       id="submit_btn" value="Send message" (click)="addMessage($event)"/>
               </div>
             </div>
+
+
+              <div class="alert alert-dismissable alert-success" *ngIf="sentFlag">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                Your message has been delivered successfully! We will get back to you as soon as possible.</div>
+
 
           </form>
 

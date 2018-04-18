@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {SupportService} from '../../../services/support.service';
+import {Support} from '../../../models/support.interface';
+import {CarService} from '../../../services/cars.service';
+import {Car} from '../../../models/car.interface';
+import {ActivatedRoute, Router} from '@angular/router';
+import {User} from '../../../models/user.interface';
+import {UserService} from '../../../services/user.service';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,9 +15,60 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private supportService: SupportService,
+              private carService: CarService,
+              private userService: UserService,
+              private router: Router) { }
+
+  unreadMessages: Support[];
+  readMessages: Support[];
+  cars: Car[];
+  href: string[];
+  user: User;
+  userId: string;
 
   ngOnInit() {
+
+    this.user = this.userService.getUser();
+    this.activatedRoute.params
+      .subscribe(
+        (params: any) => {
+          this.userId = params['uid'];
+        }
+      );
+
+    this.supportService.getUnreadMessages().subscribe((result: Support[]) => {
+      this.unreadMessages = result;
+      for(let i = 0; i < this.unreadMessages.length; i++) {
+        this.unreadMessages[i].mailLink = "mailto:" + this.unreadMessages[i].email + "?Subject=Hello%20from%20Torq!";
+      }
+    });
+    this.supportService.getReadMessages().subscribe((result: Support[]) => {
+      this.readMessages = result;
+      for(let i = 0; i < this.readMessages.length; i++) {
+        this.readMessages[i].mailLink = "mailto:" + this.readMessages[i].email + "?Subject=Hello%20from%20Torq!";
+      }
+    });
   }
 
+  dismiss($event, message:Support) {
+    $event.preventDefault();
+    debugger;
+    this.supportService.viewMessage(message).subscribe((result: Support) => {
+
+    });
+    this.supportService.getUnreadMessages().subscribe((result: Support[]) => {
+      this.unreadMessages = result;
+      for(let i = 0; i < this.unreadMessages.length; i++) {
+        this.unreadMessages[i].mailLink = "mailto:" + this.unreadMessages[i].email + "?Subject=Hello%20from%20Torq!";
+      }
+    });
+    this.supportService.getReadMessages().subscribe((result: Support[]) => {
+      this.readMessages = result;
+      for(let i = 0; i < this.readMessages.length; i++) {
+        this.readMessages[i].mailLink = "mailto:" + this.readMessages[i].email + "?Subject=Hello%20from%20Torq!";
+      }
+    });
+  }
 }

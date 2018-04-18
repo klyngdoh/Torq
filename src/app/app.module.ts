@@ -29,6 +29,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CarNewComponent } from './components/car-new/car-new.component';
 import {CommentComponent} from './components/commentPage/commentPage.component'
 import {AgmCoreModule} from "@agm/core";
+import {SupportService} from './services/support.service';
 
 
 
@@ -66,7 +67,7 @@ import {AgmCoreModule} from "@agm/core";
       libraries: ["places"]
     })
   ],
-  providers: [CarService, UserService],
+  providers: [CarService, UserService, SupportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
