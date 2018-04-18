@@ -60,6 +60,10 @@ export class CarService {
     return this.http.post<Car[]>('/api/car/searchCar', search);
   }
 
+  getUnapprovedCars() {
+    return this.http.get('/api/car/approveCars');
+  }
+
   getCarById(carId) {
     return this.http.get<Car>('/api/car/'+carId);
   }

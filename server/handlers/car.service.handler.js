@@ -31,6 +31,10 @@ module.exports = {
       }
     });
 
+    and.push({
+      approved: "true"
+    });
+
     console.log(search.filterParams);
 
     if(search.filterParams != undefined) {
@@ -86,6 +90,14 @@ module.exports = {
       res.json(car[0]);
     }).catch(function (err) {
       res.status(500).json({error: err});
+    });
+  },
+
+  getUnapprovedCars: function(res) {
+    carModel.getUnapprovedCars().then(function(result) {
+      res.json(result);
+    }).catch(function (err) {
+      res.status(500).json({message: err});
     });
   }
 

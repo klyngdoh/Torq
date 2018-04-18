@@ -48,5 +48,9 @@ router.get('/:cid', function (req, res) {
   handler.findCarById(req.params.cid, res);
 });
 
+router.get('/approveCars', function (req, res) {
+  handler.getUnapprovedCars(res);
+});
+
 
 module.exports = router;

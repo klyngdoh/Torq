@@ -23,6 +23,11 @@ module.exports = function () {
     return Cars.find({_id: id});
   };
 
+  carSchema.statics.getUnapprovedCars = function() {
+    var Cars = db.model('Car', carSchema);
+    return Cars.find({approved: "false"});
+  }
+
   var autoIncrement = require('mongoose-auto-increment');
   autoIncrement.initialize(db);
   carSchema.plugin(autoIncrement.plugin, 'Car');

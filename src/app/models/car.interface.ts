@@ -1,3 +1,5 @@
+import {User} from './user.interface';
+
 export interface Car{
   _id: string;
   make: string;
@@ -12,5 +14,6 @@ export interface Car{
   photos: string[];
   vin: number;
   rating: number;
+  renter: User;
   location: string;
 }

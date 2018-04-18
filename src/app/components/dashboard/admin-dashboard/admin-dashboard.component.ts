@@ -50,6 +50,9 @@ export class AdminDashboardComponent implements OnInit {
         this.readMessages[i].mailLink = "mailto:" + this.readMessages[i].email + "?Subject=Hello%20from%20Torq!";
       }
     });
+    this.carService.getUnapprovedCars().subscribe((result: Car[]) => {
+      this.cars = result;
+    });
   }
 
   dismiss($event, message:Support) {

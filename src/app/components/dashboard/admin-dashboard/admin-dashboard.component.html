@@ -105,12 +105,12 @@
 
             <div class="panel-group accordion" id="accordion" role="tablist" aria-multiselectable="false">
 
-              <div class="panel panel-default">
+              <div class="panel panel-default" *ngFor="let car of cars">
                 <div class="panel-heading" role="tab" id="heading1">
                   <h4 class="panel-title">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"
                        aria-expanded="false" aria-controls="collapse1">
-                      <span class="dot"></span> Trip 1
+                      <span class="dot"></span>{{car.make}} {{car.model}} {{car.year}}
                     </a>
                   </h4>
                 </div>
@@ -120,16 +120,20 @@
                     <div class="row">
                       <div class="col-sm-4">
                         <a href="car-view.html">
-                          <img src="assets/img/preview/cars/golf1.png" width="225" height="200"></a>
+                          <img src="assets/img/dummy-car.png" width="300" height="200"></a>
                       </div>
                       <div class="col-sm-4">
-                        <p>Booked by :<a href="profile.html">John Doe</a></p>
-                        <p>Start : June 21, 2018</p>
-                        <p>End : June  33, 2018</p>
-                        <p>Car :<a href="car-view.html"> Polo GT</a></p>
+                        <p>Owner Name: {{car.renter.firstName}} {{car.renter.lastName}}</p>
+                        <p>Car Type: {{car.type}}</p>
+                        <p>Transmission Type: {{car.transmission}}</p>
+                        <p>Fuel Type: {{car.fuel}}</p>
+                        <p>Mileage: {{car.mileage}}</p>
+                        <p>VIN Number: {{car.vin}}</p>
                       </div>
                       <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Cancel Trip</button>
+                        <button class="btn btn-theme btn-theme-dark">Get Carfax</button>
+                        <button class="btn btn-theme btn-theme-dark">Approve</button>
+                        <button class="btn btn-theme btn-theme-dark">Decline</button>
                       </div>
                     </div>
                   </div>
