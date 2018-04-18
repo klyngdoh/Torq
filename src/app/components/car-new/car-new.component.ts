@@ -45,7 +45,6 @@ export class CarNewComponent implements OnInit {
     updater();
 
     this.mapsAPILoader.load().then(() => {
-      debugger;
       var input = <HTMLInputElement>document.getElementById('location');
       this.autocomplete = new google.maps.places.Autocomplete(input);
     });

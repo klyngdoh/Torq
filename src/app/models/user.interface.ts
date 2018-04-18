@@ -7,5 +7,6 @@ export interface User{
   firstName: string;
   lastName: string;
   dob: string;
+  photos: string[];
   rating: number;
 }

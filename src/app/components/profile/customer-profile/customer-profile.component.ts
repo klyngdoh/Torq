@@ -16,6 +16,8 @@ export class CustomerProfileComponent implements OnInit {
   customerFirstName: string;
   customerLastName: string;
   customerName: string;
+  photos: string[];
+  //user1: User;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
@@ -25,6 +27,8 @@ export class CustomerProfileComponent implements OnInit {
           this.customerFirstName = user.firstName;
           this.customerLastName = user.lastName;
           this.customerName = this.customerFirstName + ' ' + this.customerLastName;
+          //this.user1 = user;
+          this.photos = user.photos;
         })
     });
 

@@ -212,13 +212,6 @@ jQuery(window).scroll(function () {
     }
  // sliders end -----------------------------
 
-var autocomplete;
-function init() {
-  var input = document.getElementById('formSearchUpLocation');
-   autocomplete = new google.maps.places.Autocomplete(input);
-}
-
-
 function getCheckedElements(name) {
   var elemName = 'input[name='+name+']:checked';
   return $(elemName).map(function(){

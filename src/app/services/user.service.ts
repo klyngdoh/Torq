@@ -17,12 +17,14 @@ export class UserService {
     'deleteUser': this.deleteUser,
     'updateUser': this.updateUser,
     'getUserByCredentials': this.getUserByCredentials,
-    'getUserById': this.getUserById
+    'getUserById': this.getUserById,
+    'logout': this.logout,
+    'fbLogin': this.fbLogin
   };
 
   user:User;
 
-  addUser(user:User, type:string) {
+  addUser(user: FormData, type:string) {
     return this.http.post<User>("/api/user/"+type+"/register", user);
   }
 
@@ -38,7 +40,6 @@ export class UserService {
     var user:any = {};
     user['username'] = username;
     user['password'] = password;
-    debugger;
     return this.http.post<User>("/api/user/login", user);
   }
 
@@ -53,5 +54,14 @@ export class UserService {
 
   getUser(){
     return this.user;
+  }
+
+  fbLogin(user) {
+    return this.http.post<User>("/api/user/fbLogin", user);
+  }
+
+  logout() {
+    this.setUser(null);
+    return this.http.get("/api/user/logout");
   }
 }
