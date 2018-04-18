@@ -17,7 +17,7 @@ router.get('/read', function (req, res) {
 });
 
 router.post('/view', function (req, res) {
-  debugger;
+
   handler.viewMessage(req.body, res);
 });
 

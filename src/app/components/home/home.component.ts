@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {CarService} from "../../services/cars.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
@@ -11,7 +11,7 @@ import {} from '@types/googlemaps';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChild('f') searchForm: NgForm;
 
@@ -31,6 +31,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit() {
+    linkDatePickers();
+  }
+
   searchCars($event) {
     $event.preventDefault();
     this.location = this.autocomplete.getPlace().geometry.location.lng() + "," + this.autocomplete.getPlace().geometry.location.lat();
@@ -40,3 +44,4 @@ export class HomeComponent implements OnInit {
 
   }
 }
+declare var linkDatePickers;

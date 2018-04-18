@@ -64,7 +64,7 @@ export class CarNewComponent implements OnInit {
     this.price = this.loginForm.value.price;
     this.location = this.autocomplete.getPlace().geometry.location.lng() + "," + this.autocomplete.getPlace().geometry.location.lat();
     this.approved = "false";
-    debugger;
+
 
 
     const _formData = new FormData();
@@ -89,13 +89,13 @@ export class CarNewComponent implements OnInit {
       _formData.append("images[]", files[i], files[i]['name']);
     }
 
-    debugger;
+
 
     this.carService.addCar(_formData).subscribe(data => {
       this.router.navigate(['/car/' + data._id]);
     }, error => {
       debugger;
-    })
+    });
 
 
   }

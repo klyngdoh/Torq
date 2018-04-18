@@ -8,5 +8,13 @@ module.exports = {
       res.status(500).json({error: err});
     });
 
+  },
+
+  changeTripStatus: function (tripId, status, res) {
+    tripModel.changeTripStatus(tripId, status).then(function (data) {
+      res.json({status: "success"});
+    }).catch(function (err) {
+      res.status(500).json({error: err});
+    });
   }
 }
