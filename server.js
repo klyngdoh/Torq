@@ -22,7 +22,7 @@ var sess = ({
   resave: true,
 
   saveUninitialized: true,
-  cookie: {maxAge: 60000},
+  cookie: {maxAge: 60 * 60 * 1000 }, // 60 min timeout
   name: "TSessionID"
 
 });
