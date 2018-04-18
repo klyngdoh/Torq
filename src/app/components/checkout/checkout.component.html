@@ -15,7 +15,6 @@
   </section>
 
 
-
   <section class="page-section with-sidebar sub-page">
     <div class="container">
       <div class="row">
@@ -28,21 +27,9 @@
             <div class="row">
               <div class="col-md-8">
                 <div class="owl-carousel img-carousel">
-                  <div class="item">
-                    <a class="btn btn-zoom" href="assets/img/preview/cars/golf1.png" data-gal="prettyPhoto"><i class="fa fa-arrows-h"></i></a>
-                    <a href="assets/img/preview/cars/golf2.png" data-gal="prettyPhoto"><img class="img-responsive" src="assets/img/preview/cars/golf1.png" alt=""/></a>
-                  </div>
-                  <div class="item">
-                    <a class="btn btn-zoom" href="assets/img/preview/cars/golf2.png" data-gal="prettyPhoto"><i class="fa fa-arrows-h"></i></a>
-                    <a href="assets/img/preview/cars/golf1.png" data-gal="prettyPhoto"><img class="img-responsive" src="assets/img/preview/golf2.png" alt=""/></a>
-                  </div>
-                  <div class="item">
-                    <a class="btn btn-zoom" href="assets/img/preview/cars/car-600x426x1.jpg" data-gal="prettyPhoto"><i class="fa fa-arrows-h"></i></a>
-                    <a href="assets/img/preview/cars/car-600x426x1.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="assets/img/preview/cars/car-600x426x1.jpg" alt=""/></a>
-                  </div>
-                  <div class="item">
-                    <a class="btn btn-zoom" href="assets/img/preview/cars/car-600x426x2.jpg" data-gal="prettyPhoto"><i class="fa fa-arrows-h"></i></a>
-                    <a href="assets/img/preview/cars/car-600x426x2.jpg" data-gal="prettyPhoto"><img class="img-responsive" src="assets/img/preview/cars/car-600x426x2.jpg" alt=""/></a>
+                  <div class="item" *ngFor="let photo of photos">
+                    <a class="btn btn-zoom" [href]=photo data-gal="prettyPhoto"><i class="fa fa-arrows-h"></i></a>
+                    <a [href]=photo data-gal="prettyPhoto"><img class="img-responsive" [src]=photo alt=""/></a>
                   </div>
                 </div>
 
@@ -52,8 +39,8 @@
                   <div class="list">
                     <ul>
                       <li class="title">
-                        <h2>Volkswagen Golf <span>Diesel</span></h2>
-                        2.0 CC Comfortline 95 HP
+                        <a routerLink="/user/1/profile"><h4>John Doe's</h4></a>
+                        <h2>{{car.make}} {{car.model}} <span>{{car.fuel}}</span></h2>
                         <div class="rating">
                           <span class="star"></span><!--
                                             --><span class="star active"></span><!--
@@ -62,25 +49,26 @@
                                             --><span class="star active"></span>
                         </div>
                       </li>
-                      <li>Fuel Diesel / 1600 cm3 Engine</li>
-                      <li>Under 25,000 Km</li>
-                      <li>Manual Transmission</li>
-                      <li>Manufacturing Year 2014</li>
+                      <li>Fuel {{car.fuel}}</li>
+                      <li>{{car.mileage}} Miles</li>
+                      <li>{{car.transmission}} Transmission</li>
+                      <li>Manufacturing Year {{car.year}}</li>
                       <li>5 Doors and Panorama View</li>
                     </ul>
                   </div>
-                  <div class="price" id="checkout-price">
-                    <strong>$ 220.0</strong> <span>for 8 day(s)</span> <i class="fa fa-info-circle"></i>
+                  <div class="price">
+                    <strong>${{car.pricePerDay}}</strong> <i class="fa fa-info-circle"></i>
+
+                    <div class="button">
+                      <a (click)="checkout(car._id)" class="btn btn-block btn-theme btn-theme-dark">CHECKOUT</a>
+                    </div>
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <hr class="page-divider half transparent"/>
-
-
-
-
 
           <h3 class="block-title alt">Extras</h3>
           <form role="form" class="form-extras">
@@ -95,7 +83,8 @@
                   </div>
                   <div class="checkbox checkbox-danger">
                     <input id="checkboxl2" type="checkbox">
-                    <label for="checkboxl2">Car Seat For Childres <span class="pull-right">12 $ /for a day</span></label>
+                    <label for="checkboxl2">Car Seat For Childres <span
+                      class="pull-right">12 $ /for a day</span></label>
                   </div>
                   <div class="checkbox checkbox-danger">
                     <input id="checkboxl3" type="checkbox">
@@ -116,11 +105,11 @@
                 <div class="right">
                   <div class="checkbox checkbox-danger">
                     <input id="checkboxr1" type="checkbox">
-                    <label for="checkboxr1">Ful Rent a Car Insures <span class="pull-right">Free</span></label>
+                    <label for="checkboxr1">Ful Rent a Car Insurance <span class="pull-right">Free</span></label>
                   </div>
                   <div class="checkbox checkbox-danger">
                     <input id="checkboxr2" type="checkbox">
-                    <label for="checkboxr2">Wheels and Glass Insures <span class="pull-right">Free</span></label>
+                    <label for="checkboxr2">Wheels and Glass Insurance <span class="pull-right">Free</span></label>
                   </div>
                   <div class="checkbox checkbox-danger">
                     <input id="checkboxr3" type="checkbox">
@@ -128,7 +117,8 @@
                   </div>
                   <div class="checkbox checkbox-danger">
                     <input id="checkboxr4" type="checkbox">
-                    <label for="checkboxr4">Unlimited Kilometres for ALL cars <span class="pull-right">Free</span></label>
+                    <label for="checkboxr4">Unlimited Kilometres for ALL cars <span
+                      class="pull-right">Free</span></label>
                   </div>
                   <div class="checkbox checkbox-danger">
                     <input id="checkboxr5" type="checkbox">
@@ -140,8 +130,6 @@
             </div>
 
           </form>
-
-
 
 
           <h3 class="block-title alt">Customer Information</h3>
@@ -178,7 +166,8 @@
                 <div class="form-group"><input class="form-control alt" type="text" placeholder="Phone Number:"></div>
               </div>
               <div class="col-md-6">
-                <div class="form-group"><input class="form-control alt" type="text" placeholder="Cell Phone Number:"></div>
+                <div class="form-group"><input class="form-control alt" type="text" placeholder="Cell Phone Number:">
+                </div>
               </div>
             </div>
           </form>
@@ -189,7 +178,8 @@
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="headingThree">
                 <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapseThree">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+                     aria-expanded="false" aria-controls="collapseThree">
                     <span class="dot"></span> Credit Card
                   </a>
                   <span class="overflowed pull-right">
@@ -215,7 +205,8 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="form-group"><input class="form-control alt" type="text" placeholder="Expiration MM/YY"></div>
+                  <div class="form-group"><input class="form-control alt" type="text" placeholder="Expiration MM/YY">
+                  </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group"><input class="form-control alt" type="text" placeholder="CVV"></div>
@@ -225,10 +216,12 @@
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="heading4">
                 <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                     aria-expanded="false" aria-controls="collapse4">
                     <span class="dot"></span> PayPal
                   </a>
-                  <span class="overflowed pull-right"><img src="assets/img/preview/payments/paypal-2.jpg" alt=""/></span>
+                  <span class="overflowed pull-right"><img src="assets/img/preview/payments/paypal-2.jpg"
+                                                           alt=""/></span>
                 </h4>
               </div>
               <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4"></div>
@@ -236,14 +229,15 @@
           </div>
 
 
-
           <h3 class="block-title alt">Additional Information</h3>
           <form action="#" class="form-additional">
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                                        <textarea name="fad-message" id="fad-message" title="Addition information is required" data-toggle="tooltip"
-                                                  class="form-control alt" placeholder="Any comments for the renter? " cols="30" rows="10"></textarea>
+                  <textarea name="fad-message" id="fad-message"
+                            title="Addition information is required" data-toggle="tooltip"
+                            class="form-control alt" placeholder="Any comments for the renter? "
+                            cols="30" rows="10"></textarea>
                 </div>
               </div>
             </div>
@@ -255,12 +249,11 @@
               <input id="accept" type="checkbox" name="fd-name" title="Please accept" data-toggle="tooltip">
               <label for="accept">I accept all information and Payments etc</label>
             </div>
-            <a class="btn btn-theme pull-right btn-reservation-now" routerLink="/user/1/dashboard">BOOK</a>
+            <a class="btn btn-theme pull-right btn-reservation-now" (click)="bookCar()">BOOK</a>
             <a class="btn btn-theme pull-right btn-cancel btn-theme-dark" href="#">CANCEL</a>
           </div>
 
         </div>
-
 
 
         <aside class="col-md-3 sidebar" id="sidebar">
@@ -269,7 +262,7 @@
             <h4 class="widget-title">Location and Dates</h4>
             <div class="widget-content">
               <h5 class="widget-title-sub">Location</h5>
-              <p>San Jose, CA</p>
+              <p>{{place}}</p>
               <h5 class="widget-title-sub">Pickup</h5>
               <p>March 25, 2018</p>
               <h5 class="widget-title-sub">Return</h5>
@@ -287,7 +280,7 @@
               <h5 class="widget-title-sub">+1 (888)-888-8888</h5>
               <p><a href="mailto:support@supportcenter.com">support@torq.com</a></p>
               <div class="button">
-                <a href="contact.html" class="btn btn-block btn-theme btn-theme-dark">Contact US</a>
+                <a routerLink="/contact" class="btn btn-block btn-theme btn-theme-dark">Contact US</a>
               </div>
             </div>
           </div>

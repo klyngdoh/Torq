@@ -23,17 +23,21 @@ var upload = multer({storage: storage});
 
 // Add new car
 router.post('/addCar', upload.array('images[]', 5), function (req, res) {
-  var car = req.body;
-  var img = req.files.map(function (i) {
-    var arr = i.path.split("/")
+  if (!req.user) {
+    res.status(403).json({status: "Forbidden"});
+  } else {
+    var car = req.body;
+    var img = req.files.map(function (i) {
+      var arr = i.path.split("/")
 
-    arr.splice(0, 1);
-    return arr.join("/");
+      arr.splice(0, 1);
+      return arr.join("/");
 
-  });
-  car.photos = img;
+    });
+    car.photos = img;
 
-  handler.addNewCar(car, req.session, res);
+    handler.addNewCar(car, req.user, res);
+  }
 });
 
 // Search and filter cars
@@ -41,6 +45,15 @@ router.post('/searchCar', function (req, res) {
   var search = req.body;
   handler.findCars(search, res);
 });
+
+router.post('/:cid/book', function (req, res) {
+  if (!req.user) {
+    res.status(403).json({status: "Forbidden"});
+  } else {
+    handler.bookCar(req.body, req.user, req.body.startDate, req.body.endDate, req.body.pickupLocation, res);
+  }
+});
+
 
 
 // Get Car by ID

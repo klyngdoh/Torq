@@ -8,25 +8,14 @@ import 'rxjs/add/operator/map';
 
 // injecting service into module
 @Injectable()
-export class CarService {
+export class TripService {
 
   constructor(private http: HttpClient) {
   }
 
-  cars: [{
-    name: "VW POLO TRENDLINE 2.0 TDI",
-    pricePerDay: 39,
-    rating: 4.0,
-    description: "Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.",
-    year: 2013,
-    fuel: "Diesel",
-    mileage: 25000
-  }];
-
-  searchParams: SearchParams;
 
   api = {
-    'addCar': this.addCar,
+    'getPendingApprovals': this.getPendingApprovals,
     'deleteCar': this.deleteCar,
     'updateCar': this.updateCar,
     'getCars': this.getCars,
@@ -35,8 +24,8 @@ export class CarService {
     'bookCar': this.bookCar
   };
 
-  addCar(car: FormData) {
-    return this.http.post<Car>("/api/car/addCar", car);
+  getPendingApprovals() {
+    return this.http.get<Car[]>("/api/trip/pendingApprovals");
   }
 
 
@@ -61,10 +50,6 @@ export class CarService {
     return this.http.post<Car[]>('/api/car/searchCar', search);
   }
 
-  getUnapprovedCars() {
-    return this.http.get('/api/car/approveCars');
-  }
-
   getCarById(carId) {
     return this.http.get<Car>('/api/car/'+carId);
   }
@@ -75,7 +60,7 @@ export class CarService {
 
 
   updateSearch(params: SearchParams) {
-    this.searchParams = params;
+
     //return this.getCars();
   }
 

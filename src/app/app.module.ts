@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 
 
 import { AppComponent } from './app.component';
@@ -27,7 +27,9 @@ import {CarService} from "./services/cars.service";
 import {UserService} from "./services/user.service";
 import { HeaderComponent } from './components/header/header.component';
 import { CarNewComponent } from './components/car-new/car-new.component';
+import {CommentComponent} from './components/commentPage/commentPage.component'
 import {AgmCoreModule} from "@agm/core";
+import {TripService} from "./services/trip.service";
 import {SupportService} from './services/support.service';
 
 
@@ -54,6 +56,7 @@ import {SupportService} from './services/support.service';
     RenterRegisterComponent,
     HeaderComponent,
     CarNewComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,7 @@ import {SupportService} from './services/support.service';
       libraries: ["places"]
     })
   ],
-  providers: [CarService, UserService, SupportService],
+  providers: [CarService, UserService, TripService, SupportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

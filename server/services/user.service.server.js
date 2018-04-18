@@ -35,7 +35,7 @@ router.get('/logout', function(req, res) {
   req.logout();
   req.session.destroy(function(err) {
     // cannot access session here
-    req.sessionID = null
+    req.sessionID = null;
     res.json({status: "success"});
   })
 
