@@ -57,7 +57,7 @@ export class AdminDashboardComponent implements OnInit {
 
   dismiss($event, message:Support) {
     $event.preventDefault();
-    debugger;
+
     this.supportService.viewMessage(message).subscribe((result: Support) => {
 
     });

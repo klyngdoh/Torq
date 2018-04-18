@@ -32,7 +32,6 @@ export class RenterRegisterComponent implements OnInit {
   login() {
     var user: User;
     this.userService.getUserByCredentials(this.username, this.password).subscribe(data => {
-      debugger;
       user = data;
       if (user == undefined) {
         this.errorFlag = true;
