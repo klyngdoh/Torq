@@ -30,7 +30,7 @@ const APP_ROUTES: Routes = [
   {path: 'car/:cid/checkout', component: CheckoutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'faqs', component: FaqsComponent},
-  {path: 'customer/:uid/comment', component: CommentComponent},
+  {path: ':type/:id/comment', component: CommentComponent},
   ];
 
 // Export the routes as module providers
