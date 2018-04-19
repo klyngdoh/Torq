@@ -94,9 +94,7 @@ module.exports = function () {
     });
     return Cars.update({_id: car._id}, {$push: {trips: trip}});
   };
-
-
-
+  
 
   var autoIncrement = require('mongoose-auto-increment');
   autoIncrement.initialize(db);

@@ -7,10 +7,13 @@
         <ul class="nav nav-pills nav-stacked" role="tablist">
 
           <li class="nav-item active" role="presentation">
-            <a class="link" id="approval-tab" href="#approval" role="tab" aria-controls="approval" data-toggle="tab">Rentee Approval</a></li>
-          <li class="nav-item" role="presentation"><a class="link" id="upcoming-tab" href="#upcoming" role="tab" aria-controls="upcoming" data-toggle="tab">Upcoming Trips</a></li>
+            <a class="link" id="approval-tab" href="#approval" role="tab" aria-controls="approval" data-toggle="tab">Rentee
+              Approval</a></li>
+          <li class="nav-item" role="presentation"><a class="link" id="upcoming-tab" href="#upcoming" role="tab"
+                                                      aria-controls="upcoming" data-toggle="tab">Upcoming Trips</a></li>
           <li class="nav-item" role="presentation">
-            <a class="link" id="overview-tab" href="#overview" role="tab" aria-controls="overview" data-toggle="tab">Past Trips</a></li>
+            <a class="link" id="overview-tab" href="#overview" role="tab" aria-controls="overview" data-toggle="tab">Past
+              Trips</a></li>
         </ul>
       </div>
       <div class="tab-content col-sm-9 col-md-10" id="myTabContent">
@@ -22,188 +25,40 @@
           <div>
 
             <div class="panel-group accordion" id="approval-accordion" role="tablist" aria-multiselectable="false">
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#approval-collapse1"
-                       aria-expanded="false" aria-controls="collapse1">
-                      <span class="dot"></span>John Doe 1
-                    </a>
-                  </h4>
-                </div>
-                <div id="approval-collapse1" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading1">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="profile.html">
-                          <img class="image-circle" src="assets/img/sanchit.png" width="200" height="200"></a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>John Doe</p>
-                        <p>Licence State: California</p>
-                        <p>Age: 23</p>
-                      </div>
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Approve</button>
-                        <button class="btn btn-theme btn-theme-dark">Decline</button>
-                      </div>
-                    </div>
+              <div *ngFor="let trip of trips">
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab">
+                    <h4 class="panel-title">
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="{{trip.href}}"
+                         aria-expanded="false" aria-controls="collapse1">
+                        <span class="dot"></span>{{trip.customer.firstName}} {{trip.customer.lastName}}
+                      </a>
+                    </h4>
                   </div>
-                </div>
-              </div>
-
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#approval-collapse2"
-                       aria-expanded="false" aria-controls="collapse2">
-                      <span class="dot"></span>John Doe 2
-                    </a>
-                  </h4>
-                </div>
-                <div id="approval-collapse2" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading2">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="profile.html">
-                          <img class="image-circle" src="assets/img/sanchit.png" width="200" height="200"></a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>John Doe</p>
-                        <p>Licence State: California</p>
-                        <p>Age: 23</p>
-                      </div>
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Approve</button>
-                        <button class="btn btn-theme btn-theme-dark">Decline</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#approval-collapse3"
-                       aria-expanded="false" aria-controls="collapse3">
-                      <span class="dot"></span>John Doe 3
-                    </a>
-                  </h4>
-                </div>
-                <div id="approval-collapse3" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading3">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="car-view.html">
-                          <img class="image-circle" src="assets/img/sanchit.png" width="200" height="200"></a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>John Doe</p>
-                        <p>Licence State: California</p>
-                        <p>Age: 23</p>
-                      </div>
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Approve</button>
-                        <button class="btn btn-theme btn-theme-dark">Decline</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#approval-collapse4"
-                       aria-expanded="false" aria-controls="collapse4">
-                      <span class="dot"></span>John Doe 4
-                    </a>
-                  </h4>
-                </div>
-                <div id="approval-collapse4" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading4">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="profile.html">
-                          <img class="image-circle" src="assets/img/sanchit.png" width="200" height="200"></a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>John Doe</p>
-                        <p>Licence State: California</p>
-                        <p>Age: 23</p>
-                      </div>
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Approve</button>
-                        <button class="btn btn-theme btn-theme-dark">Decline</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#approval-collapse5"
-                       aria-expanded="false" aria-controls="collapse5">
-                      <span class="dot"></span>John Doe 5
-                    </a>
-                  </h4>
-                </div>
-                <div id="approval-collapse5" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading5">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="profile.html">
-                          <img class="image-circle" src="assets/img/sanchit.png" width="200" height="200"></a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>John Doe</p>
-                        <p>Licence State: California</p>
-                        <p>Age: 23</p>
-                      </div>
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Approve</button>
-                        <button class="btn btn-theme btn-theme-dark">Decline</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#approval-collapse6"
-                       aria-expanded="false" aria-controls="collapse6">
-                      <span class="dot"></span>John Doe 6
-                    </a>
-                  </h4>
-                </div>
-                <div id="approval-collapse6" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading6">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="profile.html">
-                          <img class="image-circle" src=src="assets/img/sanchit.png" width="200" height="200"/>
-                        </a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>John Doe</p>
-                        <p>Licence State: California</p>
-                        <p>Age: 23</p>
-                      </div>
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Approve</button>
-                        <button class="btn btn-theme btn-theme-dark">Decline</button>
+                  <div id="{{trip._id}}" class="panel-collapse collapse" role="tabpanel"
+                       aria-labelledby="heading1">
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <a (click)="customerProfile(trip.customer._id)">
+                            <img class="image-circle" src="{{trip.customer.displayPicURL}}" width="200"
+                                 height="200"></a>
+                        </div>
+                        <div class="col-sm-4">
+                          <p>{{trip.customer.firstName}} {{trip.customer.lastName}}</p>
+                          <a (click)="carView(trip.car._id)"><p>Car: {{trip.car.name}}</p></a>
+                          <p>Pickup Location: California</p>
+                          <p>Pickup Date: {{trip.startDate.toDateString()}} {{trip.startDate.toLocaleTimeString()}}</p>
+                          <p>Return Date: {{trip.endDate.toDateString()}} {{trip.endDate.toLocaleTimeString()}}</p>
+                        </div>
+                        <div class="col-sm-4">
+                          <button class="btn btn-theme btn-theme-dark" (click)="changeTripStatus(trip._id, 'Approved')">
+                            Approve
+                          </button>
+                          <button class="btn btn-theme btn-theme-dark" (click)="changeTripStatus(trip._id, 'Declined')">
+                            Decline
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -242,7 +97,7 @@
                       <div class="col-sm-4">
                         <p>Booked by :<a href="profile.html">John Doe</a></p>
                         <p>Start : June 21, 2018</p>
-                        <p>End : June  33, 2018</p>
+                        <p>End : June 33, 2018</p>
                         <p>Car :<a href="car-view.html"> Polo GT</a></p>
                       </div>
                       <div class="col-sm-4">
@@ -274,7 +129,7 @@
                       <div class="col-sm-4">
                         <p>Booked by :<a href="profile.html">John Doe</a></p>
                         <p>Start : June 21, 2018</p>
-                        <p>End : June  33, 2018</p>
+                        <p>End : June 33, 2018</p>
                         <p>Car :<a href="car-view.html"> Polo GT</a></p>
                       </div>
 
@@ -306,7 +161,7 @@
                       <div class="col-sm-4">
                         <p>Booked by :<a href="profile.html">John Doe</a></p>
                         <p>Start : June 21, 2018</p>
-                        <p>End : June  33, 2018</p>
+                        <p>End : June 33, 2018</p>
                         <p><a href="car-view.html">Car : Polo GT</a></p>
                       </div>
 
@@ -338,11 +193,12 @@
                       <div class="col-sm-4">
                         <p>Booked by :<a href="profile.html">John Doe</a></p>
                         <p>Start : June 21, 2018</p>
-                        <p>End : June  33, 2018</p>
+                        <p>End : June 33, 2018</p>
                         <p><a href="car-view.html">Car : Polo GT</a></p>
                       </div>
 
-                      <div class="col-sm-4"> <button class="btn btn-theme btn-theme-dark">Cancel Trip</button>
+                      <div class="col-sm-4">
+                        <button class="btn btn-theme btn-theme-dark">Cancel Trip</button>
                       </div>
                     </div>
                   </div>
@@ -369,7 +225,7 @@
                       <div class="col-sm-4">
                         <p>Booked by :<a href="profile.html">John Doe</a></p>
                         <p>Start : June 21, 2018</p>
-                        <p>End : June  33, 2018</p>
+                        <p>End : June 33, 2018</p>
                         <p><a href="car-view.html">Car : Polo GT</a></p>
                       </div>
 
@@ -401,7 +257,7 @@
                       <div class="col-sm-4">
                         <p>Booked by :<a href="profile.html">John Doe</a></p>
                         <p>Start : June 21, 2018</p>
-                        <p>End : June  33, 2018</p>
+                        <p>End : June 33, 2018</p>
                         <p><a href="car-view.html">Car : Polo GT</a></p>
                       </div>
 
@@ -458,7 +314,7 @@
 
 
               <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
+                <div class="panel-heading" role="tab">
                   <h4 class="panel-title">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#overview-collapse2"
                        aria-expanded="false" aria-controls="collapse2">
@@ -489,7 +345,7 @@
               </div>
 
               <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
+                <div class="panel-heading" role="tab">
                   <h4 class="panel-title">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#overview-collapse3"
                        aria-expanded="false" aria-controls="collapse3">
@@ -520,7 +376,7 @@
               </div>
 
               <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
+                <div class="panel-heading" role="tab">
                   <h4 class="panel-title">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#overview-collapse4"
                        aria-expanded="false" aria-controls="collapse4">
@@ -551,7 +407,7 @@
               </div>
 
               <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
+                <div class="panel-heading" role="tab">
                   <h4 class="panel-title">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#overview-collapse5"
                        aria-expanded="false" aria-controls="collapse5">
@@ -582,7 +438,7 @@
               </div>
 
               <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
+                <div class="panel-heading" role="tab">
                   <h4 class="panel-title">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#overview-collapse6"
                        aria-expanded="false" aria-controls="collapse6">

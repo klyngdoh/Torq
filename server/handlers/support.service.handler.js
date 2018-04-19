@@ -34,7 +34,6 @@ module.exports = {
 
   viewMessage: function(body, res) {
     var support = body;
-    debugger;
     supportModel.viewMessage(support).then(function (result) {
       res.json(result);
     }).catch(function (err) {

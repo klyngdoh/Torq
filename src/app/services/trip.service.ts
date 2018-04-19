@@ -16,7 +16,7 @@ export class TripService {
 
   api = {
     'getPendingApprovals': this.getPendingApprovals,
-    'deleteCar': this.deleteCar,
+    'changeTripStatus': this.changeTripStatus,
     'updateCar': this.updateCar,
     'getCars': this.getCars,
     'getCarById': this.getCarById,
@@ -70,6 +70,10 @@ export class TripService {
     body['endDate'] = endDate;
     body['pickupLocation'] = location;
     return this.http.post("/api/car/"+car._id+"/book", body);
+  }
+
+  changeTripStatus(tripId, status) {
+    return this.http.post("/api/trip/"+tripId+"/changeStatus", {status: status});
   }
 
 }

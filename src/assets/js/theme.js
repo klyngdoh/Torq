@@ -121,9 +121,6 @@ function updater() {
 
     if($().datetimepicker) {
         $('.datepicker').datetimepicker();
-        $('.datepick').datetimepicker({
-            format: 'LL'
-        });
     }
 
   if ($().selectpicker) {
@@ -307,4 +304,23 @@ function addRateYo(rating) {
       readOnly: true
     });
   }
+}
+
+function linkDatePickers() {
+  $('#pickupDate').datetimepicker();
+  $('#returnDate').datetimepicker({
+    useCurrent: false //Important! See issue #1075
+  });
+  $("#pickupDate").on("dp.change", function (e) {
+    $('#returnDate').data("DateTimePicker").minDate(e.date);
+  });
+  $("#returnDate").on("dp.change", function (e) {
+    $('#pickupDate').data("DateTimePicker").maxDate(e.date);
+  });
+}
+
+function buildDatePicker() {
+  $('.datepick').datetimepicker({
+    format: 'LL'
+  });
 }

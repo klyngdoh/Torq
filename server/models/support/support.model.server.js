@@ -34,7 +34,7 @@ module.exports = function() {
     s.subject = support.subject;
     s.message = support.message;
     s.viewed = "true";
-    debugger;
+
     return Support.update({"_id" : support._id}, s);
   };
 

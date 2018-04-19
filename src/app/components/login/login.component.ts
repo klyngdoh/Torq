@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
     var that = this;
     window.fbAsyncInit = function() {
-      debugger;
+
       FB.init({
         appId      : '184845472299453',
         cookie     : true,
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       FB.Event.subscribe('auth.statusChange', (response => {
         if (response.status === 'connected') {
           var user = {};
-          debugger;
+
           FB.api('/me',{fields: 'email, first_name, last_name'}, function(response) {
             user['email'] = response.email;
             user['firstName'] = response.first_name;
@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     if (window.FB) {
-      debugger;
+
       window.FB.XFBML.parse();
 
     }
@@ -92,7 +92,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
     var user: User;
     this.userService.getUserByCredentials(this.username, this.password).subscribe(data => {
-      debugger;
+
       user = data;
       if(user == undefined) {
         this.errorFlag = true;
