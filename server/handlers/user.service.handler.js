@@ -1,4 +1,6 @@
 var userModel = require('../models/user/user.model.server.js')();
+var bcrypt = require("bcrypt-nodejs");
+const saltRounds = 10;
 
 module.exports = {
 
@@ -6,6 +8,9 @@ module.exports = {
     var user = body;
     user.type = type;
     user.rating = 4.0;
+    var salt = bcrypt.genSaltSync(saltRounds);
+    var hash = bcrypt.hashSync(user.password, salt);
+    user.password = hash;
 
     userModel.addUser(user).then(function (result) {
       console.log("Result ", result);
@@ -44,6 +49,9 @@ module.exports = {
     console.log("Goint to upsert ,", user);
     user.photos = [];
     user.photos.push(user.photo);
+    var salt = bcrypt.genSaltSync(saltRounds);
+    var hash = bcrypt.hashSync(user.password, salt);
+    user.password = hash;
     userModel.upsertUser(user).then(function (result) {
       req.login(result, function (err) {
         if (err) {

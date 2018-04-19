@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
     var that = this;
     window.fbAsyncInit = function() {
-
       FB.init({
         appId      : '184845472299453',
         cookie     : true,
@@ -91,6 +90,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.password  = this.loginForm.value.password;
 
     var user: User;
+    this.errorFlag = false;
     this.userService.getUserByCredentials(this.username, this.password).subscribe(data => {
 
       user = data;

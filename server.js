@@ -4,6 +4,8 @@ const path = require('path');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var app = express();
+var bcrypt = require("bcrypt-nodejs");
+var flash = require('connect-flash');
 
 
 // Create link to Angular build directory
@@ -64,12 +66,15 @@ passport.use(new LocalStrategy({
     passwordField: 'password'
   },
   function (username, password, done) {
-    userModel.findUserByCredentials(username, password).then(
+    userModel.findUserByUsername(username).then(
       function (user) {
-        if (user.username === username && user.password === password) {
+        if(!user) {
+          return done(null, false, { message: 'Incorrect username.'});
+        }
+        if (bcrypt.compareSync(password, user.password)) {
           return done(null, user);
         } else {
-          return done(null, false);
+          return done(null, false , { message: 'Incorrect Password.'});
         }
       },
       function (err) {
@@ -98,6 +103,7 @@ passport.deserializeUser(function (id, done) {
 app.use(checkSession);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 var services = require("./server/app.js")(app);
 
