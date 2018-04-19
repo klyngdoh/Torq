@@ -24,7 +24,6 @@ export class AdminDashboardComponent implements OnInit {
   unreadMessages: Support[];
   readMessages: Support[];
   cars: Car[];
-  href: string[];
   user: User;
   userId: string;
 
@@ -44,6 +43,7 @@ export class AdminDashboardComponent implements OnInit {
         this.unreadMessages[i].mailLink = "mailto:" + this.unreadMessages[i].email + "?Subject=Hello%20from%20Torq!";
       }
     });
+
     this.supportService.getReadMessages().subscribe((result: Support[]) => {
       this.readMessages = result;
       for(let i = 0; i < this.readMessages.length; i++) {
@@ -72,6 +72,31 @@ export class AdminDashboardComponent implements OnInit {
       for(let i = 0; i < this.readMessages.length; i++) {
         this.readMessages[i].mailLink = "mailto:" + this.readMessages[i].email + "?Subject=Hello%20from%20Torq!";
       }
+    });
+  }
+
+  toCarView($event, id: string) {
+    $event.preventDefault();
+    this.router.navigate(['car/' + id]);
+  }
+
+  approve($event, car: Car) {
+    $event.preventDefault();
+    this.carService.approveCarAdmin(car).subscribe((result: Car) => {
+
+    });
+    this.carService.getUnapprovedCars().subscribe((result: Car[]) => {
+      this.cars = result;
+    });
+  }
+
+  decline($event, car: Car) {
+    $event.preventDefault();
+    this.carService.declineCarAdmin(car).subscribe((result: Car) => {
+
+    });
+    this.carService.getUnapprovedCars().subscribe((result: Car[]) => {
+      this.cars = result;
     });
   }
 }

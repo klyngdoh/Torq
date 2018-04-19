@@ -25,7 +25,7 @@ module.exports = new Schema({
   description: String,
   year: Number,
   mileage: Number,
-  VIN: String,
+  vin: String,
   photos: [String],
   trips: [tripSchema],
   renter: {_id: String, firstName: String, lastName: String, displayPicUrl: String},
