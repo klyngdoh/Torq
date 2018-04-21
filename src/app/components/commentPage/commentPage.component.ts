@@ -18,13 +18,9 @@ export class CommentComponent implements OnInit {
 
   type: string;
   customerId: string;
-  FirstName: string;
-  LastName: string;
-  name: string;  // name = firstName+LastName for customer type || name = year + make + model for car type
   carId: string;
-  // carYear: string;
-  // carMake: string;
-  // carModel: string;
+  name: string;  // name = firstName+LastName for customer type || name = year + make + model for car type
+  comment :string;
 
   ngOnInit() {
 
@@ -36,10 +32,8 @@ export class CommentComponent implements OnInit {
         this.customerId = params['id'];
         this.userService.getUserById(this.customerId)
           .subscribe((user) => {
-            this.FirstName = user.firstName;
-            this.LastName = user.lastName;
-            this.name = this.FirstName + ' ' + this.LastName;
-          })
+            this.name = user.firstName + ' ' + user.lastName;
+          });
       }
 
       else{
@@ -47,12 +41,25 @@ export class CommentComponent implements OnInit {
         this.carService.getCarById(this.carId)
           .subscribe((car) => {
             this.name = car.year + ' ' + car.make + ' ' + car.model;
-          })
+          });
       }
 
 
     });
 
+  }
+
+
+  submitComment(comment: string){
+    if(this.type = 'customer'){
+      this.userService.addComment(this.customerId, comment)
+        .subscribe((comment)=>{
+          //navigate to some page
+        });
+    }
+    else{
+      // car service add comment
+    }
   }
 
 }

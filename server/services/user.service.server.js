@@ -73,7 +73,7 @@ router.get('/:userId', function (req, res) {
 router.post('/fbLogin', function(req, res) {
   var user = req.body;
   handler.fbLogin(user, req, res);
-})
+});
 
 
 // Update user
@@ -117,6 +117,13 @@ router.delete('/:userId', function (req, res) {
   }
 });
 
+//add comments
+
+router.post('/:userId/comment', function(req, res) {
+  var comment = req.body;
+  handler.addComment()
+  //handler.fbLogin(user, req, res);
+});
 
 module.exports = router;
 

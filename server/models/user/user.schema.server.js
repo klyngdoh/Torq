@@ -16,7 +16,8 @@ module.exports = new Schema({
   licenseUrl: String,
   type: String,
   rating: Number,
-  comments:[commentSchema],
+  //comments:[commentSchema],
+  comments: [String],
   photos:[String]
 });
 

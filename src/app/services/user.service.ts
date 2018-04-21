@@ -64,4 +64,9 @@ export class UserService {
     this.setUser(null);
     return this.http.get("/api/user/logout");
   }
+
+  addComment(customerId: string, comment: string){
+    //'/:userId/comments'
+    return this.http.post("/api/user/" + customerId + "/comment", comment);
+  }
 }

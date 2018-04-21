@@ -64,5 +64,15 @@ module.exports = {
       res.status(500);
       res.json({message: err});
     });
+  },
+
+  addComment: function (userId, sess, res) {
+    userModel.findUserById(userId).then(function (user) {
+      res.json(user);
+    }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
   }
+
 };
