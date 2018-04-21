@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {UserService} from "../../../services/user.service";
@@ -9,7 +9,7 @@ import {User} from "../../../models/user.interface";
   templateUrl: './renter-register.component.html',
   styleUrls: ['./renter-register.component.css']
 })
-export class RenterRegisterComponent implements OnInit {
+export class RenterRegisterComponent implements OnInit, AfterViewInit {
 
   @ViewChild('f') loginForm: NgForm;
 
@@ -17,6 +17,10 @@ export class RenterRegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    buildDatePicker();
   }
 
   username: string;
@@ -85,3 +89,4 @@ export class RenterRegisterComponent implements OnInit {
   }
 
 }
+declare var buildDatePicker;

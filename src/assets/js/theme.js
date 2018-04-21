@@ -121,9 +121,6 @@ function updater() {
 
     if($().datetimepicker) {
         $('.datepicker').datetimepicker();
-        $('.datepick').datetimepicker({
-            format: 'LL'
-        });
     }
 
   if ($().selectpicker) {
@@ -319,5 +316,11 @@ function linkDatePickers() {
   });
   $("#returnDate").on("dp.change", function (e) {
     $('#pickupDate').data("DateTimePicker").maxDate(e.date);
+  });
+}
+
+function buildDatePicker() {
+  $('.datepick').datetimepicker({
+    format: 'LL'
   });
 }

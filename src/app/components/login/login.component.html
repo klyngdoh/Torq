@@ -38,16 +38,26 @@
               <div class="col-md-12 margin-10">
                 <div class="form-group"><input class="form-control" type="text" name="username"
                                                placeholder="User name or email" required
-                                               (ngModel)="username" ></div>
+                                               (ngModel)="username" #username="ngModel" ></div>
+                <span class="help-block" *ngIf="!username.valid && username.touched">
+                Please enter username!
+             </span>
               </div>
               <div class="col-md-12 margin-10">
                 <div class="form-group"><input class="form-control" type="password" name="password"
                                                placeholder="Your password" required
-                                               (ngModel)="password" ></div>
+                                               (ngModel)="password" #password="ngModel"></div>
+                <span class="help-block" *ngIf="!password.valid && password.touched">
+                Please enter password!
+             </span>
               </div>
 
               <div class="col-md-12 col-lg-6 margin-10">
                 <a class="forgot-password" href="#">Forgot password?</a>
+              </div>
+              <div *ngIf="errorFlag"
+                   class="alert alert-danger">
+                Invalid Username/Password
               </div>
               <div class="col-md-12">
                 <a class="btn btn-theme btn-block btn-theme-dark" (click)="login($event)">Login</a>

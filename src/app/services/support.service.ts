@@ -31,7 +31,6 @@ export class SupportService {
   }
 
   viewMessage(support: Support) {
-
     return this.http.post<Support>("api/support/view", support);
   }
 }

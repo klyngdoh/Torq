@@ -48,12 +48,20 @@ export class CarService {
 
   }
 
+  approveCarAdmin(car: Car) {
+    return this.http.post<Car>("/api/car/approveCar", car);
+  }
+
+  declineCarAdmin(car: Car) {
+    return this.http.post<Car>("/api/car/declineCar", car);
+  }
+
   getCars(search: SearchParams) {
     // Use searchParams to fetch cars from the server
     // if (this.searchParams == undefined) {
     //   return [];
     // } else {
-    //}
+    // }
 
 
     // Make HTTP request to fetch cars
@@ -62,7 +70,7 @@ export class CarService {
   }
 
   getUnapprovedCars() {
-    return this.http.get('/api/car/approveCars');
+    return this.http.get<Car[]>('/api/car/unapprovedCars');
   }
 
   getCarById(carId) {

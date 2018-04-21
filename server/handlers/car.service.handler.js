@@ -13,6 +13,24 @@ module.exports = {
     });
   },
 
+  approveCar: function(car, res) {
+    carModel.approveCar(car).then(function(result) {
+      res.json(result);
+    }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
+  },
+
+  declineCar: function(car, res) {
+    carModel.declineCar(car).then(function(result) {
+      res.json(result);
+    }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
+  },
+
   findCars: function (search, res) { // , fuelType, carType, transmission, priceHigh, priceLow) {
     var pickup = search.pickup;
     var dropoff = search.dropoff;
@@ -98,6 +116,7 @@ module.exports = {
     carModel.getUnapprovedCars().then(function (result) {
       res.json(result);
     }).catch(function (err) {
+      console.log("err = ", err);
       res.status(500).json({message: err});
     });
   },

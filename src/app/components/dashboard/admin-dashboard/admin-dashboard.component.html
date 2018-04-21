@@ -108,19 +108,21 @@
               <div class="panel panel-default" *ngFor="let car of cars">
                 <div class="panel-heading" role="tab" id="heading1">
                   <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href=#{{car._id}}
                        aria-expanded="false" aria-controls="collapse1">
                       <span class="dot"></span>{{car.make}} {{car.model}} {{car.year}}
                     </a>
                   </h4>
                 </div>
-                <div id="collapse1" class="panel-collapse collapse" role="tabpanel"
+                <div id={{car._id}} class="panel-collapse collapse" role="tabpanel"
                      aria-labelledby="heading1">
                   <div class="panel-body">
                     <div class="row">
                       <div class="col-sm-4">
-                        <a href="car-view.html">
-                          <img src="assets/img/dummy-car.png" width="300" height="200"></a>
+                        <a (click)="toCarView($event, car._id)">
+                          <img src={{car.photos[0]}} width="300" height="200">
+                        </a>
+
                       </div>
                       <div class="col-sm-4">
                         <p>Owner Name: {{car.renter.firstName}} {{car.renter.lastName}}</p>
@@ -132,8 +134,8 @@
                       </div>
                       <div class="col-sm-4">
                         <button class="btn btn-theme btn-theme-dark">Get Carfax</button>
-                        <button class="btn btn-theme btn-theme-dark">Approve</button>
-                        <button class="btn btn-theme btn-theme-dark">Decline</button>
+                        <button class="btn btn-theme btn-theme-dark" (click)="approve($event, car)">Approve</button>
+                        <button class="btn btn-theme btn-theme-dark" (click)="decline($event, car)">Decline</button>
                       </div>
                     </div>
                   </div>
