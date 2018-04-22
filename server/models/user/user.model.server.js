@@ -46,6 +46,16 @@ module.exports = function () {
       });
   };
 
+// ADDING A COMMENT INTO THE DB
+
+  userSchema.statics.addComment = function (userId, comment) {
+    var User = db.model('User', userSchema);
+    return User.update( {_id: userId} ,{ $push: { comments: comment } });
+
+    // db.student.update( { "subjects" : "gkn" },{ $push: { "achieve": 95 } });
+  };
+
+
 
   var autoIncrement = require('mongoose-auto-increment');
   autoIncrement.initialize(db);

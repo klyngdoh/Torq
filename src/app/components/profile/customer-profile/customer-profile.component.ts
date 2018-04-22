@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../services/user.service";
 import {User} from "../../../models/user.interface";
 
+
 @Component({
   selector: 'app-customer-profile',
   templateUrl: './customer-profile.component.html',
@@ -17,7 +18,8 @@ export class CustomerProfileComponent implements OnInit {
   customerLastName: string;
   customerName: string;
   photos: string[];
-  //user1: User;
+  comments: any[];
+  commentsNumber: number;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
@@ -27,8 +29,9 @@ export class CustomerProfileComponent implements OnInit {
           this.customerFirstName = user.firstName;
           this.customerLastName = user.lastName;
           this.customerName = this.customerFirstName + ' ' + this.customerLastName;
-          //this.user1 = user;
           this.photos = user.photos;
+          this.comments = user.comments;
+          this.commentsNumber = user.comments.length;
         })
     });
 

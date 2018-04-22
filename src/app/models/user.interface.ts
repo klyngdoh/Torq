@@ -9,4 +9,5 @@ export interface User{
   dob: string;
   photos: string[];
   rating: number;
+  comments: any[];
 }

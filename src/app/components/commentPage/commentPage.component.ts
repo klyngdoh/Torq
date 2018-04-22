@@ -14,11 +14,14 @@ export class CommentComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private userService: UserService,
-              private carService: CarService) { }
+              private carService: CarService,
+              private router: Router) { }
 
   type: string;
-  customerId: string;
-  carId: string;
+  //customerId: string;
+  commentById: string;
+  commentOnId: string;
+  //carId: string;
   name: string;  // name = firstName+LastName for customer type || name = year + make + model for car type
   comment :string;
 
@@ -29,16 +32,18 @@ export class CommentComponent implements OnInit {
       this.type = params['type'];
 
       if(this.type == 'customer'){
-        this.customerId = params['id'];
-        this.userService.getUserById(this.customerId)
+       // this.customerId = params['id'];
+        this.commentOnId = params['id'];
+        this.userService.getUserById(this.commentOnId)
           .subscribe((user) => {
             this.name = user.firstName + ' ' + user.lastName;
           });
       }
 
       else{
-        this.carId = params['id'];
-        this.carService.getCarById(this.carId)
+        //this.carId = params['id'];
+        this.commentOnId = params['id'];
+        this.carService.getCarById(this.commentOnId)
           .subscribe((car) => {
             this.name = car.year + ' ' + car.make + ' ' + car.model;
           });
@@ -52,9 +57,9 @@ export class CommentComponent implements OnInit {
 
   submitComment(comment: string){
     if(this.type = 'customer'){
-      this.userService.addComment(this.customerId, comment)
+      this.userService.addComment(this.commentOnId, comment)
         .subscribe((comment)=>{
-          //navigate to some page
+          this.router.navigate(['/user/' + this.commentOnId + '/profile']);
         });
     }
     else{

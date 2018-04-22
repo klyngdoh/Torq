@@ -120,9 +120,14 @@ router.delete('/:userId', function (req, res) {
 //add comments
 
 router.post('/:userId/comment', function(req, res) {
-  var comment = req.body;
-  handler.addComment()
-  //handler.fbLogin(user, req, res);
+  var commentorId = req.user._id;
+  var commentorName = req.user.firstName;
+  var commentOn = req.params['userId'];
+  var commentObject = req.body;
+  commentObject.commentorId = commentorId;
+  commentObject.commentorName = commentorName;
+  handler.addComment(commentOn, commentObject, req.session, res);
+
 });
 
 module.exports = router;
