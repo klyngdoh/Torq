@@ -23,6 +23,8 @@ export class CarViewComponent implements OnInit, AfterViewChecked {
   searchParams: SearchParams;
   geocoder: any;
   place: string;
+  comments: any[];
+  commentsNumber: number;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
@@ -42,6 +44,8 @@ export class CarViewComponent implements OnInit, AfterViewChecked {
     this.carService.getCarById(this.carId).subscribe(data => {
       this.car = data;
       this.photos = this.car.photos;
+      this.comments = this.car.comments;
+      this.commentsNumber = this.car.comments.length;
     }, error => {
       debugger;
     });

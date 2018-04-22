@@ -56,15 +56,21 @@ export class CommentComponent implements OnInit {
 
 
   submitComment(comment: string){
-    if(this.type = 'customer'){
+    if(this.type == 'customer'){
+      console.log('Im in customer type submit component');
       this.userService.addComment(this.commentOnId, comment)
         .subscribe((comment)=>{
           this.router.navigate(['/user/' + this.commentOnId + '/profile']);
         });
     }
     else{
-      // car service add comment
+      this.carService.addComment(this.commentOnId, comment)
+        .subscribe((comment)=>{
+          this.router.navigate(['/car/' + this.commentOnId]);
+        });
     }
   }
+
+
 
 }

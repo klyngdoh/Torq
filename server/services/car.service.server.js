@@ -66,11 +66,22 @@ router.post('/:cid/book', function (req, res) {
   }
 });
 
+
+router.post('/:carId/comment', function(req, res) {
+  var commentorId = req.user._id;
+  var commentorName = req.user.firstName;
+  var commentOn = req.params['carId'];
+  var commentObject = req.body;
+  commentObject.commentorId = commentorId;
+  commentObject.commentorName = commentorName;
+  handler.addComment(commentOn, commentObject, req.session, res);
+
+});
+
 // Get Car by ID
 router.get('/:cid', function (req, res) {
   handler.findCarById(req.params.cid, res);
 });
-
 
 
 module.exports = router;
