@@ -3,6 +3,7 @@ import {UserService} from "../../services/user.service";
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
 import {User} from "../../models/user.interface";
+import {GoogleSignInSuccess} from "angular-google-signin";
 
 
 
@@ -82,6 +83,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   username:string;
   password:string;
   errorFlag:boolean;
+  googleUser: any;
 
 
   login() {
@@ -109,6 +111,50 @@ export class LoginComponent implements OnInit, AfterViewInit {
   navigate(url) {
     this.router.navigate([url]);
   }
+
+
+  clientId: string = '669731371211-0gbgdkal25jk0v50n90mgvhspgtqvu6e.apps.googleusercontent.com';
+
+  onGoogleSignInSuccess(event: GoogleSignInSuccess) {
+    if(this.googleUser == undefined) {
+      let googleUser: gapi.auth2.GoogleUser = event.googleUser;
+      let id: string = googleUser.getId();
+      let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
+      console.log('ID: ' +
+        profile
+          .getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+
+      var user = {};
+      user['username'] = user['_id'] = profile.getId();
+      var names = profile.getName().split(" ");
+      user['firstName'] = names[0];
+      user['lastName'] = names[1];
+      user['photo'] = profile.getImageUrl();
+      user['email'] = profile.getEmail();
+      this.googleUser = user;
+    } else {
+
+      this.userService.fbLogin(this.googleUser).subscribe(data => {
+        this.googleUser = undefined;
+        var u: User = data;
+        if (u == undefined) {
+          this.errorFlag = true;
+        } else {
+          this.userService.setUser(u);
+          window.location = ('/user/' + u['_id'] + '/profile');
+        }
+      }, error => {
+        this.googleUser = undefined;
+        debugger;
+      });
+    }
+  }
+
+  failure($event) {
+    debugger;
+  }
+
 }
 declare var updater: any;
 declare var window: any;
