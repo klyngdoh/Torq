@@ -46,13 +46,15 @@ router.get('/logout', function(req, res) {
 
 router.post('/:type/register', upload.array('images[]', 5), function (req, res) {
   var user = req.body;
-  var img = req.files.map(function (i) {
-    var arr = i.path.split("/");
+  if(req.files) {
+    var img = req.files.map(function (i) {
+      var arr = i.path.split("/");
 
-    arr.splice(0, 1);
-    return arr.join("/");
+      arr.splice(0, 1);
+      return arr.join("/");
 
-  });
+    });
+  }
   user.photos = img;
 
   handler.addUser(user, req.params.type, req, res);
@@ -62,7 +64,7 @@ router.post('/:type/register', upload.array('images[]', 5), function (req, res) 
 // Find user by ID
 router.get('/:userId', function (req, res) {
   if (!req.params.userId.toString().match(/[0-9]+/g)) {
-    res.status(400);
+    res.status(00);
     res.json({message: "Bad Request"});
   } else {
     handler.findUserById(req.params.userId, req.session, res);

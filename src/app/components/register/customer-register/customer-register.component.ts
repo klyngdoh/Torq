@@ -68,7 +68,7 @@ export class CustomerRegisterComponent implements OnInit, AfterViewInit {
     this.email = this.loginForm.value.email;
     this.firstName = this.loginForm.value.firstName;
     this.lastName = this.loginForm.value.lastName;
-    this.dob = this.loginForm.value.dob;
+    this.dob = (<HTMLInputElement>document.getElementById("dob")).value;
 
     const _formData = new FormData();
     _formData.append("username", this.username);

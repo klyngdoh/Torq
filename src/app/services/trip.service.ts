@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {Car} from "../models/car.interface";
 import {FilterParams} from "../models/filterparams.interface";
 import {SearchParams} from "../models/searchparams.interface";
-import 'rxjs/add/operator/map';
 
 
 // injecting service into module

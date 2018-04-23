@@ -83,20 +83,19 @@ export class AdminDashboardComponent implements OnInit {
   approve($event, car: Car) {
     $event.preventDefault();
     this.carService.approveCarAdmin(car).subscribe((result: Car) => {
-
-    });
-    this.carService.getUnapprovedCars().subscribe((result: Car[]) => {
-      this.cars = result;
+      this.carService.getUnapprovedCars().subscribe((result: Car[]) => {
+        this.cars = result;
+      });
     });
   }
 
   decline($event, car: Car) {
     $event.preventDefault();
     this.carService.declineCarAdmin(car).subscribe((result: Car) => {
+      this.carService.getUnapprovedCars().subscribe((result: Car[]) => {
+        this.cars = result;
+      });
+    });
 
-    });
-    this.carService.getUnapprovedCars().subscribe((result: Car[]) => {
-      this.cars = result;
-    });
   }
 }
