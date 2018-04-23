@@ -25,6 +25,8 @@ export class CarViewComponent implements OnInit, AfterViewChecked {
   place: string;
   comments: any[];
   commentsNumber: number;
+  ownerId: string;
+  ownerName: string;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
@@ -46,7 +48,9 @@ export class CarViewComponent implements OnInit, AfterViewChecked {
       this.photos = this.car.photos;
       this.comments = this.car.comments;
       this.commentsNumber = this.car.comments.length;
-    }, error => {
+      this.ownerId = this.car.renter._id;
+      this.ownerName = this.car.renter.firstName + ' ' + this.car.renter.lastName;
+      }, error => {
       debugger;
     });
 
