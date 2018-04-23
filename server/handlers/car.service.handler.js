@@ -128,6 +128,15 @@ module.exports = {
       res.status(500).json({error: err});
 
     });
+  },
+
+  addComment: function (carId, commentObject, sess, res) {
+    carModel.addComment(carId, commentObject).then(function (user) {
+      res.json(user);
+    }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
   }
 
 

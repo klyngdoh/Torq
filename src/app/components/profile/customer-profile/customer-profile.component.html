@@ -24,7 +24,7 @@
 
           <div class="col-md-6 col-xs-6 follow line" align="center">
             <h3><i class="fa fa-comments-o"></i><br/>
-              6 Reviews
+              {{commentsNumber}} Reviews
             </h3>
           </div>
 
@@ -37,84 +37,39 @@
           <a routerLink="/customer/{{customerId}}/comment"><h1 class="block-title"><span>Reviews</span></h1> </a>
         </div>
 
+
+<!--   comments -->
+
         <div class="comment-tabs">
           <div class="tab-content">
             <div class="tab-pane active" id="comments-logout">
-              <ul class="media-list">
-                <li class="media">
-                  <a class="pull-left" href="#">
-                    <img class="media-object img-circle"
-                         src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
-                  </a>
-                  <div class="media-body">
-                    <div class="well well-lg">
-                      <h4 class="media-heading text-uppercase reviews">Bob </h4>
-                      <ul class="media-date text-uppercase reviews list-inline">
-                        <li class="dd">22</li>
-                        <li class="mm">09</li>
-                        <li class="aaaa">2014</li>
-                      </ul>
-                      <p class="media-comment">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
-                    </div>
-                  </div>
-                </li>
-                <li class="media">
-                  <a class="pull-left" href="#">
-                    <img class="media-object img-circle"
-                         src="https://s3.amazonaws.com/uifaces/faces/twitter/kurafire/128.jpg" alt="profile">
-                  </a>
-                  <div class="media-body">
-                    <div class="well well-lg">
-                      <h4 class="media-heading text-uppercase reviews">Paul</h4>
-                      <ul class="media-date text-uppercase reviews list-inline">
-                        <li class="dd">22</li>
-                        <li class="mm">09</li>
-                        <li class="aaaa">2014</li>
-                      </ul>
-                      <p class="media-comment">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+              <ul class="media-list" >
 
-                    </div>
-                  </div>
-                </li>
-                <li class="media">
+
+                <li class="media" *ngFor="let comment of comments">
                   <a class="pull-left" href="#">
                     <img class="media-object img-circle"
                          src="https://s3.amazonaws.com/uifaces/faces/twitter/lady_katherine/128.jpg" alt="profile">
                   </a>
                   <div class="media-body">
                     <div class="well well-lg">
-                      <h4 class="media-heading text-uppercase reviews">Alice</h4>
+                      <h4 class="media-heading text-uppercase reviews">{{comment.commentorName}}</h4>
                       <ul class="media-date text-uppercase reviews list-inline">
                         <li class="dd">22</li>
                         <li class="mm">09</li>
                         <li class="aaaa">2014</li>
                       </ul>
-                      <p class="media-comment">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                      <p class="media-comment">{{comment.comment}}</p>
                     </div>
                   </div>
                 </li>
+
               </ul>
             </div>
           </div>
         </div>
+
+<!--  ///// comments -->
 
       </div>
 

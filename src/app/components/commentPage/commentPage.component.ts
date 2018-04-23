@@ -14,17 +14,16 @@ export class CommentComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private userService: UserService,
-              private carService: CarService) { }
+              private carService: CarService,
+              private router: Router) { }
 
   type: string;
-  customerId: string;
-  FirstName: string;
-  LastName: string;
+  //customerId: string;
+  commentById: string;
+  commentOnId: string;
+  //carId: string;
   name: string;  // name = firstName+LastName for customer type || name = year + make + model for car type
-  carId: string;
-  // carYear: string;
-  // carMake: string;
-  // carModel: string;
+  comment :string;
 
   ngOnInit() {
 
@@ -33,26 +32,45 @@ export class CommentComponent implements OnInit {
       this.type = params['type'];
 
       if(this.type == 'customer'){
-        this.customerId = params['id'];
-        this.userService.getUserById(this.customerId)
+       // this.customerId = params['id'];
+        this.commentOnId = params['id'];
+        this.userService.getUserById(this.commentOnId)
           .subscribe((user) => {
-            this.FirstName = user.firstName;
-            this.LastName = user.lastName;
-            this.name = this.FirstName + ' ' + this.LastName;
-          })
+            this.name = user.firstName + ' ' + user.lastName;
+          });
       }
 
       else{
-        this.carId = params['id'];
-        this.carService.getCarById(this.carId)
+        //this.carId = params['id'];
+        this.commentOnId = params['id'];
+        this.carService.getCarById(this.commentOnId)
           .subscribe((car) => {
             this.name = car.year + ' ' + car.make + ' ' + car.model;
-          })
+          });
       }
 
 
     });
 
   }
+
+
+  submitComment(comment: string){
+    if(this.type == 'customer'){
+      console.log('Im in customer type submit component');
+      this.userService.addComment(this.commentOnId, comment)
+        .subscribe((comment)=>{
+          this.router.navigate(['/user/' + this.commentOnId + '/profile']);
+        });
+    }
+    else{
+      this.carService.addComment(this.commentOnId, comment)
+        .subscribe((comment)=>{
+          this.router.navigate(['/car/' + this.commentOnId]);
+        });
+    }
+  }
+
+
 
 }

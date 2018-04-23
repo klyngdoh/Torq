@@ -17,6 +17,7 @@ module.exports = new Schema({
   type: String,
   rating: Number,
   comments:[commentSchema],
+  //comments: [],
   photos:[String]
 });
 

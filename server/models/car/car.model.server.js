@@ -10,7 +10,7 @@ module.exports = function () {
     console.log("Adding new car");
     var c = new Car(car);
 
-    console.log("going to save, ", c);
+    //console.log("going to save, ", c);
     return c.save();
   };
 
@@ -93,6 +93,15 @@ module.exports = function () {
       status: "New"
     });
     return Cars.update({_id: car._id}, {$push: {trips: trip}});
+  };
+
+
+  // ADDING A COMMENT INTO THE DB
+
+  carSchema.statics.addComment = function (carId, comment) {
+    var Cars = db.model('Car', carSchema);
+    console.log('im in car-model-server. about to update id, comment ', carId, comment)
+    return Cars.update( {_id: carId} ,{ $push: { comments: comment } });
   };
 
 

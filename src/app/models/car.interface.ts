@@ -16,4 +16,5 @@ export interface Car{
   rating: number;
   renter: User;
   location: string;
+  comments: any[];
 }

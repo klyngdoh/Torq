@@ -72,5 +72,17 @@ module.exports = {
       res.status(500);
       res.json({message: err});
     });
+  },
+
+
+  addComment: function (userId, commentObject, sess, res) {
+    //console.log('in user handler: userId to comemnt on and comment object are :', userId, commentObject);
+    userModel.addComment(userId, commentObject).then(function (user) {
+      res.json(user);
+    }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
   }
+
 };
