@@ -42,6 +42,11 @@ router.get('/logout', function(req, res) {
 });
 
 
+router.get('/loggedIn', function(req, res) {
+  res.send(req.isAuthenticated()? req.user : undefined);
+});
+
+
 //create user with images
 
 router.post('/:type/register', upload.array('images[]', 5), function (req, res) {

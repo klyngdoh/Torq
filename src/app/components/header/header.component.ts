@@ -34,7 +34,17 @@ export class HeaderComponent implements OnInit {
     this.user = this.userService.getUser();
     if(this.user != undefined) {
       this.userId = this.user._id;
+    } else {
+      // Check if the user is logged in on the server
+      this.userService.isLoggedIn().subscribe(data => {
+        if(data != undefined)
+          this.userService.setUser(data);
+      }, error => {
+        debugger;
+      })
     }
+
+
   }
 
   navigate($event, path: string) {

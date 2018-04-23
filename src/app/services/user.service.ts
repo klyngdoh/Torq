@@ -19,7 +19,8 @@ export class UserService {
     'getUserByCredentials': this.getUserByCredentials,
     'getUserById': this.getUserById,
     'logout': this.logout,
-    'fbLogin': this.fbLogin
+    'fbLogin': this.fbLogin,
+    'isLoggedIn': this.isLoggedIn
   };
 
   user:User;
@@ -69,5 +70,9 @@ export class UserService {
 
     var commentObject = {commentorId: "", commentorName: "", comment: comment, rating: rating};
     return this.http.post("/api/user/" + commentOnId + "/comment", commentObject);
+  }
+
+  isLoggedIn(){
+    return this.http.get<User>("/api/user/loggedIn");
   }
 }
