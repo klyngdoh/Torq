@@ -22,6 +22,8 @@ export class CheckoutComponent implements OnInit {
   searchParams: SearchParams;
   geocoder: any;
   place: string;
+  ownerId: string;
+  ownerName: string;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
@@ -41,6 +43,8 @@ export class CheckoutComponent implements OnInit {
     this.carService.getCarById(this.carId).subscribe(data => {
       this.car = data;
       this.photos = this.car.photos;
+      this.ownerId = this.car.renter._id;
+      this.ownerName = this.car.renter.firstName + ' ' + this.car.renter.lastName;
     }, error => {
       debugger;
     });
