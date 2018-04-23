@@ -95,9 +95,9 @@ export class CarService {
     return this.http.post("/api/car/"+car._id+"/book", body);
   }
 
-  addComment(commentOnId: string, comment: string){
+  addComment(commentOnId: string, comment: string, rating:number){
 
-    var commentObject = {commentorId: "", commentorName: "", comment: comment};
+    var commentObject = {commentorId: "", commentorName: "", comment: comment, rating: rating};
     return this.http.post("/api/car/" + commentOnId + "/comment", commentObject);
   }
 }

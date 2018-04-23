@@ -60,6 +60,12 @@ export class CarListingsComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/car/'+id], {queryParams: {location: this.searchParams.location, pickupDate: this.searchParams.pickupDate, returnDate: this.searchParams.returnDate}});
   }
 
+  checkout($event, id) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    this.router.navigate(['/car/'+id +'/checkout'], {queryParams: {location: this.searchParams.location, pickupDate: this.searchParams.pickupDate, returnDate: this.searchParams.returnDate}});
+  }
+
   ngAfterViewInit(): void {
     buildFilterWidget();
   }

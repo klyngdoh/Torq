@@ -74,6 +74,7 @@ router.post('/:carId/comment', function(req, res) {
   var commentObject = req.body;
   commentObject.commentorId = commentorId;
   commentObject.commentorName = commentorName;
+  commentObject.date = new Date();
   handler.addComment(commentOn, commentObject, req.session, res);
 
 });
