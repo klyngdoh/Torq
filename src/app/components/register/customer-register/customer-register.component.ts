@@ -62,6 +62,7 @@ export class CustomerRegisterComponent implements OnInit, AfterViewInit {
 
   register($event) {
     $event.preventDefault();
+    $event.stopPropagation();
     // fetching data from loginForm
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;

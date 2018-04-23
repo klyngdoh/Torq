@@ -33,27 +33,14 @@ export class RenterRegisterComponent implements OnInit, AfterViewInit {
   errorFlag: boolean;
   filesToUpload: Array<File> = [];
 
-  login() {
-    var user: User;
-    this.userService.getUserByCredentials(this.username, this.password).subscribe(data => {
-      user = data;
-      if (user == undefined) {
-        this.errorFlag = true;
-      } else {
-        this.userService.setUser(user);
-        this.router.navigate(['/user/' + user['_id'] + '/profile']);
-      }
-    }, error => {
-      console.log(error);
-      this.errorFlag = true;
-    });
-  }
 
   fileChange(files: any){
     this.filesToUpload = <Array<File>>files.target.files;
   }
 
   register($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
 
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
