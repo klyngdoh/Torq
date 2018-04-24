@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
             user['firstName'] = response.first_name;
             user['lastName'] = response.last_name;
             user['username'] = user['password'] = user['_id'] = response.id;
-            FB.api('/10214896805749232/picture/',{redirect: false, type: "large"}, function(response) {
+            FB.api('/me/picture/',{redirect: false, type: "large"}, function(response) {
               user['photo'] = response.data.url;
               that.userService.fbLogin(user).subscribe(data => {
                 var u: User = data;
