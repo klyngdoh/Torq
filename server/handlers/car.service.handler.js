@@ -162,7 +162,7 @@ module.exports = {
 
   addComment: function (carId, commentObject, sess, res) {
     carModel.addComment(carId, commentObject).then(function (user) {
-      res.json(user);
+      res.json(commentObject);
     }).catch(function (err) {
       res.status(500);
       res.json({message: err});
