@@ -80,8 +80,8 @@
               <div class="tab-pane active" id="comments-logout">
                 <ul class="media-list">
                   <li class="media" *ngFor="let comment of comments">
-                    <a class="pull-left" href="#">
-                      <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
+                    <a class="pull-left" routerLink="/user/{{comment.commentorId}}/profile">
+                      <img class="media-object img-circle" src="{{comment.commentorPhoto}}" alt="profile">
                     </a>
                     <div class="media-body">
                       <div class="well well-lg">

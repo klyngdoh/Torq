@@ -22,6 +22,8 @@ export class RenterProfileComponent implements OnInit {
   photos: string[];
   comments: any[];
   commentsNumber: number;
+  newComment: string;
+  loggedInUser: any;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
@@ -35,8 +37,23 @@ export class RenterProfileComponent implements OnInit {
         this.comments = user.comments;
         this.commentsNumber = user.comments.length;
       })
+
+      this.loggedInUser = this.userService.getUser();
     });
 
+
+  }
+
+  submitComment(comment: string){
+
+    //console.log('Im in customer type submit component');
+    this.userService.addComment(this.customerId, comment)
+      .subscribe((data)=>{
+        console.log('object received after submit comment and being pushed into the submit array on client side :', data);
+        this.comments.push(data);
+        this.newComment = "";
+        this.commentsNumber = this.commentsNumber + 1;
+      });
 
   }
 

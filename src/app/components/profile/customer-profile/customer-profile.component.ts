@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../services/user.service";
 import {User} from "../../../models/user.interface";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -11,7 +12,9 @@ import {User} from "../../../models/user.interface";
 })
 export class CustomerProfileComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private userService: UserService) { }
+  constructor(private activatedRoute: ActivatedRoute,
+              private userService: UserService,
+              private router: Router) { }
 
   customerId: string;
   customerFirstName: string;
@@ -20,6 +23,8 @@ export class CustomerProfileComponent implements OnInit {
   photos: string[];
   comments: any[];
   commentsNumber: number;
+  newComment: string;
+  loggedInUser: any;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
@@ -33,10 +38,25 @@ export class CustomerProfileComponent implements OnInit {
           this.comments = user.comments;
           this.commentsNumber = user.comments.length;
         })
+      this.loggedInUser = this.userService.getUser();
     });
 
 
 
   }
+
+  submitComment(comment: string){
+
+      //console.log('Im in customer type submit component');
+      this.userService.addComment(this.customerId, comment)
+        .subscribe((data)=>{
+          console.log('object received after submit comment and being pushed into the submit array on client side :', data);
+          this.comments.push(data);
+          this.newComment = "";
+          this.commentsNumber = this.commentsNumber + 1;
+        });
+
+  }
+
 
 }

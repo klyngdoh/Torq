@@ -97,7 +97,7 @@ export class CarService {
 
   addComment(commentOnId: string, comment: string){
 
-    var commentObject = {commentorId: "", commentorName: "", comment: comment};
+    var commentObject = {commentorId: "", commentorName: "", commentorPhoto: "", comment: comment};
     return this.http.post("/api/car/" + commentOnId + "/comment", commentObject);
   }
 }

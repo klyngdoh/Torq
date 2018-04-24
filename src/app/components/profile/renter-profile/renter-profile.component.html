@@ -40,9 +40,32 @@
               <div class="tab-pane active" id="comments-logout">
                 <ul class="media-list">
 
+                  <!-- add comment component -->
+
+                  <li class="media" >
+                    <a class="pull-left" routerLink="user/0/profile">
+                      <img class="media-object img-circle"
+                           src="{{loggedInUser.photos[0]}}" alt="profile">
+                    </a>
+                    <div class="media-body">
+                      <div class="well well-lg">
+                  <textarea
+                    name="message" id="input-message" placeholder="Hi! Would you like to share your experience with {{customerName}}" rows="4" cols="50"
+                    data-toggle="tooltip" title="Message is required"
+                    class="form-control placeholder" [(ngModel)]="newComment" ></textarea>
+                        <div class="form-group af-inner">
+                          <input type="submit" name="submit" class="form-button form-button-submit btn btn-theme btn-theme-dark"
+                                 id="submit_btn" value="Comment" (click)="submitComment(newComment)"/>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <!-- //add comment component -->
+
                   <li class="media" *ngFor="let comment of comments">
-                    <a class="pull-left" href="#">
-                      <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/lady_katherine/128.jpg" alt="profile">
+                    <a class="pull-left" routerLink="/user/{{comment.commentorId}}/profile">
+                      <img class="media-object img-circle" src="{{comment.commentorPhoto}}" alt="profile">
                     </a>
                     <div class="media-body">
                       <div class="well well-lg">

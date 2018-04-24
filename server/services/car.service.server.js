@@ -70,10 +70,12 @@ router.post('/:cid/book', function (req, res) {
 router.post('/:carId/comment', function(req, res) {
   var commentorId = req.user._id;
   var commentorName = req.user.firstName;
+  var commentorPhoto = req.user.photos[0];
   var commentOn = req.params['carId'];
   var commentObject = req.body;
   commentObject.commentorId = commentorId;
   commentObject.commentorName = commentorName;
+  commentObject.commentorPhoto = commentorPhoto;
   handler.addComment(commentOn, commentObject, req.session, res);
 
 });

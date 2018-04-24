@@ -67,7 +67,7 @@ export class UserService {
 
   addComment(commentOnId: string, comment: string){
 
-    var commentObject = {commentorId: "", commentorName: "", comment: comment};
+    var commentObject = {commentorId: "", commentorName: "", commentorPhoto: "", comment: comment};
     return this.http.post("/api/user/" + commentOnId + "/comment", commentObject);
   }
 }

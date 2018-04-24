@@ -124,12 +124,14 @@ router.delete('/:userId', function (req, res) {
 router.post('/:userId/comment', function(req, res) {
   var commentorId = req.user._id;
   var commentorName = req.user.firstName;
+  var commentorPhoto = req.user.photos[0];
   var commentOn = req.params['userId'];
   var commentObject = req.body;
   commentObject.commentorId = commentorId;
   commentObject.commentorName = commentorName;
+  commentObject.commentorPhoto = commentorPhoto;
   handler.addComment(commentOn, commentObject, req.session, res);
-
+  res.json(commentObject);
 });
 
 module.exports = router;

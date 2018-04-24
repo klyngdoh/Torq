@@ -8,5 +8,6 @@ module.exports = new Schema({
   // comment: String
   commentorId: String,
   comment: String,
-  commentorName: String
+  commentorName: String,
+  commentorPhoto: String
 });
