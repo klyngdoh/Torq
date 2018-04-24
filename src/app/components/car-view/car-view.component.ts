@@ -118,6 +118,11 @@ export class CarViewComponent implements OnInit, AfterViewChecked {
 
   }
 
+  toHome($event) {
+    $event.preventDefault();
+    this.router.navigate(['']);
+  }
+
 }
 
 declare var buildImgSlider;
