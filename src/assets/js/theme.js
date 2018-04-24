@@ -336,3 +336,11 @@ function buildDatePicker() {
     format: 'LL'
   });
 }
+
+function createRORating(id, rating) {
+  $(id).rateYo({
+    rating: rating,
+    starWidth: "20px",
+    readOnly: true
+  })
+}

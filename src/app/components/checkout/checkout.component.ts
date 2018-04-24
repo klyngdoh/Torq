@@ -45,6 +45,7 @@ export class CheckoutComponent implements OnInit {
       this.photos = this.car.photos;
       this.ownerId = this.car.renter._id;
       this.ownerName = this.car.renter.firstName + ' ' + this.car.renter.lastName;
+      createRORating("#car-rating", this.car.rating);
     }, error => {
       debugger;
     });
@@ -94,3 +95,4 @@ export class CheckoutComponent implements OnInit {
 
 }
 declare var buildImgSlider;
+declare var createRORating;

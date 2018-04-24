@@ -40,19 +40,13 @@
                       <li class="title">
                         <a routerLink="/user/{{ownerId}}/profile"><h4>{{ownerName}}'s</h4></a>
                         <h2>{{car.make}} {{car.model}} <span>{{car.fuel}}</span></h2>
-                        <div class="rating">
-                          <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
+                        <div id="car-rating">
                         </div>
                       </li>
-                      <li>Fuel {{car.fuel}} </li>
+                      <li>Fuel {{car.fuel}}</li>
                       <li>{{car.mileage}} Miles</li>
                       <li>{{car.transmission}} Transmission</li>
                       <li>Manufacturing Year {{car.year}}</li>
-                      <li>5 Doors and Panorama View</li>
                     </ul>
                   </div>
                   <div class="price">
@@ -70,10 +64,11 @@
           <hr class="page-divider half transparent"/>
 
           <div class="project-overview">
-            <a routerLink="/car/{{carId}}/comment"><h1 class="block-title"><span>Reviews ({{commentsNumber}})</span></h1></a>
+            <a routerLink="/car/{{carId}}/comment"><h1 class="block-title"><span>Reviews ({{commentsNumber}})</span>
+            </h1></a>
           </div>
 
-<!-- comments -->
+          <!-- comments -->
 
           <div class="comment-tabs">
             <div class="tab-content">
@@ -92,7 +87,7 @@
                           <li class="aaaa">2014</li>
                         </ul>
                         <p class="media-comment">
-                        {{comment.comment}}
+                          {{comment.comment}}
                         </p>
                       </div>
                     </div>
@@ -105,7 +100,6 @@
           <!-- //comments -->
 
         </div>
-
 
 
         <aside class="col-md-3 sidebar" id="sidebar">

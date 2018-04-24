@@ -50,6 +50,7 @@ export class CarViewComponent implements OnInit, AfterViewChecked {
       this.commentsNumber = this.car.comments.length;
       this.ownerId = this.car.renter._id;
       this.ownerName = this.car.renter.firstName + ' ' + this.car.renter.lastName;
+      createRORating("#car-rating", this.car.rating);
       }, error => {
       debugger;
     });
@@ -91,4 +92,5 @@ export class CarViewComponent implements OnInit, AfterViewChecked {
 }
 
 declare var buildImgSlider;
+declare var createRORating;
 
