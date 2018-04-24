@@ -164,6 +164,15 @@ module.exports = {
       res.status(500);
       res.json({message: err});
     });
+  },
+
+  getCarCount: function(res) {
+    carModel.getCarCount().then(function(count) {
+      res.send(count.toString());
+    }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
   }
 
 

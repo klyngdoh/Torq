@@ -3,6 +3,8 @@ import {CarService} from "../../services/cars.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import {UserService} from '../../services/user.service';
+import {SupportService} from '../../services/support.service';
 
 import {} from '@types/googlemaps';
 
@@ -19,15 +21,35 @@ export class HomeComponent implements OnInit, AfterViewInit {
   pickupDate: string;
   returnDate: string;
   autocomplete: any;
+  users: string;
+  cars: string;
+  miles: string;
+  messages: string;
+
 
   constructor(private carService: CarService,
-              private router: Router, private mapsAPILoader: MapsAPILoader) {
+              private router: Router,
+              private mapsAPILoader: MapsAPILoader,
+              private userService: UserService,
+              private supportService: SupportService) {
   }
 
   ngOnInit() {
     this.mapsAPILoader.load().then(() => {
       var input = <HTMLInputElement>document.getElementById('formSearchUpLocation');
       this.autocomplete = new google.maps.places.Autocomplete(input);
+    });
+    this.userService.getUserCount().subscribe((users: string) => {
+      this.users = users;
+      this.carService.getCarCount().subscribe((cars: string) => {
+        this.cars = cars;
+      //   this.carService.getMileCount().subscribe(miles => {
+      //     this.miles = miles;
+          this.supportService.getReadCount().subscribe((messages: string) => {
+            this.messages = messages;
+          });
+      //   });
+      });
     });
   }
 

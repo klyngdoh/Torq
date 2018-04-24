@@ -21,5 +21,9 @@ router.post('/view', function (req, res) {
   handler.viewMessage(req.body, res);
 });
 
+router.get('/count', function(req, res) {
+  handler.countRead(res);
+});
+
 module.exports = router;
 

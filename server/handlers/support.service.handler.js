@@ -40,5 +40,14 @@ module.exports = {
       res.status(500);
       res.json({message: err});
     });
+  },
+
+  countRead: function(res) {
+    supportModel.getReadCount().then(function(count) {
+      res.send(count.toString());
+    }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
   }
 };
