@@ -77,4 +77,8 @@ export class UserService {
   isLoggedIn(){
     return this.http.get<User>("/api/user/loggedIn");
   }
+
+  getUserCount() {
+    return this.http.get("/api/user/count");
+  }
 }

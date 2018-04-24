@@ -72,6 +72,15 @@ module.exports = {
       res.status(500);
       res.json({message: err});
     });
+  },
+
+  getCount: function(res) {
+    userModel.getCount().then(function (count) {
+      res.send(count.toString());
+    }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
   }
 
 };

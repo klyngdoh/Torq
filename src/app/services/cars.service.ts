@@ -101,4 +101,8 @@ export class CarService {
 
     return this.http.post("/api/car/" + commentOnId + "/comment", commentObject);
   }
+
+  getCarCount() {
+    return this.http.get("/api/car/count");
+  }
 }

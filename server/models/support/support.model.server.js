@@ -38,6 +38,11 @@ module.exports = function() {
     return Support.update({"_id" : support._id}, s);
   };
 
+  supportSchema.statics.getReadCount = function () {
+    var Support = db.model('Support', supportSchema);
+    return Support.find({viewed:"true"}).count();
+  };
+
   var autoIncrement = require('mongoose-auto-increment');
   autoIncrement.initialize(db);
   supportSchema.plugin(autoIncrement.plugin, 'Support');

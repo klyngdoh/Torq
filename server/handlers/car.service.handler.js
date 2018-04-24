@@ -121,6 +121,9 @@ module.exports = {
 
 
     carModel.findCars(mongoSearch).then(function (result) {
+      for(var i=0; i< result.length; i++) {
+        result[i].rating = commentHandler.calculateRating(result[i].comments);
+      }
       res.json(result);
     }).catch(function (err) {
       res.status(500).json({error: err});
@@ -160,6 +163,15 @@ module.exports = {
   addComment: function (carId, commentObject, sess, res) {
     carModel.addComment(carId, commentObject).then(function (user) {
       res.json(user);
+    }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
+  },
+
+  getCarCount: function(res) {
+    carModel.getCarCount().then(function(count) {
+      res.send(count.toString());
     }).catch(function (err) {
       res.status(500);
       res.json({message: err});

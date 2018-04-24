@@ -33,4 +33,8 @@ export class SupportService {
   viewMessage(support: Support) {
     return this.http.post<Support>("api/support/view", support);
   }
+
+  getReadCount() {
+    return this.http.get("api/support/count");
+  }
 }

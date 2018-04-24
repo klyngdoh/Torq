@@ -75,15 +75,11 @@
               </a>
             </div>
             <div class="caption">
-              <div class="rating">
-                <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
-              </div>
+
               <h4 class="caption-title"><a (click)="carView($event, car._id)" href="#">{{car.make}} {{car.model}}</a></h4>
               <h5 class="caption-title-sub">Start from ${{car.pricePerDay}}/per a day</h5>
+              <div class="car-rating" [attr.rating]="car.rating">
+              </div>
               <div class="caption-text">Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.
                 Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
                 posuere cubilia. {{car.description}}

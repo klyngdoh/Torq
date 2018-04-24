@@ -66,6 +66,16 @@ router.post('/:type/register', upload.array('images[]', 5), function (req, res) 
 });
 
 
+
+router.post('/fbLogin', function(req, res) {
+  var user = req.body;
+  handler.fbLogin(user, req, res);
+});
+
+router.get('/count', function(req, res) {
+  handler.getCount(res);
+});
+
 // Find user by ID
 router.get('/:userId', function (req, res) {
   if (!req.params.userId.toString().match(/[0-9]+/g)) {
@@ -77,10 +87,6 @@ router.get('/:userId', function (req, res) {
 });
 
 
-router.post('/fbLogin', function(req, res) {
-  var user = req.body;
-  handler.fbLogin(user, req, res);
-});
 
 
 // Update user

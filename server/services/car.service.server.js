@@ -58,6 +58,10 @@ router.get('/unapprovedCars', function (req, res) {
   handler.getUnapprovedCars(res);
 });
 
+router.get('/count', function (req, res) {
+  handler.getCarCount(res);
+});
+
 router.post('/:cid/book', function (req, res) {
   if (!req.user) {
     res.status(403).json({status: "Forbidden"});

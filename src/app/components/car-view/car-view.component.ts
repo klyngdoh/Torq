@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CarService} from "../../services/cars.service";
 import {Car} from "../../models/car.interface";
 import {SearchParams} from "../../models/searchparams.interface";
-import {AgmCoreModule, MapsAPILoader} from '@agm/core';
+import {MapsAPILoader} from '@agm/core';
 
 import {} from '@types/googlemaps';
 import {UserService} from "../../services/user.service";
