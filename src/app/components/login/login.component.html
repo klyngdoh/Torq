@@ -32,8 +32,18 @@
                      data-auto-logout-link="false" data-use-continue-as="true" scope="public_profile,email"></div>
               </div>
               <div class="col-md-12 col-lg-6">
-                <div class="g-signin2" data-width="250" data-height="50"
-                     data-longtitle="true"></div>
+                <!--<div class="g-signin2" data-width="250" data-height="50"-->
+                     <!--data-longtitle="true"></div>-->
+                <google-signin
+                  [clientId]="clientId"
+                  [width]="250"
+                  [height]="50"
+                  [longTitle]="true"
+                  (googleSignInSuccess)="onGoogleSignInSuccess($event)"
+                  (onSuccess)="onGoogleSignInSuccess($event)"
+                (googleSignInFailure)="failure($event)"
+                (onFailure)="failure($event)">
+                </google-signin>
               </div>
               <div class="col-md-12 margin-10">
                 <div class="form-group"><input class="form-control" type="text" name="username"

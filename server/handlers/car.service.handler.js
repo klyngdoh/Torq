@@ -6,15 +6,15 @@ module.exports = {
     var location = car.location.split(",");
     car.location = {type: "Point", coordinates: [location[0], location[1]]};
     console.log("Going to add car ", car);
-    carModel.addNewCar(car).then(function(data) {
+    carModel.addNewCar(car).then(function (data) {
       res.json(data);
-    }).catch(function(err){
+    }).catch(function (err) {
       res.status(500).json({error: err});
     });
   },
 
-  approveCar: function(car, res) {
-    carModel.approveCar(car).then(function(result) {
+  approveCar: function (car, res) {
+    carModel.approveCar(car).then(function (result) {
       res.json(result);
     }).catch(function (err) {
       res.status(500);
@@ -22,8 +22,8 @@ module.exports = {
     });
   },
 
-  declineCar: function(car, res) {
-    carModel.declineCar(car).then(function(result) {
+  declineCar: function (car, res) {
+    carModel.declineCar(car).then(function (result) {
       res.json(result);
     }).catch(function (err) {
       res.status(500);
@@ -32,8 +32,8 @@ module.exports = {
   },
 
   findCars: function (search, res) { // , fuelType, carType, transmission, priceHigh, priceLow) {
-    var pickup = search.pickup;
-    var dropoff = search.dropoff;
+    var pickup = new Date(search.pickupDate);
+    var returnDate = new Date(search.returnDate);
     var loc = search.location.split(",");
     location = [parseFloat(loc[0]), parseFloat(loc[1])];
     console.log("location = ", location);
@@ -53,9 +53,31 @@ module.exports = {
       approved: "true"
     });
 
-    console.log(search.filterParams);
+    var dateOr = [];
 
-    if(search.filterParams != undefined) {
+    dateOr.push(
+      {trips: {$size: 0}}
+    );
+    dateOr.push({
+      "trips.startDate": {
+        $gt: pickup, $gte: returnDate
+      }
+    });
+
+    dateOr.push({
+      "trips.endDate":
+        {$lte: pickup, $lt: returnDate}
+    });
+
+    dateOr.push({
+      "trips.startDate": {$gt: returnDate},
+      "trips.endDate": {$lt: pickup}
+    });
+
+
+    and.push({$or: dateOr});
+
+    if (search.filterParams != undefined) {
       if (search.filterParams.carType.length > 0) {
         and.push({
           type: {
@@ -91,6 +113,7 @@ module.exports = {
       }
     }
 
+
     var mongoSearch = {$and: and};
     console.log(mongoSearch);
 
@@ -103,8 +126,8 @@ module.exports = {
   },
 
 
-  findCarById: function(carId, res){
-    carModel.findCarById(carId).then(function(car) {
+  findCarById: function (carId, res) {
+    carModel.findCarById(carId).then(function (car) {
       res.json(car[0]);
     }).catch(function (err) {
       res.status(500).json({error: err});
@@ -112,7 +135,7 @@ module.exports = {
   },
 
 
-  getUnapprovedCars: function(res) {
+  getUnapprovedCars: function (res) {
     carModel.getUnapprovedCars().then(function (result) {
       res.json(result);
     }).catch(function (err) {
@@ -121,8 +144,8 @@ module.exports = {
     });
   },
 
-  bookCar: function(car, user, startDate, endDate, location, res) {
-    carModel.bookCar(car, user, startDate, endDate, location).then(function(data) {
+  bookCar: function (car, user, startDate, endDate, location, res) {
+    carModel.bookCar(car, user, startDate, endDate, location).then(function (data) {
       res.json({status: "success"});
     }).catch(function (err) {
       res.status(500).json({error: err});

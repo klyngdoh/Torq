@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../services/user.service";
@@ -10,7 +10,7 @@ import {CarService} from "../../services/cars.service";
   templateUrl: './commentPage.component.html',
   styleUrls: ['./commentPage.component.css']
 })
-export class CommentComponent implements OnInit {
+export class CommentComponent implements OnInit, AfterViewInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private userService: UserService,
@@ -54,17 +54,22 @@ export class CommentComponent implements OnInit {
 
   }
 
+  ngAfterViewInit() {
+    createRateYo("#starRating");
+  }
 
   submitComment(comment: string){
+    var rating: any = getRating("#starRating");
+    debugger;
     if(this.type == 'customer'){
       console.log('Im in customer type submit component');
-      this.userService.addComment(this.commentOnId, comment)
+      this.userService.addComment(this.commentOnId, comment, rating)
         .subscribe((comment)=>{
           this.router.navigate(['/user/' + this.commentOnId + '/profile']);
         });
     }
     else{
-      this.carService.addComment(this.commentOnId, comment)
+      this.carService.addComment(this.commentOnId, comment, rating)
         .subscribe((comment)=>{
           this.router.navigate(['/car/' + this.commentOnId]);
         });
@@ -72,5 +77,7 @@ export class CommentComponent implements OnInit {
   }
 
 
-
 }
+
+declare var createRateYo;
+declare var getRating;

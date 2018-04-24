@@ -94,7 +94,7 @@
                   <td><i class="fa fa-dashboard"></i> {{car.fuel}}</td>
                   <td><i class="fa fa-cog"></i> {{car.transmission}}</td>
                   <td><i class="fa fa-road"></i> {{car.mileage}}</td>
-                  <td class="buttons"><a class="btn btn-theme" routerLink="/car/1/checkout">Rent It</a></td>
+                  <td class="buttons"><a class="btn btn-theme" (click)="checkout($event, car._id)">Rent It</a></td>
                 </tr>
               </table>
             </div>

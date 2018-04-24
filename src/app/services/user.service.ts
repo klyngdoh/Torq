@@ -19,7 +19,8 @@ export class UserService {
     'getUserByCredentials': this.getUserByCredentials,
     'getUserById': this.getUserById,
     'logout': this.logout,
-    'fbLogin': this.fbLogin
+    'fbLogin': this.fbLogin,
+    'isLoggedIn': this.isLoggedIn
   };
 
   user:User;
@@ -65,9 +66,15 @@ export class UserService {
     return this.http.get("/api/user/logout");
   }
 
-  addComment(commentOnId: string, comment: string){
+  addComment(commentOnId: string, comment: string, rating:number){
 
-    var commentObject = {commentorId: "", commentorName: "", commentorPhoto: "", comment: comment};
+
+    var commentObject = {commentorId: "", commentorName: "", commentorPhoto: "", comment: comment, rating: rating};
+
     return this.http.post("/api/user/" + commentOnId + "/comment", commentObject);
+  }
+
+  isLoggedIn(){
+    return this.http.get<User>("/api/user/loggedIn");
   }
 }

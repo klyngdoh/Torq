@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 
 import { AppComponent } from './app.component';
@@ -31,6 +31,7 @@ import {CommentComponent} from './components/commentPage/commentPage.component'
 import {AgmCoreModule} from "@agm/core";
 import {TripService} from "./services/trip.service";
 import {SupportService} from './services/support.service';
+import {GoogleSignInComponent} from "angular-google-signin";
 
 
 
@@ -56,7 +57,8 @@ import {SupportService} from './services/support.service';
     RenterRegisterComponent,
     HeaderComponent,
     CarNewComponent,
-    CommentComponent
+    CommentComponent,
+    GoogleSignInComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import {SupportService} from './services/support.service';
     })
   ],
   providers: [CarService, UserService, TripService, SupportService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

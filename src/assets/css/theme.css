@@ -3118,3 +3118,35 @@ a, a:active, a:focus, input, input:active, input:focus, button, button:active, b
     float: none !important
   }
 }
+
+
+div.rating-container div.counter {
+  position: absolute;
+  min-width: 20px;
+  padding: 5px;
+  font-size: 15px;
+  line-height: 0px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 34%;
+  left: 180px;
+  margin-top: -10px;
+  color: white;
+}
+div.rating-container div.counter:before,
+div.rating-container div.counter ::before {
+  content: "";
+  width: 0;
+  height: 0;
+  top: 50%;
+  margin-top: -5px;
+  display: block;
+  border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;
+  border-width: 5px 5px 5px 0px;
+  left: -10px;
+  border-style: solid;
+  position: relative;
+}
+div.rating-container:hover div.counter {
+  display: block;
+}
