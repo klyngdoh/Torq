@@ -47,8 +47,13 @@ export class RenterProfileComponent implements OnInit {
 
   }
 
-  submitComment(comment: string, rating:number){
+  ngAfterViewInit() {
+    createRateYo("#starRating");
+  }
 
+
+  submitComment(comment: string){
+    var rating: any = getRating("#starRating");
     //console.log('Im in customer type submit component');
     this.userService.addComment(this.customerId, comment, rating)
       .subscribe((data)=>{
@@ -63,3 +68,5 @@ export class RenterProfileComponent implements OnInit {
 }
 
 declare var createRORating;
+declare var createRateYo;
+declare var getRating;
