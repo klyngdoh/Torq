@@ -1,6 +1,7 @@
 var userModel = require('../models/user/user.model.server.js')();
 var bcrypt = require("bcrypt-nodejs");
 const saltRounds = 10;
+var commentHandler = require('./comment.service.handler');
 
 module.exports = {
 
@@ -19,13 +20,6 @@ module.exports = {
           res.status(500);
           res.json({message: err});
         } else {
-          var user = {
-            _id: result._id,
-            firstName: result.firstName,
-            lastName: result.lastName,
-            displayPicUrl: result.displayPicUrl,
-            rating: result.rating
-          };
           res.json(result);
         }
       });
@@ -38,6 +32,7 @@ module.exports = {
 
   findUserById: function (userId, sess, res) {
     userModel.findUserById(userId).then(function (user) {
+      user.rating = commentHandler.calculateRating(user.comments);
       res.json(user);
     }).catch(function (err) {
       res.status(500);
@@ -58,13 +53,7 @@ module.exports = {
           res.status(500);
           res.json({message: err});
         } else {
-          var user = {
-            _id: result._id,
-            firstName: result.firstName,
-            lastName: result.lastName,
-            displayPicUrl: result.displayPicUrl,
-            rating: result.rating
-          };
+          result.rating = commentHandler.calculateRating(result.comments);
           res.json(result);
         }
       });
