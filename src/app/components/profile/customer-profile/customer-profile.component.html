@@ -54,13 +54,20 @@
                   <div class="media-body">
                     <div class="well well-lg">
                   <textarea
-                    name="message" id="input-message" placeholder="Hi! Would you like to share your experience with {{customerName}}" rows="4" cols="50"
+                    name="message" id="input-message" placeholder="Hi! Would you like to share your experience with {{customerName}}" rows="2" cols="50"
                     data-toggle="tooltip" title="Message is required"
                     class="form-control placeholder" [(ngModel)]="newComment" ></textarea>
+
+                      <div class="form-group af-inner">
+                        <label for="starRating"></label>
+                        <div class="rating-container"><div id="starRating"></div> <!--<div class="counter"></div>--></div>
+                      </div>
+
                       <div class="form-group af-inner">
                         <input type="submit" name="submit" class="form-button form-button-submit btn btn-theme btn-theme-dark"
-                               id="submit_btn" value="Comment" (click)="submitComment(newComment, 3)"/>
+                               id="submit_btn" value="Rate & Comment" (click)="submitComment(newComment)"/>
                       </div>
+
                     </div>
                   </div>
                 </li>

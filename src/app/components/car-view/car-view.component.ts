@@ -6,6 +6,8 @@ import {SearchParams} from "../../models/searchparams.interface";
 import {AgmCoreModule, MapsAPILoader} from '@agm/core';
 
 import {} from '@types/googlemaps';
+import {UserService} from "../../services/user.service";
+//import {createRateYo} from "../profile/customer-profile/customer-profile.component";
 
 @Component({
   selector: 'app-car-view',
@@ -14,7 +16,11 @@ import {} from '@types/googlemaps';
 })
 export class CarViewComponent implements OnInit, AfterViewChecked {
 
-  constructor(private activatedRoute: ActivatedRoute, private carService: CarService, private router: Router, private mapsAPILoader: MapsAPILoader) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private carService: CarService,
+              private router: Router,
+              private mapsAPILoader: MapsAPILoader,
+              private userService: UserService) {
   }
 
   car: Car;
@@ -27,10 +33,14 @@ export class CarViewComponent implements OnInit, AfterViewChecked {
   commentsNumber: number;
   ownerId: string;
   ownerName: string;
+  newComment: string;
+  loggedInUser: any;
+  rating: number;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
       this.carId = params['cid'];
+      this.loggedInUser = this.userService.getUser();
     });
 
     this.activatedRoute.queryParams.subscribe((params: any) => {
@@ -63,6 +73,10 @@ export class CarViewComponent implements OnInit, AfterViewChecked {
   }
 
 
+  ngAfterViewInit() {
+    createRateYo("#starRating");
+  }
+
   ngAfterViewChecked() {
     buildImgSlider();
 
@@ -89,8 +103,25 @@ export class CarViewComponent implements OnInit, AfterViewChecked {
     });
     ;
   }
+
+
+  submitComment(comment: string){
+    var rating: any = getRating("#starRating");
+    //console.log('Im in customer type submit component');
+    this.carService.addComment(this.car._id, comment, rating)
+      .subscribe((data)=>{
+        console.log('object received after submit comment and being pushed into the submit array on client side :', data);
+        this.comments.push(data);
+        this.newComment = "";
+        this.commentsNumber = this.commentsNumber + 1;
+      });
+
+  }
+
 }
 
 declare var buildImgSlider;
+declare var getRating;
+declare var createRateYo;
 declare var createRORating;
 
