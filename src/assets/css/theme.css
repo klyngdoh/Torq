@@ -2553,8 +2553,12 @@ ul {
     font-weight: 700;
     padding-left: 30px;
     padding-right: 30px;
-    padding-bottom: 15px;
     color: #e60000;
+}
+
+.car-listing .car-rating {
+  padding-left: 30px;
+  padding-bottom: 15px;
 }
 
 .car-listing .thumbnail-car-card .caption-text {
