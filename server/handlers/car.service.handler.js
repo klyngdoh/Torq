@@ -121,6 +121,9 @@ module.exports = {
 
 
     carModel.findCars(mongoSearch).then(function (result) {
+      for(var i=0; i< result.length; i++) {
+        result[i].rating = commentHandler.calculateRating(result[i].comments);
+      }
       res.json(result);
     }).catch(function (err) {
       res.status(500).json({error: err});

@@ -344,3 +344,15 @@ function createRORating(id, rating) {
     readOnly: true
   })
 }
+
+function createListingRatings() {
+  $(".car-rating").each(function (i) {
+    var rating = $(this).attr('rating');
+    $(this).rateYo({
+      rating: rating,
+      readOnly: true,
+      starWidth: '20px'
+    });
+  });
+
+}
