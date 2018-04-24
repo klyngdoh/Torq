@@ -30,7 +30,6 @@ export class ProfileComponent implements OnInit, AfterViewChecked {
       this.userService.getUserById(this.userId).subscribe(data => {
         this.user = data;
         this.userType = this.user['type'];
-        this.userService.setUser(this.user);
       }, error => {
         debugger;
       });
