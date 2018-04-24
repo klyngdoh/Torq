@@ -82,9 +82,7 @@
                     <div class="well well-lg">
                       <h4 class="media-heading text-uppercase reviews">{{comment.commentorName}}</h4>
                       <ul class="media-date text-uppercase reviews list-inline">
-                        <li class="dd">22</li>
-                        <li class="mm">09</li>
-                        <li class="aaaa">2014</li>
+                        <p>{{ comment.date | date }}</p>
                       </ul>
                       <p class="media-comment">{{comment.comment}}</p>
                     </div>

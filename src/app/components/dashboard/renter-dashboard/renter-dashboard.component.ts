@@ -37,8 +37,10 @@ export class RenterDashboardComponent implements OnInit {
             return trip;
           }
         });
-        if(temp[0] != undefined) {
-          Array.prototype.push.apply(this.trips, temp);
+        for(var t of temp) {
+          if(t != undefined) {
+            this.trips.push(t);
+          }
         }
         debugger;
       }
@@ -53,7 +55,7 @@ export class RenterDashboardComponent implements OnInit {
     this.tripService.changeTripStatus(tripId, status).subscribe(data => {
       //Remove this trip from the pending approvals list
       this.trips = this.trips.filter(trip => {
-        return trip._id != trip.id;
+        return trip._id != tripId;
       });
     }, error => {
       debugger;
