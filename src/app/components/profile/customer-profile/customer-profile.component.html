@@ -11,7 +11,6 @@
 
             <img src="assets/img/verified.png" id="verified"/> <span class="white"> Verified User</span>
             <div id="user-rating"></div>
-            <span id="rating-value">{{rating}}</span>
 
           </div>
           <div class="col-md-6 col-xs-6 follow line" align="center">
@@ -54,7 +53,7 @@
                   <div class="media-body">
                     <div class="well well-lg">
                   <textarea
-                    name="message" id="input-message" placeholder="Hi! Would you like to share your experience with {{customerName}}" rows="2" cols="50"
+                    name="message" id="input-message" placeholder="Hi! Would you like to share your experience with {{customerName}}?" rows="2" cols="50"
                     data-toggle="tooltip" title="Message is required"
                     class="form-control placeholder" [(ngModel)]="newComment" ></textarea>
 

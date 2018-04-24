@@ -85,7 +85,7 @@
                     <div class="media-body">
                       <div class="well well-lg">
                   <textarea
-                    name="message" id="input-message" placeholder="Hi! Would you like to share your experience with {{ownerName}}" rows="2" cols="50"
+                    name="message" id="input-message" placeholder="Hi! Would you like to share your experience with {{ownerName}}?" rows="2" cols="50"
                     data-toggle="tooltip" title="Message is required"
                     class="form-control placeholder" [(ngModel)]="newComment" ></textarea>
 
@@ -140,11 +140,11 @@
               <h5 class="widget-title-sub">Location</h5>
               <p>{{place}}</p>
               <h5 class="widget-title-sub">Pickup</h5>
-              <p>March 25, 2018</p>
+              <p>{{searchParams.pickupDate}}</p>
               <h5 class="widget-title-sub">Return</h5>
-              <p>March 28, 2018</p>
+              <p>{{searchParams.returnDate}}</p>
               <div class="button">
-                <a href="#" class="btn btn-block btn-theme btn-theme-dark">Modify Search</a>
+                <a href="#" class="btn btn-block btn-theme btn-theme-dark" (click)="toHome($event)">Modify Search</a>
               </div>
             </div>
           </div>
