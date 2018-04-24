@@ -2,9 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="582edf88-11a8-4eb9-8088-b643f5055003" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/server/handlers/comment.service.handler.js" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/dashboard/customer-dashboard/customer-dashboard.component.html" afterPath="$PROJECT_DIR$/src/app/components/dashboard/customer-dashboard/customer-dashboard.component.html" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/dashboard/customer-dashboard/customer-dashboard.component.ts" afterPath="$PROJECT_DIR$/src/app/components/dashboard/customer-dashboard/customer-dashboard.component.ts" />
+      <change beforePath="$PROJECT_DIR$/server/handlers/car.service.handler.js" afterPath="$PROJECT_DIR$/server/handlers/car.service.handler.js" />
+      <change beforePath="$PROJECT_DIR$/server/handlers/support.service.handler.js" afterPath="$PROJECT_DIR$/server/handlers/support.service.handler.js" />
+      <change beforePath="$PROJECT_DIR$/server/handlers/user.service.handler.js" afterPath="$PROJECT_DIR$/server/handlers/user.service.handler.js" />
+      <change beforePath="$PROJECT_DIR$/server/models/car/car.model.server.js" afterPath="$PROJECT_DIR$/server/models/car/car.model.server.js" />
+      <change beforePath="$PROJECT_DIR$/server/models/support/support.model.server.js" afterPath="$PROJECT_DIR$/server/models/support/support.model.server.js" />
+      <change beforePath="$PROJECT_DIR$/server/models/user/user.model.server.js" afterPath="$PROJECT_DIR$/server/models/user/user.model.server.js" />
+      <change beforePath="$PROJECT_DIR$/server/services/car.service.server.js" afterPath="$PROJECT_DIR$/server/services/car.service.server.js" />
+      <change beforePath="$PROJECT_DIR$/server/services/support.service.server.js" afterPath="$PROJECT_DIR$/server/services/support.service.server.js" />
+      <change beforePath="$PROJECT_DIR$/server/services/user.service.server.js" afterPath="$PROJECT_DIR$/server/services/user.service.server.js" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/car-listings/car-listings.component.html" afterPath="$PROJECT_DIR$/src/app/components/car-listings/car-listings.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/car-listings/car-listings.component.ts" afterPath="$PROJECT_DIR$/src/app/components/car-listings/car-listings.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/car-view/car-view.component.html" afterPath="$PROJECT_DIR$/src/app/components/car-view/car-view.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/car-view/car-view.component.ts" afterPath="$PROJECT_DIR$/src/app/components/car-view/car-view.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/checkout/checkout.component.html" afterPath="$PROJECT_DIR$/src/app/components/checkout/checkout.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/checkout/checkout.component.ts" afterPath="$PROJECT_DIR$/src/app/components/checkout/checkout.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/home/home.component.html" afterPath="$PROJECT_DIR$/src/app/components/home/home.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/home/home.component.ts" afterPath="$PROJECT_DIR$/src/app/components/home/home.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/profile/customer-profile/customer-profile.component.html" afterPath="$PROJECT_DIR$/src/app/components/profile/customer-profile/customer-profile.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/profile/customer-profile/customer-profile.component.ts" afterPath="$PROJECT_DIR$/src/app/components/profile/customer-profile/customer-profile.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/profile/renter-profile/renter-profile.component.html" afterPath="$PROJECT_DIR$/src/app/components/profile/renter-profile/renter-profile.component.html" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/profile/renter-profile/renter-profile.component.ts" afterPath="$PROJECT_DIR$/src/app/components/profile/renter-profile/renter-profile.component.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/cars.service.ts" afterPath="$PROJECT_DIR$/src/app/services/cars.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/support.service.ts" afterPath="$PROJECT_DIR$/src/app/services/support.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/user.service.ts" afterPath="$PROJECT_DIR$/src/app/services/user.service.ts" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/theme.css" afterPath="$PROJECT_DIR$/src/assets/css/theme.css" />
+      <change beforePath="$PROJECT_DIR$/src/assets/js/theme.js" afterPath="$PROJECT_DIR$/src/assets/js/theme.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,8 +79,8 @@
       <file leaf-file-name="renter-profile.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/profile/renter-profile/renter-profile.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="523">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -85,8 +111,8 @@
       <file leaf-file-name="customer-profile.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/components/profile/customer-profile/customer-profile.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-215">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+            <state relative-caret-position="-435">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -196,7 +222,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="41" />
     <option name="y" value="23" />
     <option name="width" value="1239" />
@@ -357,15 +383,15 @@
       <workItem from="1523503706074" duration="6787000" />
       <workItem from="1523939255654" duration="611000" />
       <workItem from="1523989007429" duration="19340000" />
-      <workItem from="1524530701446" duration="6646000" />
+      <workItem from="1524530701446" duration="6658000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57477000" />
+    <option name="totallyTimeSpent" value="57489000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="23" width="1239" height="716" extended-state="0" />
+    <frame x="41" y="23" width="1239" height="716" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -373,7 +399,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938856" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0062111802" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -752,8 +778,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/profile/renter-profile/renter-profile.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="523">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
@@ -778,8 +804,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/profile/customer-profile/customer-profile.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-215">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        <state relative-caret-position="-435">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>

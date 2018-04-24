@@ -25,6 +25,7 @@ export class CustomerProfileComponent implements OnInit {
   commentsNumber: number;
   newComment: string;
   loggedInUser: any;
+  rating: number;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
@@ -37,6 +38,8 @@ export class CustomerProfileComponent implements OnInit {
           this.photos = user.photos;
           this.comments = user.comments;
           this.commentsNumber = user.comments.length;
+          this.rating = user.rating;
+          createRORating("#user-rating", this.rating);
         })
       this.loggedInUser = this.userService.getUser();
     });
@@ -45,8 +48,12 @@ export class CustomerProfileComponent implements OnInit {
 
   }
 
-  submitComment(comment: string, rating: number){
+  ngAfterViewInit() {
+    createRateYo("#starRating");
+  }
 
+  submitComment(comment: string){
+    var rating: any = getRating("#starRating");
       //console.log('Im in customer type submit component');
       this.userService.addComment(this.customerId, comment, rating)
         .subscribe((data)=>{
@@ -60,3 +67,7 @@ export class CustomerProfileComponent implements OnInit {
 
 
 }
+
+declare var createRORating;
+declare var createRateYo;
+declare var getRating;

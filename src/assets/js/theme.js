@@ -336,3 +336,23 @@ function buildDatePicker() {
     format: 'LL'
   });
 }
+
+function createRORating(id, rating) {
+  $(id).rateYo({
+    rating: rating,
+    starWidth: "20px",
+    readOnly: true
+  })
+}
+
+function createListingRatings() {
+  $(".car-rating").each(function (i) {
+    var rating = $(this).attr('rating');
+    $(this).rateYo({
+      rating: rating,
+      readOnly: true,
+      starWidth: '20px'
+    });
+  });
+
+}

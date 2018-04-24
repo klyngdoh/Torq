@@ -104,6 +104,11 @@ module.exports = function () {
     return Cars.update( {_id: carId} ,{ $push: { comments: comment } });
   };
 
+  carSchema.statics.getCarCount = function () {
+    var Cars = db.model('Car', carSchema);
+    return Cars.find().count();
+  };
+
 
   var autoIncrement = require('mongoose-auto-increment');
   autoIncrement.initialize(db);

@@ -1,4 +1,4 @@
-import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
 import {FilterParams} from "../../models/filterparams.interface";
 import {SearchParams} from '../../models/searchparams.interface';
 import {Car} from '../../models/car.interface';
@@ -32,6 +32,7 @@ export class CarListingsComponent implements OnInit, AfterViewInit {
     this.carService.getCars(this.searchParams)
       .subscribe((result: Car[]) => {
         this.cars = result;
+        setTimeout(createListingRatings, 300);
       });
   }
 
@@ -51,6 +52,7 @@ export class CarListingsComponent implements OnInit, AfterViewInit {
     this.carService.getCars(this.searchParams)
       .subscribe((result: Car[]) => {
         this.cars = result;
+        setTimeout(createListingRatings, 50);
       });
   }
 
@@ -70,9 +72,9 @@ export class CarListingsComponent implements OnInit, AfterViewInit {
     buildFilterWidget();
   }
 
-
 }
 
 declare var getCheckedElements;
 declare var getSliderValues;
 declare var buildFilterWidget;
+declare var createListingRatings;

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Car} from "../../models/car.interface";
 import {MapsAPILoader} from "@agm/core";
 import {CarService} from "../../services/cars.service";
 import {SearchParams} from "../../models/searchparams.interface";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-checkout',
@@ -13,7 +14,7 @@ import {SearchParams} from "../../models/searchparams.interface";
 export class CheckoutComponent implements OnInit {
 
 
-  constructor(private activatedRoute: ActivatedRoute, private carService: CarService, private router: Router, private mapsAPILoader: MapsAPILoader) {
+  constructor(private activatedRoute: ActivatedRoute, private carService: CarService, private router: Router, private mapsAPILoader: MapsAPILoader, private userService: UserService) {
   }
 
   car: Car;
@@ -45,6 +46,7 @@ export class CheckoutComponent implements OnInit {
       this.photos = this.car.photos;
       this.ownerId = this.car.renter._id;
       this.ownerName = this.car.renter.firstName + ' ' + this.car.renter.lastName;
+      createRORating("#car-rating", this.car.rating);
     }, error => {
       debugger;
     });
@@ -85,7 +87,7 @@ export class CheckoutComponent implements OnInit {
 
   bookCar() {
     this.carService.bookCar(this.car, this.searchParams.pickupDate, this.searchParams.returnDate, this.searchParams.location).subscribe(data => {
-      //Confirmation message?
+      this.router.navigate(['/user/'+this.userService.getUser()._id+'/dashboard'], {queryParams: {booked: true}});
     }, error => {
       debugger;
     });
@@ -93,4 +95,6 @@ export class CheckoutComponent implements OnInit {
   }
 
 }
+
 declare var buildImgSlider;
+declare var createRORating;

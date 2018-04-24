@@ -1,4 +1,5 @@
 var carModel = require('../models/car/car.model.server.js')();
+var commentHandler = require('./comment.service.handler');
 module.exports = {
 
   addNewCar: function (car, user, res) {
@@ -7,6 +8,7 @@ module.exports = {
     car.location = {type: "Point", coordinates: [location[0], location[1]]};
     console.log("Going to add car ", car);
     carModel.addNewCar(car).then(function (data) {
+      data.rating = commentHandler.calculateRating(data.comments);
       res.json(data);
     }).catch(function (err) {
       res.status(500).json({error: err});
@@ -119,6 +121,9 @@ module.exports = {
 
 
     carModel.findCars(mongoSearch).then(function (result) {
+      for(var i=0; i< result.length; i++) {
+        result[i].rating = commentHandler.calculateRating(result[i].comments);
+      }
       res.json(result);
     }).catch(function (err) {
       res.status(500).json({error: err});
@@ -127,8 +132,10 @@ module.exports = {
 
 
   findCarById: function (carId, res) {
-    carModel.findCarById(carId).then(function (car) {
-      res.json(car[0]);
+    carModel.findCarById(carId).then(function (data) {
+      var car = data[0];
+      car.rating = commentHandler.calculateRating(car.comments);
+      res.json(car);
     }).catch(function (err) {
       res.status(500).json({error: err});
     });
@@ -156,6 +163,15 @@ module.exports = {
   addComment: function (carId, commentObject, sess, res) {
     carModel.addComment(carId, commentObject).then(function (user) {
       res.json(user);
+    }).catch(function (err) {
+      res.status(500);
+      res.json({message: err});
+    });
+  },
+
+  getCarCount: function(res) {
+    carModel.getCarCount().then(function(count) {
+      res.send(count.toString());
     }).catch(function (err) {
       res.status(500);
       res.json({message: err});

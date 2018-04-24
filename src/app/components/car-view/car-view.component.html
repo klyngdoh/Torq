@@ -40,19 +40,13 @@
                       <li class="title">
                         <a routerLink="/user/{{ownerId}}/profile"><h4>{{ownerName}}'s</h4></a>
                         <h2>{{car.make}} {{car.model}} <span>{{car.fuel}}</span></h2>
-                        <div class="rating">
-                          <span class="star"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span><!--
-                                            --><span class="star active"></span>
+                        <div id="car-rating">
                         </div>
                       </li>
-                      <li>Fuel {{car.fuel}} </li>
+                      <li>Fuel {{car.fuel}}</li>
                       <li>{{car.mileage}} Miles</li>
                       <li>{{car.transmission}} Transmission</li>
                       <li>Manufacturing Year {{car.year}}</li>
-                      <li>5 Doors and Panorama View</li>
                     </ul>
                   </div>
                   <div class="price">
@@ -70,15 +64,47 @@
           <hr class="page-divider half transparent"/>
 
           <div class="project-overview">
-            <a routerLink="/car/{{carId}}/comment"><h1 class="block-title"><span>Reviews ({{commentsNumber}})</span></h1></a>
+            <a routerLink="/car/{{carId}}/comment"><h1 class="block-title"><span>Reviews ({{commentsNumber}})</span>
+            </h1></a>
           </div>
 
-<!-- comments -->
+          <!-- comments -->
 
           <div class="comment-tabs">
             <div class="tab-content">
               <div class="tab-pane active" id="comments-logout">
                 <ul class="media-list">
+
+                  <!-- add comment component -->
+
+                  <li class="media" >
+                    <a class="pull-left" routerLink="user/0/profile">
+                      <img class="media-object img-circle"
+                           src="{{loggedInUser.photos[0]}}" alt="profile">
+                    </a>
+                    <div class="media-body">
+                      <div class="well well-lg">
+                  <textarea
+                    name="message" id="input-message" placeholder="Hi! Would you like to share your experience with {{ownerName}}" rows="2" cols="50"
+                    data-toggle="tooltip" title="Message is required"
+                    class="form-control placeholder" [(ngModel)]="newComment" ></textarea>
+
+                        <div class="form-group af-inner">
+                          <label for="starRating"></label>
+                          <div class="rating-container"><div id="starRating"></div> <!--<div class="counter"></div>--></div>
+                        </div>
+
+                        <div class="form-group af-inner">
+                          <input type="submit" name="submit" class="form-button form-button-submit btn btn-theme btn-theme-dark"
+                                 id="submit_btn" value="Rate & Comment" (click)="submitComment(newComment)"/>
+                        </div>
+
+                      </div>
+                    </div>
+                  </li>
+
+                  <!-- //add comment component -->
+
                   <li class="media" *ngFor="let comment of comments">
                     <a class="pull-left" routerLink="/user/{{comment.commentorId}}/profile">
                       <img class="media-object img-circle" src="{{comment.commentorPhoto}}" alt="profile">
@@ -92,7 +118,7 @@
                           <li class="aaaa">2014</li>
                         </ul>
                         <p class="media-comment">
-                        {{comment.comment}}
+                          {{comment.comment}}
                         </p>
                       </div>
                     </div>
@@ -105,7 +131,6 @@
           <!-- //comments -->
 
         </div>
-
 
 
         <aside class="col-md-3 sidebar" id="sidebar">

@@ -24,6 +24,7 @@ export class RenterProfileComponent implements OnInit {
   commentsNumber: number;
   newComment: string;
   loggedInUser: any;
+  rating:number;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
@@ -36,6 +37,8 @@ export class RenterProfileComponent implements OnInit {
         this.photos = user.photos;
         this.comments = user.comments;
         this.commentsNumber = user.comments.length;
+        this.rating = user.rating;
+        createRORating("#user-rating", this.rating);
       })
 
       this.loggedInUser = this.userService.getUser();
@@ -58,3 +61,5 @@ export class RenterProfileComponent implements OnInit {
   }
 
 }
+
+declare var createRORating;

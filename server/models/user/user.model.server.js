@@ -53,6 +53,10 @@ module.exports = function () {
     return User.update( {_id: userId} ,{ $push: { comments: comment } });
   };
 
+  userSchema.statics.getCount = function() {
+    var User = db.model('User', userSchema);
+    return User.find().count();
+  };
 
 
   var autoIncrement = require('mongoose-auto-increment');
