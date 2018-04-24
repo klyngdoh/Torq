@@ -45,10 +45,10 @@ export class CustomerProfileComponent implements OnInit {
 
   }
 
-  submitComment(comment: string){
+  submitComment(comment: string, rating: number){
 
       //console.log('Im in customer type submit component');
-      this.userService.addComment(this.customerId, comment)
+      this.userService.addComment(this.customerId, comment, rating)
         .subscribe((data)=>{
           console.log('object received after submit comment and being pushed into the submit array on client side :', data);
           this.comments.push(data);
