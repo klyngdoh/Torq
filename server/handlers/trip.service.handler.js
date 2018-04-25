@@ -20,7 +20,7 @@ module.exports = {
 
   getTrips: function(user, res) {
     var params = {};
-    var paramName = user.type + "._id";
+    var paramName = "trips."+user.type + "._id";
     params[paramName] = user._id;
 
     tripModel.getTripsByParams(params).then(function (data) {
