@@ -13,7 +13,8 @@ export class CustomerDashboardComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private tripService: TripService, private router: Router) { }
 
   cars: any[];
-  trips: any[] = [];
+  upcomingTrips: any[] = [];
+  pastTrips: any[] = [];
   customerId: string;
 
   ngOnInit() {
@@ -21,22 +22,24 @@ export class CustomerDashboardComponent implements OnInit {
       this.customerId = params['uid'];
     });
 
-    this.tripService.getPendingApprovals().subscribe(data => {
+    this.tripService.getTrips().subscribe(data => {
       this.cars = data;
+      var today = new Date();
       for (var car of this.cars) {
-        var temp = car.trips.map(trip => {
-          if (trip.status == "New" && trip.customer._id == this.customerId) {
+        for(var trip of car.trips) {
+          if (trip.customer._id == this.customerId) {
             trip.href = "#" + trip._id;
-            trip.car = {_id: car._id, name: car.make + " " + car.model};
+            trip.car = {_id: car._id, name: car.make + " " + car.model, photo: car.photos[0]};
             trip.startDate = new Date(trip.startDate);
             trip.endDate = new Date(trip.endDate);
-            return trip;
+            if(trip.startDate < today) {
+              this.pastTrips.push(trip);
+            } else {
+              this.upcomingTrips.push(trip);
+            }
           }
-        });
-        if(temp[0] != undefined) {
-          Array.prototype.push.apply(this.trips, temp);
+
         }
-        debugger;
       }
     });
   }
@@ -47,9 +50,9 @@ export class CustomerDashboardComponent implements OnInit {
   changeTripStatus(tripId, status) {
     this.tripService.changeTripStatus(tripId, status).subscribe(data => {
       //Remove this trip from the pending approvals list
-      this.trips = this.trips.filter(trip => {
-        return trip._id != trip.id;
-      });
+      // this.trips = this.trips.filter(trip => {
+      //   return trip._id != trip.id;
+      // });
     }, error => {
       debugger;
     });
