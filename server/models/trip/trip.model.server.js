@@ -14,5 +14,9 @@ module.exports = function () {
     return carModel.update({"trips._id": new mongoose.Types.ObjectId(tripId)}, {$set: {"trips.$.status": status}});
   };
 
+  tripSchema.statics.getTripsByParams = function(params) {
+    return carModel.find(params);
+  };
+
   return db.model('Trip', tripSchema);
 }

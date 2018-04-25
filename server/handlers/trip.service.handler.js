@@ -16,5 +16,17 @@ module.exports = {
     }).catch(function (err) {
       res.status(500).json({error: err});
     });
+  },
+
+  getTrips: function(user, res) {
+    var params = {};
+    var paramName = user.type + "._id";
+    params[paramName] = user._id;
+
+    tripModel.getTripsByParams(params).then(function (data) {
+      res.json(data);
+    }).catch(function (err) {
+      res.status(500).json({error: err});
+    });
   }
 }

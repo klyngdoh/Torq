@@ -19,4 +19,12 @@ router.post('/:tid/changeStatus', function(req,res) {
   }
 });
 
+router.get('/trips', function(req, res) {
+  if (!req.user) {
+    res.status(403).json({status: "Forbidden"});
+  } else {
+    handler.getTrips(req.user, res);
+  }
+});
+
 module.exports = router;
