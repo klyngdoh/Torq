@@ -39,6 +39,16 @@ if (app.get('env' === 'production')) {
 
 }
 
+
+var fs = require('fs');
+var dir = ['./uploads', './uploads/cars', './uploads/users'];
+for( var d of dir) {
+  if (!fs.existsSync(d)) {
+    console.log("Creating Directory " + d );
+    fs.mkdirSync(d);
+  }
+}
+
 app.use(session(sess));
 
 var checkSession = function (req, res, next) {
