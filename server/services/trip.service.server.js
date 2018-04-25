@@ -17,6 +17,14 @@ router.post('/:tid/changeStatus', function(req,res) {
   } else {
     handler.changeTripStatus(req.params.tid, req.body.status, res);
   }
-})
+});
+
+router.get('/trips', function(req, res) {
+  if (!req.user) {
+    res.status(403).json({status: "Forbidden"});
+  } else {
+    handler.getTrips(req.user, res);
+  }
+});
 
 module.exports = router;
