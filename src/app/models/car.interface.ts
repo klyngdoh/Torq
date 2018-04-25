@@ -14,6 +14,7 @@ export interface Car{
   photos: string[];
   vin: number;
   rating: number;
+  trips: any;
   renter: User;
   location: string;
   comments: any[];
