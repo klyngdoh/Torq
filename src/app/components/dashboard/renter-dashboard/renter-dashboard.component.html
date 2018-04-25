@@ -77,16 +77,16 @@
           <div>
 
             <div class="panel-group accordion" id="accordion" role="tablist" aria-multiselectable="false">
-              <div class="panel panel-default">
+              <div class="panel panel-default" *ngFor="let utrip of utrips">
                 <div class="panel-heading" role="tab" id="heading1">
                   <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href=#{{utrip._id}}
                        aria-expanded="false" aria-controls="collapse1">
-                      <span class="dot"></span> Trip 1
+                      <span class="dot"></span> {{utrip.startDate}} - {{utrip.endDate}}
                     </a>
                   </h4>
                 </div>
-                <div id="collapse1" class="panel-collapse collapse" role="tabpanel"
+                <div id={{utrip._id}} class="panel-collapse collapse" role="tabpanel"
                      aria-labelledby="heading1">
                   <div class="panel-body">
                     <div class="row">
@@ -95,172 +95,11 @@
                           <img src="assets/img/preview/cars/golf1.png" width="225" height="200"></a>
                       </div>
                       <div class="col-sm-4">
-                        <p>Booked by :<a href="profile.html">John Doe</a></p>
-                        <p>Start : June 21, 2018</p>
-                        <p>End : June 33, 2018</p>
+                        <p>Booked by : {{utrip.customer.firstName}} {{utrip.customer.lastName}}</a></p>
+                        <p>Start : {{utrip.startDate}}</p>
+                        <p>End : {{utrip.endDate}}</p>
                         <p>Car :<a href="car-view.html"> Polo GT</a></p>
                       </div>
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Cancel Trip</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading2">
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"
-                       aria-expanded="false" aria-controls="collapse2">
-                      <span class="dot"></span>Trip 2
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapse2" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading2">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="car-view.html">
-                          <img src="assets/img/preview/cars/golf2.png" width="225" height="200"></a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>Booked by :<a href="profile.html">John Doe</a></p>
-                        <p>Start : June 21, 2018</p>
-                        <p>End : June 33, 2018</p>
-                        <p>Car :<a href="car-view.html"> Polo GT</a></p>
-                      </div>
-
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Cancel Trip</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading3">
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"
-                       aria-expanded="false" aria-controls="collapse3">
-                      <span class="dot"></span>Trip 3
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapse3" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading3">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="car-view.html">
-                          <img src="assets/img/sanchit.png" width="230" height="200"></a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>Booked by :<a href="profile.html">John Doe</a></p>
-                        <p>Start : June 21, 2018</p>
-                        <p>End : June 33, 2018</p>
-                        <p><a href="car-view.html">Car : Polo GT</a></p>
-                      </div>
-
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Cancel Trip</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading4">
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"
-                       aria-expanded="false" aria-controls="collapse4">
-                      <span class="dot"></span>JTrip 4
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapse4" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading4">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="profile.html">
-                          <img src="assets/img/sanchit.png" width="200" height="200"></a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>Booked by :<a href="profile.html">John Doe</a></p>
-                        <p>Start : June 21, 2018</p>
-                        <p>End : June 33, 2018</p>
-                        <p><a href="car-view.html">Car : Polo GT</a></p>
-                      </div>
-
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Cancel Trip</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading5">
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5"
-                       aria-expanded="false" aria-controls="collapse5">
-                      <span class="dot"></span>Trip 5
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapse5" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading5">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="profile.html">
-                          <img src="assets/img/preview/cars/golf1.png" width="200" height="200"></a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>Booked by :<a href="profile.html">John Doe</a></p>
-                        <p>Start : June 21, 2018</p>
-                        <p>End : June 33, 2018</p>
-                        <p><a href="car-view.html">Car : Polo GT</a></p>
-                      </div>
-
-                      <div class="col-sm-4">
-                        <button class="btn btn-theme btn-theme-dark">Cancel Trip</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="heading6">
-                  <h4 class="panel-title">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse6"
-                       aria-expanded="false" aria-controls="collapse6">
-                      <span class="dot"></span>Trip 6
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapse6" class="panel-collapse collapse" role="tabpanel"
-                     aria-labelledby="heading6">
-                  <div class="panel-body">
-                    <div class="row">
-                      <div class="col-sm-4">
-                        <a href="profile.html">
-                          <img src=src="assets/img/golf1.png" width="200" height="200"></a>
-                      </div>
-                      <div class="col-sm-4">
-                        <p>Booked by :<a href="profile.html">John Doe</a></p>
-                        <p>Start : June 21, 2018</p>
-                        <p>End : June 33, 2018</p>
-                        <p><a href="car-view.html">Car : Polo GT</a></p>
-                      </div>
-
                       <div class="col-sm-4">
                         <button class="btn btn-theme btn-theme-dark">Cancel Trip</button>
                       </div>

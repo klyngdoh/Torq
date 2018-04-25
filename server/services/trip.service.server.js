@@ -17,6 +17,6 @@ router.post('/:tid/changeStatus', function(req,res) {
   } else {
     handler.changeTripStatus(req.params.tid, req.body.status, res);
   }
-})
+});
 
 module.exports = router;
