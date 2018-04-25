@@ -16,8 +16,8 @@ export class RenterDashboardComponent implements OnInit {
 
   cars: any[];
   trips: any[] = [];
-  utrips: any[] = [];
-  ptrips: any[] = [];
+  upcomingTrips: any[] = [];
+  pastTrips: any[] = [];
   renterId: string;
 
   ngOnInit() {
@@ -49,16 +49,20 @@ export class RenterDashboardComponent implements OnInit {
 
     this.tripService.getTrips().subscribe((data: Car[]) => {
       var tripCars = data;
+      const today = new Date();
       for(var car of tripCars) {
-        debugger;
         for(var trip of car.trips) {
-          const today = new Date();
-          if(trip.startDate < today && trip.endDate < today) {
-            this.ptrips.push(trip);
+          if (trip.renter._id === this.renterId) {
             debugger;
-          } else if(trip.startDate > today && trip.endDate > today) {
-            this.utrips.push(trip);
-            debugger;
+            trip.href = "#" + trip._id;
+            trip.car = {_id: car._id, name: car.make + " " + car.model, photo: car.photos[0]};
+            trip.startDate = new Date(trip.startDate);
+            trip.endDate = new Date(trip.endDate);
+            if(trip.startDate < today && trip.endDate < today) {
+              this.pastTrips.push(trip);
+            } else if (trip.startDate > today ){
+              this.upcomingTrips.push(trip);
+            }
           }
         }
       }
