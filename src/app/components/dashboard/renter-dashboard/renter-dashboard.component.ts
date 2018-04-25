@@ -16,6 +16,7 @@ export class RenterDashboardComponent implements OnInit {
 
   cars: any[];
   trips: any[] = [];
+  utrips: any[] = [];
   renterId: string;
 
   ngOnInit() {
