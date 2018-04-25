@@ -100,7 +100,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
         this.errorFlag = true;
       } else {
         this.userService.setUser(user);
-        this.router.navigate (['/user/' + user['_id']+'/profile']);
+        if(user.type == "admin") {
+          this.router.navigate(['/user/' + user['_id']+'/dashboard']);
+        } else {
+          this.router.navigate(['/user/' + user['_id'] + '/profile']);
+        }
       }
     }, error => {
       console.log(error);
