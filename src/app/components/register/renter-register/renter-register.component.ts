@@ -34,7 +34,7 @@ export class RenterRegisterComponent implements OnInit, AfterViewInit {
   filesToUpload: Array<File> = [];
 
 
-  fileChange(files: any){
+  fileChange(files: any) {
     this.filesToUpload = <Array<File>>files.target.files;
   }
 
@@ -59,7 +59,7 @@ export class RenterRegisterComponent implements OnInit, AfterViewInit {
 
     const files: Array<File> = this.filesToUpload;
 
-    for(let i =0; i < files.length; i++){
+    for (let i = 0; i < files.length; i++) {
       _formData.append("images[]", files[i], files[i]['name']);
     }
 
@@ -75,5 +75,23 @@ export class RenterRegisterComponent implements OnInit, AfterViewInit {
 
   }
 
+  checkValid() {
+    var a = [];
+    a.push(this.loginForm.value.username);
+    a.push(this.loginForm.value.password);
+    a.push(this.loginForm.value.verify);
+    a.push(this.loginForm.value.email);
+    a.push(this.loginForm.value.firstName);
+    a.push(this.loginForm.value.lastName);
+    a.push((<HTMLInputElement>document.getElementById("dob")).value);
+
+    for (var b of a) {
+      if (b == undefined || b == null || b == "")
+        return true;
+    }
+    return false;
+  }
+
 }
+
 declare var buildDatePicker;

@@ -94,8 +94,23 @@ export class CustomerRegisterComponent implements OnInit, AfterViewInit {
         console.log("Error creating user");
         }
       });
+  }
 
+  checkValid() {
+    var a = [];
+    a.push(this.loginForm.value.username);
+    a.push(this.loginForm.value.password);
+    a.push(this.loginForm.value.verify);
+    a.push(this.loginForm.value.email);
+    a.push(this.loginForm.value.firstName);
+    a.push(this.loginForm.value.lastName);
+    a.push((<HTMLInputElement>document.getElementById("dob")).value);
 
+    for (var b of a) {
+      if (b == undefined || b == null || b == "")
+        return true;
+    }
+    return false;
   }
 }
 declare var buildDatePicker;

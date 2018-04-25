@@ -2,7 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {CarService} from "../../services/cars.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
-import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import {AgmCoreModule, MapsAPILoader} from '@agm/core';
 import {UserService} from '../../services/user.service';
 import {SupportService} from '../../services/support.service';
 
@@ -41,16 +41,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
     this.userService.getUserCount().subscribe((users: string) => {
       this.users = users;
-      this.carService.getCarCount().subscribe((cars: string) => {
-        this.cars = cars;
-      //   this.carService.getMileCount().subscribe(miles => {
-      //     this.miles = miles;
-          this.supportService.getReadCount().subscribe((messages: string) => {
-            this.messages = messages;
-          });
-      //   });
-      });
     });
+    this.carService.getCarCount().subscribe((cars: string) => {
+      this.cars = cars;
+    });
+    this.supportService.getReadCount().subscribe((messages: string) => {
+      this.messages = messages;
+    });
+    //   this.carService.getMileCount().subscribe(miles => {
+    //     this.miles = miles;
+
+    //   });
   }
 
   ngAfterViewInit() {
@@ -59,11 +60,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   searchCars($event) {
     $event.preventDefault();
+
     this.location = this.autocomplete.getPlace().geometry.location.lng() + "," + this.autocomplete.getPlace().geometry.location.lat();
     this.pickupDate = (<HTMLInputElement>document.getElementById("pickupDate")).value;
     this.returnDate = (<HTMLInputElement>document.getElementById("returnDate")).value;
-    this.router.navigate(['/car'], {queryParams: {location: this.location, pickupDate: this.pickupDate, returnDate: this.returnDate}});
+    if(this.location == undefined || this.pickupDate == undefined || this.returnDate == undefined) {
+      return;
+    }
+    this.router.navigate(['/car'], {
+      queryParams: {
+        location: this.location,
+        pickupDate: this.pickupDate,
+        returnDate: this.returnDate
+      }
+    });
 
   }
 }
+
 declare var linkDatePickers;

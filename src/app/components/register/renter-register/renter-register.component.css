@@ -1,0 +1,9 @@
+.required.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.help-block {
+  color:red;
+  font-weight: bold;
+}
+

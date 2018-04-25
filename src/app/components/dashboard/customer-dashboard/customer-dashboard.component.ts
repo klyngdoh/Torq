@@ -16,10 +16,15 @@ export class CustomerDashboardComponent implements OnInit {
   upcomingTrips: any[] = [];
   pastTrips: any[] = [];
   customerId: string;
+  booked: any;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
       this.customerId = params['uid'];
+    });
+
+    this.activatedRoute.queryParams.subscribe((params: any) => {
+      this.booked = params['booked'];
     });
 
     this.tripService.getTrips().subscribe(data => {

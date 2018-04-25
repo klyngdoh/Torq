@@ -19,7 +19,7 @@
                 <input
                   type="text" name="username" id="username" placeholder="Username" value=""
                   size="30" data-toggle="tooltip" title="Username is required"
-                  class="form-control placeholder" required
+                  class="form-control placeholder required" required
                   (ngModel)="username"/>
               </div>
             </div>
@@ -30,7 +30,7 @@
                 <input
                   type="text" name="firstName" id="fname" placeholder="First Name" value=""
                   size="30" data-toggle="tooltip" title="First Name is required"
-                  class="form-control placeholder" required
+                  class="form-control placeholder required" required
                   (ngModel)="firstName"/>
               </div>
             </div>
@@ -41,7 +41,7 @@
                 <input
                   type="text" name="lastName" id="lname" placeholder="Last Name" value=""
                   size="30" data-toggle="tooltip" title="Last Name is required"
-                  class="form-control placeholder" required
+                  class="form-control placeholder required" required
                   (ngModel)="lastName"/>
               </div>
             </div>
@@ -52,7 +52,7 @@
                 <input
                   type="email" name="email" id="email" placeholder="Email" value="" size="30"
                   data-toggle="tooltip" title="Email is required"
-                  class="form-control placeholder" required
+                  class="form-control placeholder required" required
                   (ngModel)="email"/>
               </div>
             </div>
@@ -63,8 +63,8 @@
                 <input
                   type="password" name="password" id="password" placeholder="Password"
                   value="" size="30" data-toggle="tooltip" title="Password is required"
-                  class="form-control placeholder" required
-                  (ngModel)="password"/>
+                  class="form-control placeholder required" required
+                  (ngModel)="password" #p1="ngModel"/>
               </div>
             </div>
 
@@ -74,9 +74,12 @@
                 <input
                   type="password" name="verify" id="verify" placeholder="Verify Password"
                   value="" size="30" data-toggle="tooltip" title="Verification is required"
-                  class="form-control placeholder" required
-                  (ngModel)="verify"/>
+                  class="form-control placeholder required" required
+                  (ngModel)="verify" #p2="ngModel"/>
               </div>
+              <span class="help-block" *ngIf="p1.touched && (p1.value != p2.value)">
+                Passwords do not match!
+             </span>
             </div>
 
             <div class="outer required">
@@ -103,7 +106,7 @@
               <div class="form-group af-inner">
                 <input type="submit" name="submit"
                        class="form-button form-button-submit btn btn-theme btn-theme-dark btn-block"
-                       id="submit_btn" value="Register" (click)="register($event)"/>
+                       id="submit_btn" value="Register" (click)="register($event)" [disabled]="checkValid()"/>
               </div>
             </div>
 
