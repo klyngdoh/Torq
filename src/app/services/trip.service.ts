@@ -16,63 +16,19 @@ export class TripService {
   api = {
     'getPendingApprovals': this.getPendingApprovals,
     'changeTripStatus': this.changeTripStatus,
-    'updateCar': this.updateCar,
-    'getCars': this.getCars,
-    'getCarById': this.getCarById,
-    'filterCars': this.filterCars,
-    'bookCar': this.bookCar
+    'getTrips': this.getTrips
   };
 
   getPendingApprovals() {
     return this.http.get<Car[]>("/api/trip/pendingApprovals");
   }
 
-
-  deleteCar(carId: string) {
-
-  }
-
-  updateCar(carId: string, car: Car) {
-
-  }
-
-  getCars(search: SearchParams) {
-    // Use searchParams to fetch cars from the server
-    // if (this.searchParams == undefined) {
-    //   return [];
-    // } else {
-    //}
-
-
-    // Make HTTP request to fetch cars
-
-    return this.http.post<Car[]>('/api/car/searchCar', search);
-  }
-
-  getCarById(carId) {
-    return this.http.get<Car>('/api/car/'+carId);
-  }
-
-  filterCars(searchParams: SearchParams, filterParams: FilterParams) {
-
-  }
-
-
-  updateSearch(params: SearchParams) {
-
-    //return this.getCars();
-  }
-
-  bookCar(car:Car, startDate, endDate, location) {
-    var body = car;
-    body['startDate'] = startDate;
-    body['endDate'] = endDate;
-    body['pickupLocation'] = location;
-    return this.http.post("/api/car/"+car._id+"/book", body);
-  }
-
   changeTripStatus(tripId, status) {
     return this.http.post("/api/trip/"+tripId+"/changeStatus", {status: status});
+  }
+
+  getTrips() {
+    return this.http.get<Car[]>("/api/trip/trips");
   }
 
 }
