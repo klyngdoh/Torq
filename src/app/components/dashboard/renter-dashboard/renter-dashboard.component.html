@@ -41,7 +41,7 @@
                       <div class="row">
                         <div class="col-sm-4">
                           <a (click)="customerProfile(trip.customer._id)">
-                            <img class="image-circle" src="{{trip.customer.displayPicURL}}" width="200"
+                            <img class="image-circle" [src]="trip.customer.displayPicUrl" width="200"
                                  height="200"></a>
                         </div>
                         <div class="col-sm-4">
